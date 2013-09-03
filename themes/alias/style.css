@@ -1,0 +1,725 @@
+/*
+Theme Name: Alias
+*/
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+/*Figures*/
+figure {
+  margin: 0;
+}
+/* Utilities */
+.lst_reset,
+.lst_reset li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clear {
+  clear: both;
+  height: 1px;
+  margin: 0;
+  padding: 0;
+  font-size: 1px;
+  line-height: 0;
+}
+/* clearfix for modern browsers */
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
+}
+.cf:after {
+  clear: both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.cf {
+  zoom: 1;
+}
+body {
+  font: 13px/1.231 arial, helvetica, clean, sans-serif;
+  *font-size: small;
+  *font: x-small;
+}
+select,
+input,
+button,
+textarea {
+  font: 99% arial, helvetica, clean, sans-serif;
+}
+table {
+  font-size: inherit;
+  font: 100%;
+}
+pre,
+code,
+kbd,
+samp,
+tt {
+  font-family: monospace;
+  *font-size: 108%;
+  line-height: 100%;
+}
+html {
+  color: #000;
+  background: #ffffff;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+  margin: 0;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+strong,
+th,
+var {
+  font-style: normal;
+  font-weight: normal;
+}
+ol,
+ul {
+  list-style: none;
+}
+caption,
+th {
+  text-align: left;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+q:before,
+q:after {
+  content: '';
+}
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+sup {
+  vertical-align: text-top;
+}
+sub {
+  vertical-align: text-bottom;
+}
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+input,
+textarea,
+select {
+  *font-size: 100%;
+}
+legend {
+  color: #000000;
+}
+/* ------ FONTS ------ */
+@font-face {
+  font-family: 'trade_bd2';
+  src: url('fonts/TradeGothicLTStd-Bd2.eot');
+  src: local('☺'), url('fonts/TradeGothicLTStd-Bd2.woff') format('woff'), url('fonts/TradeGothicLTStd-Bd2.ttf') format('truetype'), url('fonts/TradeGothicLTStd-Bd2.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trade_20';
+  src: url('fonts/TradeGothicLTStd-BdCn20.eot');
+  src: local('☺'), url('fonts/TradeGothicLTStd-BdCn20.woff') format('woff'), url('fonts/TradeGothicLTStd-BdCn20.ttf') format('truetype'), url('fonts/TradeGothicLTStd-BdCn20.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trade_18';
+  src: url('fonts/TradeGothicLTStd-Cn18.eot');
+  src: local('☺'), url('fonts/TradeGothicLTStd-Cn18.woff') format('woff'), url('fonts/TradeGothicLTStd-Cn18.ttf') format('truetype'), url('fonts/TradeGothicLTStd-Cn18.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trade_light';
+  src: url('fonts/TradeGothicLTStd-Light.eot');
+  src: local('☺'), url('fonts/TradeGothicLTStd-Light.woff') format('woff'), url('fonts/TradeGothicLTStd-Light.ttf') format('truetype'), url('fonts/TradeGothicLTStd-Light.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'trade_light_oblique';
+  src: url('fonts/TradeGothicLTStd-LightObl.eot');
+  src: local('☺'), url('fonts/TradeGothicLTStd-LightObl.woff') format('woff'), url('fonts/TradeGothicLTStd-LightObl.ttf') format('truetype'), url('fonts/TradeGothicLTStd-LightObl.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* ------ VARIABLES ------ */
+/* ------ MIXINS ------ */
+.position {
+  position: relative;
+  overflow: hidden;
+}
+.sprite {
+  background: url('images/sprite.png') no-repeat;
+}
+.trade_bd2 {
+  font-family: 'trade_bd2';
+}
+.trade_20 {
+  font-family: 'trade_20';
+}
+.trade_18 {
+  font-family: 'trade_18';
+}
+.trade_light {
+  font-family: 'trade_light';
+}
+.trade_light_oblique {
+  font-family: 'trade_light_oblique';
+}
+.helvetica {
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+/* ------ GENERAL ------ */
+html,
+body {
+  background: #ffffff;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container {
+  width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.main {
+  width: 80%;
+  margin-bottom: 40px;
+  float: left;
+  position: relative;
+  overflow: hidden;
+}
+.main.home {
+  width: 100%;
+}
+.borde_gris {
+  border: 1px solid #666666;
+}
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+/* ------ HEADER ------ */
+.header {
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+.header .logo {
+  width: 100%;
+  margin-bottom: 20px;
+  float: left;
+}
+.header .logo a {
+  color: #000;
+  text-decoration: none;
+}
+.header .logo a h1 {
+  text-transform: uppercase;
+  font-family: 'trade_bd2';
+  font-size: 14px;
+}
+.header .menu {
+  width: 100%;
+  margin: 0;
+  list-style: none;
+}
+.header .menu li {
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: 'trade_18';
+  font-size: 20px;
+}
+.header .menu li a {
+  color: #666666;
+  text-decoration: none;
+}
+.header .menu li a:hover,
+.header .menu li a.active {
+  color: #000000;
+}
+.header .menu li ul {
+  display: inline-block;
+}
+.header .menu li ul li {
+  text-transform: lowercase;
+  font-size: 16px;
+}
+/* ------ FOOTER ------ */
+.footer {
+  width: 100%;
+  padding: 20px 0;
+  position: relative;
+  overflow: hidden;
+  font-family: 'trade_18';
+}
+.footer .aviso {
+  width: 30%;
+  float: left;
+}
+.footer .aviso a {
+  color: #000000;
+  text-decoration: none;
+}
+.footer .librerias {
+  width: 70%;
+  float: left;
+}
+.footer .librerias ul {
+  list-style: none;
+}
+.footer .librerias ul li {
+  margin: 0 5px;
+  display: inline;
+}
+.footer .librerias ul li a {
+  color: #000000;
+  text-decoration: none;
+}
+/* ------ SIDEBAR ------ */
+.sidebar {
+  width: 18%;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  float: right;
+  font-family: 'trade_18';
+}
+.sidebar .precios li {
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.sidebar .precios li span {
+  display: inline-block;
+}
+.sidebar .precios li span.curr {
+  width: 30%;
+  font-weight: bold;
+}
+.sidebar .precios li span.amount {
+  width: 25%;
+  text-align: right;
+}
+.sidebar hr {
+  border: 0;
+  height: 1px;
+  background: #000;
+}
+.sidebar_elemento {
+  height: 23px;
+  margin-bottom: 8px;
+  font-family: 'trade_light';
+  font-size: 11px;
+}
+.sidebar_elemento.lang {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+}
+.sidebar_elemento.lang p {
+  line-height: 23px;
+  text-align: center;
+}
+.sidebar_elemento.carrito {
+  width: 30%;
+  margin-right: 5%;
+  float: left;
+}
+.sidebar_elemento.carrito .carrito_img {
+  width: 14px;
+  height: 14px;
+  margin: 4px;
+  background: url('images/sprite.png') no-repeat;
+  background-position: -26px 0px;
+  float: left;
+}
+.sidebar_elemento.carrito p {
+  width: 28px;
+  line-height: 23px;
+  color: #666666;
+  float: left;
+}
+.sidebar_elemento.redes {
+  width: 30%;
+  position: relative;
+  overflow: hidden;
+  float: left;
+}
+.sidebar_elemento.redes li {
+  width: 50%;
+  float: left;
+}
+.sidebar_elemento.redes li a {
+  margin: 4px auto;
+  display: block;
+  background: url('images/sprite.png') no-repeat;
+}
+.sidebar_elemento.redes li a.fb {
+  width: 7px;
+  height: 15px;
+  background-position: -41px 0px;
+}
+.sidebar_elemento.redes li a.tw {
+  width: 17px;
+  height: 15px;
+  background-position: -48px 0px;
+}
+.sidebar_elemento.form_buscador {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar_elemento.form_buscador input {
+  border: none;
+}
+.sidebar_elemento.form_buscador input[type='submit'] {
+  width: 13px;
+  margin-top: 4px;
+  background: url('images/sprite.png') no-repeat;
+  background-position: 0px 0px;
+  float: left;
+}
+.sidebar_elemento.form_buscador input[type='text'] {
+  width: 155px;
+  height: 23px;
+  float: right;
+}
+.sidebar_elemento.form_buscador input[type='text']:focus {
+  outline: none;
+}
+.sidebar_elemento.newsletter {
+  width: 100%;
+  background: #ffffff;
+  cursor: pointer;
+}
+@color _claro;
+.sidebar_elemento.newsletter .newsletter_img {
+  width: 13px;
+  height: 15px;
+  display: block;
+  background: url('images/sprite.png') no-repeat;
+  background-position: -14px 0px;
+  float: left;
+}
+.sidebar_elemento.newsletter p {
+  width: 146px;
+  line-height: 20px;
+  text-align: center;
+  float: left;
+}
+.sidebar_bottom {
+  position: absolute;
+  bottom: 0;
+}
+.sidebar_bottom img {
+  width: 100%;
+  height: auto;
+}
+/* ------ HOME ------ */
+.header_index {
+  width: 100%;
+  margin: 30px 0;
+  position: relative;
+  overflow: hidden;
+}
+.header_index .logo {
+  width: 200px;
+  float: left;
+}
+.header_index .logo a {
+  color: #000;
+  text-decoration: none;
+}
+.header_index .logo a h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  font-family: 'trade_bd2';
+}
+.header_index .entrar {
+  width: 120px;
+  position: relative;
+  top: 30px;
+  float: right;
+  font-family: 'trade_18';
+  font-size: 16px;
+}
+.header_index .entrar p {
+  font-size: 16px;
+  color: #666666;
+}
+.header_index .entrar p a {
+  margin: 0 5px;
+  color: #666666;
+  text-decoration: none;
+}
+.home_slider {
+  width: 100%;
+  margin-bottom: 30px;
+}
+.home_slider .home_slide {
+  width: 100%;
+}
+.home_slider .home_slide img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.home_slider .home_slide p {
+  width: 100%;
+  font-size: 12px;
+  font-family: 'trade_light_oblique';
+}
+.home_slider .home_slide p span {
+  font-family: 'trade_bd2';
+}
+/* ------ COLECCIONES ------ */
+.libro {
+  width: 23%;
+  margin: 0 2% 30px 0;
+  float: left;
+}
+.libro img {
+  width: 100%;
+  margin-bottom: 10px;
+  height: auto;
+}
+.libro .numero {
+  margin-bottom: 5px;
+  font-family: 'trade_bd2';
+  font-size: 16px;
+}
+.libro .numero a {
+  color: #666666;
+  text-decoration: none;
+}
+.libro .numero a:hover {
+  color: #000000;
+}
+.libro .descripcion {
+  font-family: 'trade_light_oblique';
+  font-size: 12px;
+}
+.libro .descripcion a {
+  color: #666666;
+  text-decoration: none;
+}
+.libro .descripcion a:hover {
+  color: #000000;
+}
+/* ------ SINGLE COLECCIONES ------ */
+.single_header {
+  font-family: 'trade_20';
+}
+.single_header p {
+  font-size: 36px;
+}
+.single_header h2 {
+  font-size: 20px;
+  font-style: italic;
+}
+.single_header .subtitulo {
+  font-size: 20px;
+  color: #666666;
+}
+.single_header.noticia {
+  margin-bottom: 20px;
+}
+.single_header.noticia h2 {
+  font-size: 36px;
+  font-style: normal;
+}
+.single_header.noticia .subtitulo {
+  font-size: 24px;
+}
+.single_header.carrito {
+  margin-bottom: 30px;
+}
+.single_header.carrito h2 {
+  font-size: 36px;
+  font-style: normal;
+}
+.single_content {
+  position: relative;
+  overflow: hidden;
+}
+.single_content .portada {
+  width: 23%;
+  margin-right: 2%;
+  float: left;
+}
+.single_content .portada img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.single_content .portada p {
+  font-family: 'trade_light';
+  color: #666666;
+  font-size: 12px;
+}
+.single_content .portada p a {
+  color: #666666;
+  text-decoration: none;
+}
+.single_content .portada p strong {
+  font-family: 'trade_bd2';
+}
+.single_content .content {
+  width: 75%;
+  float: left;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.single_content .content p {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 30px;
+}
+.single_content.noticia .content {
+  width: 570px;
+  float: left;
+  font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+.single_content.noticia .content p {
+  font-weight: 300;
+}
+.single_content.noticia .content img {
+  width: 100%;
+  height: auto;
+  margin: 0;
+}
+/* ------ CONTACTO ------ */
+#forma_contacto label {
+  width: 100%;
+  font-family: 'trade_bd2';
+  font-size: 20px;
+}
+#forma_contacto input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+#forma_contacto input[type='submit'] {
+  width: 100px;
+  line-height: 25px;
+  border: 1px solid #000000;
+  font-family: 'trade_bd2';
+  background: #ffffff;
+  cursor: pointer;
+}
+#forma_contacto textarea {
+  width: 100%;
+  height: 275px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+/* ------ CARRITO ------ */
+h3.categoria_carrito {
+  margin: 16px 0;
+  font-family: 'trade_18';
+  font-size: 16px;
+}
+.carrito_content {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #000000;
+}
+.producto {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 45px;
+}
+.imagen_producto {
+  width: 110px;
+  margin-right: 15px;
+  float: left;
+}
+.imagen_producto img {
+  width: 100%;
+  height: auto;
+}
+.info_producto {
+  float: left;
+  font-size: 14px;
+}
+.info_producto .numero {
+  font-family: 'trade_bd2';
+  display: inline;
+}
+.info_producto h3 {
+  font-family: 'trade_light_oblique';
+  display: inline;
+}
+.info_producto .caracteristicas_producto {
+  margin-top: 20px;
+  font-family: 'trade_light';
+  font-size: 12px;
+}
