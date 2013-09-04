@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="<?php echo $template_url; ?>/style.css" type="text/css" />
 
 		<script type="text/javascript" src="<?php echo $template_url; ?>/js/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo $template_url; ?>/js/cycle.js"></script>
 		<script type="text/javascript" src="<?php echo $template_url; ?>/js/functions.js"></script>
 	</head>
 
