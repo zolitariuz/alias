@@ -251,8 +251,16 @@ body {
   width: 80%;
   margin-bottom: 40px;
   float: left;
-  position: relative;
-  overflow: hidden;
+  zoom: 1;
+}
+.main:before {
+  content: '';
+  display: block;
+}
+.main:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 .main.home {
   width: 100%;
@@ -698,9 +706,18 @@ h3.categoria_carrito {
   border-bottom: 1px solid #000000;
 }
 .producto {
-  position: relative;
-  overflow: hidden;
+  width: 983px;
   margin-bottom: 45px;
+  zoom: 1;
+}
+.producto:before {
+  content: '';
+  display: block;
+}
+.producto:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 .imagen_producto {
   width: 110px;
@@ -727,4 +744,8 @@ h3.categoria_carrito {
   margin-top: 20px;
   font-family: 'trade_light';
   font-size: 12px;
+}
+.detalles_producto {
+  width: 18%;
+  float: right;
 }
