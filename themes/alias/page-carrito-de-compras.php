@@ -38,11 +38,22 @@ the_post();
 
 				<div class="left">
 					<p>Precio</p>
-					<li></li>
+					<ul>
+						<li class="moneda">mxn $</li>
+						<li class="precio">200.00</li>
+						<li class="moneda">usd $</li>
+						<li class="precio">16.00</li>
+						<li class="moneda">eur €</li>
+						<li class="precio">6.00</li>
+					</ul>
+
 				</div><!-- left -->
 
 				<div class="right">
 					<p>Cantidad</p>
+					<div class="cantidad">
+						<p>1</p>
+					</div>
 				</div><!-- right -->
 
 			</div><!-- detalles_producto -->

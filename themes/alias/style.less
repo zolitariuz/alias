@@ -58,6 +58,16 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 }
 
 @font-face {
+    font-family: 'trade_bold';
+    src: url('fonts/tradegothicltstd-bold.eot');
+    src: url('fonts/tradegothicltstd-bold.eot') format('embedded-opentype'),
+         url('fonts/tradegothicltstd-bold.woff') format('woff'),
+         url('fonts/tradegothicltstd-bold.ttf') format('truetype'),
+         url('fonts/tradegothicltstd-bold.svg#TradeGothicLTStdBold') format('svg');
+}
+
+
+@font-face {
     font-family: 'trade_light';
     src: url('fonts/TradeGothicLTStd-Light.eot');
     src: local('☺'), url('fonts/TradeGothicLTStd-Light.woff') format('woff'), url('fonts/TradeGothicLTStd-Light.ttf') format('truetype'), url('fonts/TradeGothicLTStd-Light.svg') format('svg');
@@ -87,6 +97,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 .trade_bd2{ font-family: 'trade_bd2'; }
 .trade_20{ font-family: 'trade_20'; }
 .trade_18{ font-family: 'trade_18'; }
+.trade_bold{ font-family: 'trade_bold';  }
 .trade_light{ font-family: 'trade_light'; }
 .trade_light_oblique{ font-family: 'trade_light_oblique'; }
 .helvetica{ font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;  }
@@ -319,8 +330,22 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
     }
 }
 
-.detalles_producto{ width: 18%; float: right;
-
+.detalles_producto{ width: 18%; .clearfix; float: right; .trade_18;
+    p{ margin: 0 0 30px 0; }
+    li{ height: 25px; }
+    .left{ width: 70%; float: left;
+        p{}
+        li{ .clearfix;
+            &.moneda{ width: 50%; .trade_bold; float: left; }
+            &.precio{ width: 50%; float: left; }
+        }
+    }
+    .right{ width: 30%; float: left;
+        p{}
+        .cantidad{ border: 1px solid #000;
+            p{ margin: 0; font-size: 12px; line-height: 25px; text-align: center; }
+        }
+    }
 }
 
 
