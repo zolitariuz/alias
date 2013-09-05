@@ -11,7 +11,7 @@ $template_url = get_bloginfo( 'template_url' );
 		<div class="home_slide">
 
 			<img src="<?php echo $template_url; ?>/images/robert.jpg" >
-			<p><span>Robert Smithson</span>  Hotel Palenque</p>
+			<p><span>Juan Smithson</span>  Hotel Palenque</p>
 
 		</div><!-- home_slide -->
 

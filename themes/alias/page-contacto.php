@@ -11,10 +11,10 @@ the_post();
 		<label>correo electrónico</label>
 		<input type="text">
 
-		<label>asusto</label>
+		<label>asunto</label>
 		<input type="text">
 
-		<label>correo electrónico</label>
+		<label>mensaje</label>
 		<textarea></textarea>
 
 		<input type="submit" value="enviar">

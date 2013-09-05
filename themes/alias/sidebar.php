@@ -74,7 +74,25 @@ $template_url = get_bloginfo( 'template_url' );
 
 		<div class="clear"></div>
 
+	<?php
+	endif;
+	if ( is_page( 'carrito-de-compras' ) ) :
+	?>
+		<div class="carrito">
+
+			<div class="left">
+
+			</div><!-- left -->
+
+			<div class="right">
+
+			</div><!-- right -->
+
+		</div><!-- carrito -->
+
 	<?php endif; ?>
+
+	<div class="clear"></div>
 
 	<div class="lang borde_gris sidebar_elemento">
 		<p>Eng.</p>

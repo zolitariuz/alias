@@ -369,6 +369,9 @@ em {
   width: 25%;
   text-align: right;
 }
+.sidebar .caracteristicas li p {
+  margin-bottom: 20px;
+}
 .sidebar hr {
   border: 0;
   height: 1px;
@@ -578,6 +581,7 @@ em {
 /* ------ SINGLE COLECCIONES ------ */
 .single_header {
   font-family: 'trade_20';
+  margin-bottom: 20px;
 }
 .single_header p {
   font-size: 36px;
@@ -610,6 +614,7 @@ em {
 .single_content {
   position: relative;
   overflow: hidden;
+  text-align: justify;
 }
 .single_content .portada {
   width: 23%;
@@ -659,7 +664,7 @@ em {
 /* ------ CONTACTO ------ */
 #forma_contacto label {
   width: 100%;
-  font-family: 'trade_bd2';
+  font-family: 'trade_20';
   font-size: 20px;
 }
 #forma_contacto input {

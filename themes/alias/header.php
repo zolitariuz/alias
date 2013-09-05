@@ -50,13 +50,21 @@
 								<li><a href="#">antítesis</a></li>
 							</ul>
 						</li>
-						<li>/ </li>
+						<li></li>
+						<li> / </li>
+						<li></li>
 					    <li><a href="#">QUÉ ES ALIAS</a></li>
-					    <li>/ </li>
+					    <li></li>
+					    <li> / </li>
+					    <li></li>
 					    <li><a href="#">NOTICIAS</a></li>
+					    <li></li>
 					    <li>/ </li>
+					    <li></li>
 					    <li><a href="#">GALERÍA</a></li>
+					    <li></li>
 						<li>/ </li>
+						<li></li>
 						<li><a href="#">CONTACTO</a></li>
 					</ul><!-- menu -->
 
