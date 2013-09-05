@@ -34,6 +34,19 @@ the_post();
 
 			</div><!-- info_producto -->
 
+			<div class="detalles_producto">
+
+				<div class="left">
+					<p>Precio</p>
+					<li></li>
+				</div><!-- left -->
+
+				<div class="right">
+					<p>Cantidad</p>
+				</div><!-- right -->
+
+			</div><!-- detalles_producto -->
+
 		</div><!-- producto -->
 
 		<div class="producto">
@@ -58,6 +71,19 @@ the_post();
 				</div><!-- caracteristicas_producto -->
 
 			</div><!-- info_producto -->
+
+			<div class="detalles">
+
+				<div class="left">
+					<p>Precio</p>
+					<li></li>
+				</div><!-- left -->
+
+				<div class="right">
+					<p>Cantidad</p>
+				</div><!-- right -->
+
+			</div><!-- detalles -->
 
 		</div><!-- producto -->
 
