@@ -1,21 +1,18 @@
-<?php
-get_header();
-$template_url = get_bloginfo( 'template_url' );
-the_post();
-?>
+<?php get_header(); the_post(); ?>
 
-	<form id="forma_contacto" method="post" action="<?php echo $template_url; ?>/contacto_recibido">
-		<label>nombre</label>
-		<input type="text">
+	<form id="forma_contacto" method="POST" action="<?php site_url('/contacto-recibido/') ?>">
 
-		<label>correo electrónico</label>
-		<input type="text">
+		<label for="nombre">nombre</label>
+		<input type="text" id="nombre">
 
-		<label>asunto</label>
-		<input type="text">
+		<label for="email">correo electrónico</label>
+		<input type="text" id="email">
 
-		<label>mensaje</label>
-		<textarea></textarea>
+		<label for="asunto">asunto</label>
+		<input type="text" id="asunto">
+
+		<label for="mensaje">mensaje</label>
+		<textarea id="mensaje"></textarea>
 
 		<input type="submit" value="enviar">
 
@@ -24,6 +21,7 @@ the_post();
 			t. 5533 2849</strong><br />
 			Orizaba 36, interior 403, colonia Roma, 06700, Distrito Federal , México
 		</p>
+
 	</form>
 
 <?php get_footer(); ?>
