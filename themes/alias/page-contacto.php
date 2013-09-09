@@ -3,16 +3,16 @@
 	<form id="forma_contacto" method="POST" action="<?php site_url('/contacto-recibido/') ?>">
 
 		<label for="nombre">nombre</label>
-		<input type="text" id="nombre">
+		<input type="text" id="nombre" name="nombre" required />
 
 		<label for="email">correo electrónico</label>
-		<input type="text" id="email">
+		<input type="email" id="email" name="email" required />
 
 		<label for="asunto">asunto</label>
-		<input type="text" id="asunto">
+		<input type="text" id="asunto" name="asunto" required />
 
 		<label for="mensaje">mensaje</label>
-		<textarea id="mensaje"></textarea>
+		<textarea id="mensaje" name="mensaje" required></textarea>
 
 		<input type="submit" value="enviar">
 

@@ -1,6 +1,11 @@
 /*
 Theme Name: Alias
+Author: @zolitariuz and @scrubmx
+Description: Tema de WordPress Personalizado para Alias
+Version: 1.0
 */
+@charset 'utf-8';
+
 article,
 aside,
 details,
@@ -633,7 +638,7 @@ em {
   text-align: justify;
 }
 .single_content .portada {
-  width: 23%;
+  width: 180px;
   margin-right: 2%;
   float: left;
 }

@@ -1,19 +1,23 @@
-<?php
-get_header();
-$template_url = get_bloginfo( 'template_url' );
-?>
+<?php get_header(); the_post(); ?>
 
 	<div class="single_header">
 		<p>15|2</p>
-		<h2>Galaxias Explosivas: el arte de David Medalla</h2>
-		<h3 class="subtitulo">Guy Brett</h3>
+		<h2><?php the_title() ?></h2>
+		<?php the_tags( '<h3 class="subtitulo">', ', ', '</h3>' ) ?>
 	</div><!-- single_header -->
 
 	<div class="single_content">
 
 		<div class="portada">
-			<img src="<?php echo $template_url; ?>/images/libro.jpg">
+
+			<?php if ( has_post_thumbnail() ) {
+				the_post_thumbnail('rectangulo');
+			} else {
+				echo "<img src='http://placehold.it/180X275'>";
+			} ?>
+
 			<p><a href="#">Hojear esta publicación</a></p>
+
 		</div><!-- portada -->
 
 		<div class="content">

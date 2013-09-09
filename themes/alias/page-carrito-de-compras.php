@@ -1,8 +1,4 @@
-<?php
-get_header();
-$template_url = get_bloginfo( 'template_url' );
-the_post();
-?>
+<?php get_header(); the_post(); ?>
 
 	<div class="single_header carrito">
 		<h2>Carrito de Compras</h2>
@@ -14,7 +10,7 @@ the_post();
 		<div class="producto">
 
 			<div class="imagen_producto">
-				<img src="<?php echo $template_url; ?>/images/libro.jpg" >
+				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
 			</div><!-- imagen_producto -->
 
 			<div class="info_producto">
@@ -63,7 +59,7 @@ the_post();
 		<div class="producto">
 
 			<div class="imagen_producto">
-				<img src="<?php echo $template_url; ?>/images/libro.jpg" >
+				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
 			</div><!-- imagen_producto -->
 
 			<div class="info_producto">
@@ -101,7 +97,7 @@ the_post();
 		<div class="producto">
 
 			<div class="imagen_producto">
-				<img src="<?php echo $template_url; ?>/images/libro.jpg" >
+				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
 			</div><!-- imagen_producto -->
 
 			<div class="info_producto">
@@ -126,7 +122,7 @@ the_post();
 		<div class="producto">
 
 			<div class="imagen_producto">
-				<img src="<?php echo $template_url; ?>/images/libro.jpg" >
+				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
 			</div><!-- imagen_producto -->
 
 			<div class="info_producto">

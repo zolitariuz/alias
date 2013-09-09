@@ -15,17 +15,35 @@
 
 	add_action( 'wp_enqueue_scripts', function(){
 
-
 		// scripts
-		wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), null, true );
+		wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), null, false );
 		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 
 		// localize scripts
-		wp_localize_script( 'functions', 'ajax_url',  admin_url('admin-ajax.php') );
+		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
 
 		// styles
-		wp_register_style( 'styles', get_stylesheet_uri() );
+		wp_enqueue_style( 'styles', get_stylesheet_uri() );
 
+	});
+
+
+
+// ADMIN SCRIPTS AND STYLES //////////////////////////////////////////////////////////
+
+
+
+	// Admin scripts and styles
+	add_action( 'admin_enqueue_scripts', function(){
+
+		// scripts
+		wp_enqueue_script( 'admin-js', JSPATH.'admin.js',  array('jquery'), null, true );
+
+		// localize scripts
+		wp_localize_script( 'admin-js', 'ajax_url', admin_url('admin-ajax.php') );
+
+		// styles
+		wp_enqueue_style( 'admin-css', CSSPATH.'admin.css' );
 	});
 
 
@@ -34,8 +52,8 @@
 
 
 
-	add_filter( 'show_admin_bar', function($content) {
-		return ( current_user_can("administrator") ) ? $content : false;
+	add_filter( 'show_admin_bar', function($content){
+		return ( current_user_can('administrator') ) ? $content : false;
 	});
 
 
@@ -56,10 +74,13 @@
 
 
 
-	//require_once('inc/metaboxes.php');
+	require_once('inc/post-types.php');
 
 
-	//require_once('inc/post-types.php');
+	require_once('inc/metaboxes.php');
+
+
+	require_once('inc/taxonomies.php' );
 
 
 	require_once('inc/pages.php');
@@ -78,4 +99,9 @@
 		add_image_size( 'cuadrado', 180, 180, true );
 		add_image_size( 'rectangulo', 180, 275, true );
 	}
+
+
+
+// HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
+
 

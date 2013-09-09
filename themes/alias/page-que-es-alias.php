@@ -1,13 +1,15 @@
-<?php
-get_header();
-$template_url = get_bloginfo( 'template_url' );
-the_post();
-?>
+<?php get_header(); the_post(); ?>
 
 	<div class="single_header">
-		<p>Alias</p>
-		<h3 class="subtitulo">Un proyecto editorial de Damián Ortega</h3>
+
+		<p><?php bloginfo('name') ?></p>
+
+		<h3 class="subtitulo">
+			<?php bloginfo('description') ?>
+		</h3>
+
 	</div><!-- single_header -->
+
 
 	<div class="single_content">
 

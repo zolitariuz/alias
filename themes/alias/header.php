@@ -1,17 +1,22 @@
+<!doctype html>
 <html>
-
-	<?php $template_url = get_bloginfo( 'template_url' ); ?>
-
 	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="description" content="<?php bloginfo('description') ?>">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><?php bloginfo('name') ?></title>
+		<?php wp_head() ?>
 	</head>
 
-
-
 	<body>
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+
 		<div class="container">
 
-			<?php if ( is_home() ): ?>
+			<?php if( is_home() ) : ?>
 				<div class="header_index">
 
 					<div class="logo">
@@ -25,7 +30,8 @@
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<?php if ( ! is_home() ): ?>
+
+			<?php if( ! is_home() ) : ?>
 				<div class="header">
 
 					<div class="logo">

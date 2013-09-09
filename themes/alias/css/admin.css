@@ -1,0 +1,11 @@
+/*
+Dashboard Styles
+Author: @zolitariuz and @scrubmx
+*/
+
+@charset 'utf-8';
+
+.libro-meta label{ margin-top: 5px; }
+.libro-meta input{ margin-bottom: 10px; }
+
+h3.post-content-title{ padding: 0 !important; margin: -5px 5px 5px !important; }

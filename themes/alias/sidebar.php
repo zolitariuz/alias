@@ -4,7 +4,7 @@ $template_url = get_bloginfo( 'template_url' );
 
 <div class="sidebar">
 
-	<?php if ( is_page('single-colecciones') ): ?>
+	<?php if ( is_single('colecciones') ): ?>
 
 		<ul class="precios">
 			<li> <span class="curr">mxn $</span> <span class="amount">200.00</span> </li>
@@ -97,10 +97,7 @@ $template_url = get_bloginfo( 'template_url' );
 		<li><a href="#" class="tw"></a></li>
 	</ul><!-- carrito -->
 
-	<form id="form_buscador" class="form_buscador borde_gris sidebar_elemento">
-		<input type="submit" value="">
-		<input name="search" type="text">
-	</form><!-- form_buscador -->
+	<?php get_search_form(); ?>
 
 	<button class="newsletter borde_gris sidebar_elemento">
 		<span class="newsletter_img"></span>

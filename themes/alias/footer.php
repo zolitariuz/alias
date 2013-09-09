@@ -1,13 +1,6 @@
-<?php
-$template_url = get_bloginfo( 'template_url' );
-?>
-			</div><!-- main -->
+	</div><!-- main -->
 
-			<?php
-			if ( ! is_home() ){
-				get_sidebar();
-			}
-			?>
+		<?php if( ! is_home() ) get_sidebar(); ?>
 
 			<div class="footer">
 
@@ -52,5 +45,9 @@ $template_url = get_bloginfo( 'template_url' );
 			</div><!-- footer -->
 
 		</div><!-- container -->
+
+		<?php wp_footer(); ?>
+
 	</body>
+
 </html>
