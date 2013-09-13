@@ -3,7 +3,7 @@
 	<div class="single_header noticia">
 
 		<h2><?php the_title() ?></h2>
-		<h3 class="subtitulo"><?php the_excerpt() ?></h3>
+		<h3 class="subtitulo">Subtitulo</h3>
 
 	</div><!-- single_header -->
 

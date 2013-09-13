@@ -7,8 +7,11 @@
 
 	add_action('add_meta_boxes', function(){
 
-		// Libros
+		// LIBRO
 		add_meta_box('libros_metabox', 'Información General', 'libros_metadata_setup', 'libro', 'side', 'default');
+
+		// DISTRIBUIDOR
+		add_meta_box('distribuidor_metabox', 'Link', 'distribuidor_metadata_setup', 'distribuidor', 'normal', 'default');
 
 	});
 
@@ -18,25 +21,36 @@
 
 
 
-	// Libros Meta
+	// LIBRO
 	function libros_metadata_setup($post){
 
 		$meta   = get_post_meta($post->ID, '_libro_meta', true);
 		$numero = isset($meta['numero']) ? $meta['numero'] : '';
 		$precio = isset($meta['precio']) ? $meta['precio'] : '';
+		$link   = isset($meta['link'])   ? $meta['link']   : '';
 
 		wp_nonce_field(__FILE__, '_libro_meta_nonce');
 
 		echo <<< libro_metabox
 
 			<div class="libro-meta">
-				<label for="numero">Identificador</label>
+				<label for="numero">&nbsp;Identificador</label>
 				<input type='text' class='widefat' id='numero' name='_libro_meta[numero]' value='$numero'/>
-				<label for="precio">Precio</label>
+				<label for="precio">&nbsp;Precio</label>
 				<input type='text' class='widefat' id='precio' name='_libro_meta[precio]' value='$precio'/>
+				<label for="link">&nbsp;Link</label>
+				<input type='url' class='widefat' id='link' name='_libro_meta[link]' value='$link'/>
 			</div>
 
 libro_metabox;
+	}
+
+
+	// DISTRIBUIDOR
+	function distribuidor_metadata_setup($post){
+		$link = get_post_meta($post->ID, '_distribuidor_link', true);
+		wp_nonce_field(__FILE__, '_distribuidor_link_nonce');
+		echo "<input type='url' class='widefat' id='link' name='_distribuidor_link' value='$link'/>";
 	}
 
 
@@ -55,12 +69,21 @@ libro_metabox;
 			return $post_id;
 		}
 
-		// Libros Metadata
+		// LIBROS METADATA
 		if ( isset($_POST['_libro_meta']) ) {
-			if( ! wp_verify_nonce($_POST['_libro_meta_nonce'], __FILE__)){
+			if( ! check_admin_referer(__FILE__, '_libro_meta_nonce')){
 				return $post_id;
 			}
 			update_post_meta($post_id, '_libro_meta', $_POST['_libro_meta']);
+		}
+
+
+		// DISTRIBUIDOR LINK
+		if ( isset($_POST['_distribuidor_link']) ) {
+			if( ! check_admin_referer(__FILE__, '_distribuidor_link_nonce')){
+				return $post_id;
+			}
+			update_post_meta($post_id, '_distribuidor_link', $_POST['_distribuidor_link']);
 		}
 
 	});
@@ -76,3 +99,28 @@ libro_metabox;
 			echo "<h3 class='post-content-title'>Descripción</h3>";
 		}
 	});
+
+
+	add_filter( 'manage_posts_columns', function($columns){
+		if ( get_post_type($post) === 'distribuidor' ) {
+			$columns = array(
+				'cb'    => '<input type="checkbox" />',
+				'title' => 'Título',
+				'link'  => 'Link',
+				'date'  => 'Fecha'
+			);
+		}
+		return $columns;
+	});
+
+
+
+	add_action( 'manage_posts_custom_column', 'custom_distribuidor_columns', 10, 2 );
+
+	function custom_distribuidor_columns($column, $post_id){
+		$link = get_post_meta($post_id, '_distribuidor_link', true);
+		if( $column === 'link' ){
+			echo "<input type='url' class='regular-text distribuidor_link' name='_distribuidor_link' value='$link'/>";
+			echo "<input type='submit' class='button action guardar_link' data-post_id='$post_id' value='Guardar'>";
+		}
+	}
