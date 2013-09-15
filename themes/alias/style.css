@@ -282,6 +282,9 @@ strong {
 em {
   font-style: italic;
 }
+.last {
+  margin-right: 0 !important;
+}
 /* ------ HEADER ------ */
 .header {
   width: 100%;
@@ -707,6 +710,60 @@ em {
   height: 275px;
   margin-bottom: 30px;
   border: 1px solid #000000;
+}
+/* ------ REGISTRO ------ */
+#forma_registro label {
+  width: 100%;
+  font-family: 'trade_20';
+  font-size: 20px;
+  display: block;
+}
+#forma_registro input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+#forma_registro input[type='checkbox'] {
+  width: 20px;
+  float: left;
+}
+#forma_registro input[type='submit'] {
+  width: 100px;
+  line-height: 25px;
+  border: 1px solid #000000;
+  font-family: 'trade_bd2';
+  background: #ffffff;
+  cursor: pointer;
+}
+#forma_registro textarea {
+  width: 100%;
+  height: 275px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+#forma_registro .footnote {
+  width: 100%;
+  font-family: 'trade_light';
+  font-size: 11px;
+  display: block;
+  float: none;
+}
+#forma_registro .suscripcion {
+  width: 750px;
+  font-family: 'trade_light';
+  margin: 0 0 20px 0;
+  float: left;
+}
+#forma_registro .mitad {
+  width: 49%;
+  margin-right: 2%;
+  float: left;
+}
+#forma_registro .cuarto {
+  width: 23.5%;
+  margin-right: 2%;
+  float: left;
 }
 /* ------ CARRITO ------ */
 h3.categoria_carrito {

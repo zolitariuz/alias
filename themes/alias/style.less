@@ -127,6 +127,8 @@ html, body{ background: @fondo; .helvetica; }
 strong{ font-weight: bold; }
 em{ font-style: italic; }
 
+.last{ margin-right: 0 !important; }
+
 /* ------ HEADER ------ */
 
 .header{width: 100%; margin: 30px 0; .position;
@@ -310,6 +312,23 @@ em{ font-style: italic; }
         &[type='submit']{ width: 100px; line-height: 25px; border: 1px solid @color; .trade_bd2;  background:@fondo; cursor: pointer; }
     }
     textarea{ width: 100%; height: 275px; margin-bottom: 30px; border: 1px solid @color; }
+}
+
+/* ------ REGISTRO ------ */
+
+#forma_registro{
+    label{ width: 100%; .trade_20; font-size: 20px; display: block; }
+    input{ width: 100%; height: 25px; margin-bottom: 30px; border: 1px solid @color;
+        &[type='text']{}
+        &[type='checkbox']{ width: 20px; float: left; }
+        &[type='submit']{ width: 100px; line-height: 25px; border: 1px solid @color; .trade_bd2;  background:@fondo; cursor: pointer; }
+    }
+    textarea{ width: 100%; height: 275px; margin-bottom: 30px; border: 1px solid @color; }
+
+    .footnote{ width: 100%; .trade_light; font-size: 11px; display: block; float: none; }
+    .suscripcion{ width: 750px; .trade_light; margin: 0 0 20px 0; float: left; }
+    .mitad{ width: 49%; margin-right: 2%; float: left; }
+    .cuarto{ width: 23.5%; margin-right: 2%; float: left; }
 }
 
 /* ------ CARRITO ------ */
