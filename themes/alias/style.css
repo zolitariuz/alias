@@ -486,7 +486,7 @@ em {
   height: 15px;
   display: block;
   background: url('images/sprite.png') no-repeat;
-  background-position: -14px 0px;
+  background-position: -14px 2px;
   float: left;
 }
 .sidebar_elemento.newsletter p {

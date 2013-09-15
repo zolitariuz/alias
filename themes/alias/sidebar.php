@@ -103,7 +103,7 @@ $template_url = get_bloginfo( 'template_url' );
 
 	<button class="newsletter borde_gris sidebar_elemento">
 		<span class="newsletter_img"></span>
-		<p>Suscríbete al newsletter</p>
+		<p class="newsletter">Suscríbete al newsletter</p>
 	</button><!-- newsletter -->
 
 	<?php if ( ! is_page( 'que-es-alias' ) ) {?>
