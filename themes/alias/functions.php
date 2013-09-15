@@ -104,6 +104,7 @@
 	if(function_exists( 'add_image_size' )){
 		add_image_size( 'cuadrado', 180, 180, true );
 		add_image_size( 'rectangulo', 180, 275, true );
+		add_image_size( 'slider', 984, 539, true );
 	}
 
 

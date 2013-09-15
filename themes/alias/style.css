@@ -1,11 +1,6 @@
 /*
 Theme Name: Alias
-Author: @zolitariuz and @scrubmx
-Description: Tema de WordPress Personalizado para Alias
-Version: 1.0
 */
-@charset 'utf-8';
-
 article,
 aside,
 details,
@@ -816,4 +811,28 @@ h3.categoria_carrito {
   font-size: 12px;
   line-height: 25px;
   text-align: center;
+}
+/* ------ SEARCH ------ */
+.resultado_busqueda {
+  font-size: 14px;
+}
+.resultado_busqueda .portada {
+  width: 180px;
+  margin-right: 2%;
+  float: left;
+}
+.resultado_busqueda .portada img {
+  width: 100%;
+  height: auto;
+}
+.resultado_busqueda .info_resultado_busqueda {
+  width: 75%;
+  float: left;
+}
+.resultado_busqueda .info_resultado_busqueda .titulo {
+  font-family: 'trade_light_oblique';
+  color: #666666;
+}
+.resultado_busqueda .info_resultado_busqueda .titulo span {
+  font-family: 'trade_bd2';
 }

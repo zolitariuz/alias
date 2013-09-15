@@ -2,20 +2,22 @@
 
 	<div class="home_slider cycle-slideshow" data-cycle-slides="div" data-cycle-fx="scrollHorz">
 
-		<div class="home_slide">
+		<?php
+		$args = array(
+			'posts_per_page' => 5,
+			'post_type' => 'noticia'
+		);
+		query_posts( $args );
+		while ( have_posts() ) : the_post(); ?>
 
-			<img src="<?php echo THEMEPATH ?>/images/robert.jpg" >
-			<p><span>Robert Smithson</span>  Hotel Palenque</p>
+			<div class="home_slide">
 
-		</div><!-- home_slide -->
+				<?php the_post_thumbnail( 'slider' ); ?>
+				<p><span>Robert Smithson</span>  Hotel Palenque</p>
 
+			</div><!-- home_slide -->
 
-		<div class="home_slide">
-
-			<img src="<?php echo THEMEPATH ?>/images/robert.jpg" >
-			<p><span>Alan Smith</span>  Hotel Palenque</p>
-
-		</div><!-- home_slide -->
+		<?php endwhile; ?>
 
 	</div><!-- slider_home -->
 

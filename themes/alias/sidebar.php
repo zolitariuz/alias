@@ -98,10 +98,7 @@ $template_url = get_bloginfo( 'template_url' );
 	</ul><!-- carrito -->
 
 
-	<form id="form_buscador" class="form_buscador borde_gris sidebar_elemento" action="<?php echo site_url(); ?>">
-		<input type="submit" value="">
-		<input name="search" type="text">
-	</form><!-- form_buscador -->
+	<?php get_search_form( ); ?>
 
 
 	<button class="newsletter borde_gris sidebar_elemento">
@@ -109,10 +106,14 @@ $template_url = get_bloginfo( 'template_url' );
 		<p>Suscríbete al newsletter</p>
 	</button><!-- newsletter -->
 
-	<div class="sidebar_bottom">
+	<?php if ( ! is_page( 'que-es-alias' ) ) {?>
 
-	<img src="<?php echo $template_url; ?>/images/sidebar_bottom.jpg">
+		<div class="sidebar_bottom">
 
-	</div><!-- sidebar_bottom -->
+		<img src="<?php echo $template_url; ?>/images/sidebar_bottom.jpg">
+
+		</div><!-- sidebar_bottom -->
+
+	<?php } ?>
 
 </div><!-- sidebar -->
