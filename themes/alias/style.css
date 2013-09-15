@@ -369,30 +369,6 @@ em {
   float: right;
   font-family: 'trade_18';
 }
-.sidebar .precios li {
-  width: 100%;
-  margin-bottom: 30px;
-  font-size: 14px;
-}
-.sidebar .precios li span {
-  display: inline-block;
-}
-.sidebar .precios li span.curr {
-  width: 30%;
-  font-weight: bold;
-}
-.sidebar .precios li span.amount {
-  width: 25%;
-  text-align: right;
-}
-.sidebar .caracteristicas li p {
-  margin-bottom: 20px;
-}
-.sidebar hr {
-  border: 0;
-  height: 1px;
-  background: #000;
-}
 .sidebar_elemento {
   height: 23px;
   margin-bottom: 8px;
@@ -490,7 +466,7 @@ em {
   float: left;
 }
 .sidebar_elemento.newsletter p {
-  width: 146px;
+  width: 126px;
   line-height: 20px;
   text-align: center;
   float: left;
@@ -655,7 +631,7 @@ em {
   font-family: 'trade_bd2';
 }
 .single_content .content {
-  width: 75%;
+  width: 55%;
   float: left;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -663,6 +639,35 @@ em {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 30px;
+}
+.single_content .info_single {
+  width: 18%;
+  margin-left: 2%;
+  float: left;
+}
+.single_content .info_single .precios li {
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.single_content .info_single .precios li span {
+  display: inline-block;
+}
+.single_content .info_single .precios li span.curr {
+  width: 30%;
+  font-weight: bold;
+}
+.single_content .info_single .precios li span.amount {
+  width: 25%;
+  text-align: right;
+}
+.single_content .info_single .caracteristicas li p {
+  margin-bottom: 20px;
+}
+.single_content .info_single hr {
+  border: 0;
+  height: 1px;
+  background: #000;
 }
 .single_content.noticia .content {
   width: 570px;
@@ -714,7 +719,6 @@ h3.categoria_carrito {
   border-bottom: 1px solid #000000;
 }
 .producto {
-  width: 983px;
   margin-bottom: 45px;
   zoom: 1;
 }

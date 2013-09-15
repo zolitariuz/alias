@@ -166,27 +166,7 @@ em{ font-style: italic; }
 
 /* ------ SIDEBAR ------ */
 
-.sidebar{ width: 18%; min-height: 300px; .position; float: right; .trade_18;
-    .precios{
-        li{ width: 100%; margin-bottom: 30px; font-size: 14px;
-            span{ display: inline-block;
-                &.curr{ width: 30%; font-weight: bold; }
-                &.amount{ width: 25%; text-align: right; }
-            }
-
-        }
-    }
-
-    .caracteristicas{
-        li{
-            p{ margin-bottom: 20px;
-                strong{}
-            }
-        }
-    }
-
-    hr{ border: 0; height: 1px; background: #000; }
-}
+.sidebar{ width: 18%; min-height: 300px; .position; float: right; .trade_18; }
 
 .sidebar_elemento{ height: 23px; margin-bottom: 8px; .trade_light; font-size: 11px;
     &.lang{ width: 30%; margin-right: 5%; float: left;
@@ -214,7 +194,7 @@ em{ font-style: italic; }
     }
     &.newsletter{ width: 100%; background: @fondo; @color_claro; cursor: pointer;
         .newsletter_img{ width: 13px; height: 15px; display: block; .sprite; background-position: -14px 2px; float: left; }
-        p{ width: 146px; line-height: 20px; text-align: center; float: left; }
+        p{ width: 126px; line-height: 20px; text-align: center; float: left; }
     }
 }
 
@@ -286,8 +266,30 @@ em{ font-style: italic; }
             strong{ .trade_bd2; }
         }
     }
-    .content{ width: 75%; float: left; .helvetica;
+    .content{ width: 55%; float: left; .helvetica;
         p{ font-size: 14px; line-height: 20px; margin-bottom: 30px; }
+    }
+
+    .info_single{ width: 18%; margin-left: 2%; float: left;
+         .precios{
+            li{ width: 100%; margin-bottom: 30px; font-size: 14px;
+                span{ display: inline-block;
+                    &.curr{ width: 30%; font-weight: bold; }
+                    &.amount{ width: 25%; text-align: right; }
+                }
+
+            }
+        }
+
+        .caracteristicas{
+            li{
+                p{ margin-bottom: 20px;
+                    strong{}
+                }
+            }
+        }
+
+        hr{ border: 0; height: 1px; background: #000; }
     }
 
     &.noticia{
@@ -316,7 +318,7 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 
 .carrito_content{ padding-bottom: 22px; border-bottom: 1px solid @color; }
 
-.producto{width: 983px; margin-bottom: 45px; .clearfix;}
+.producto{margin-bottom: 45px; .clearfix;}
 
 .imagen_producto{ width: 110px; margin-right: 15px; float: left;
     img{ width: 100%; height: auto; }
