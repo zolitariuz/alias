@@ -316,7 +316,7 @@ em{ font-style: italic; }
 
 h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 
-.carrito_content{ padding-bottom: 22px; border-bottom: 1px solid @color; }
+.carrito_content{ margin: 0 0 20px 0; padding-bottom: 22px; border-bottom: 1px solid @color; }
 
 .producto{margin-bottom: 45px; .clearfix;}
 
@@ -347,6 +347,26 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
         .cantidad{ border: 1px solid #000;
             p{ margin: 0; font-size: 12px; line-height: 25px; text-align: center; }
         }
+    }
+}
+
+.carrito_total{ width: 50%; float: right;
+    .detalles_producto{ width: 220px;
+        .elemento_carrito_total{ margin: 0 0 10px 0; .clearfix;
+            .titulo_detalles_producto{ width: 50px; margin: 0; .trade_bold; font-size: 14px; text-transform: uppercase; }
+            ul.left{ width: 141px; float: right;
+                li{
+                    &.selects{ height: auto;
+                        select{ width: 100%; margin: 0 0 7px 0; }
+                        input{ width: 100%; margin: 0 0 7px 0; padding: 5px 10px 0px 10px;
+                            &:focus{  outline: none; }
+                        }
+                    }
+                }
+            }
+            hr{ width: 141px; margin: 10px 0; padding: 0; border: 0; height: 1px; background: #000; float: right; }
+        }
+        button{ width: 110px; height: 24px; margin: 0 0 0 80px; border: none; padding: 0; .trade_light; font-size: 11px; background: #000; color: #fff; cursor: pointer;}
     }
 }
 
