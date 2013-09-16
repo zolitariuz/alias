@@ -685,6 +685,38 @@ em {
   height: auto;
   margin: 0;
 }
+.single_content .audio {
+  width: 130px;
+  height: 25px;
+  margin: 0 0 20px 0;
+  background: #272425;
+}
+.single_content .audio.play .audio_status {
+  background-position: -3px -30px;
+}
+.single_content .audio.pause .audio_status {
+  background-position: -15px -30px;
+}
+.single_content .audio .audio_status {
+  width: 11px;
+  height: 10px;
+  margin: 0 5px 0 0;
+  position: relative;
+  top: 8px;
+  left: 8px;
+  background: url('images/sprite.png') no-repeat;
+  display: block;
+  float: left;
+}
+.single_content .audio p {
+  width: 100px;
+  margin: 0;
+  font-family: 'trade_18';
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  float: left;
+}
 /* ------ CONTACTO ------ */
 #forma_contacto label {
   width: 100%;

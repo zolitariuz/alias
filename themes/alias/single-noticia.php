@@ -11,7 +11,18 @@
 
 		<div class="content">
 			<?php the_content() ?>
-		</div>
+
+			<div class="audio play">
+				<div class="audio_status"></div>
+				<p>Pausar audio</p>
+			</div><!-- audio -->
+
+			<div class="audio pause">
+				<div class="audio_status"></div>
+				<p>Repdroducir audio</p>
+			</div><!-- audio -->
+
+		</div><!-- content -->
 
 	</div><!-- single_content -->
 
