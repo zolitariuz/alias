@@ -1,75 +1,14 @@
 <?php get_header(); ?>
 
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
+	<?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
+		<div class="libro">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'cuadrado' ); ?></a>
+			<p class="numero"><a href="#"><?php the_title( ); ?></a></p>
+			<p class="descripcion"> <a href="#">Subtitulo</a> </p>
+		</div><!-- libro -->
 
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
+	<?php endwhile; endif; wp_reset_postdata(); ?>
 
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
-
-	<div class="libro">
-		<a href="#"><img src="<?php echo THEMEPATH ?>/images/noticia.jpg"></a>
-		<p class="numero"><a href="#">Robert Smithson</a></p>
-		<p class="descripcion"> <a href="#"> Hotel Palenque </a> </p>
-	</div><!-- libro -->
 
 <?php get_footer(); ?>

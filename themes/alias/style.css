@@ -1,11 +1,6 @@
 /*
 Theme Name: Alias
-Author: @zolitariuz and @scrubmx
-Description: Tema de WordPress Personalizado para Alias
-Version: 1.0
 */
-@charset 'utf-8';
-
 article,
 aside,
 details,
@@ -287,6 +282,9 @@ strong {
 em {
   font-style: italic;
 }
+.last {
+  margin-right: 0 !important;
+}
 /* ------ HEADER ------ */
 .header {
   width: 100%;
@@ -373,30 +371,6 @@ em {
   overflow: hidden;
   float: right;
   font-family: 'trade_18';
-}
-.sidebar .precios li {
-  width: 100%;
-  margin-bottom: 30px;
-  font-size: 14px;
-}
-.sidebar .precios li span {
-  display: inline-block;
-}
-.sidebar .precios li span.curr {
-  width: 30%;
-  font-weight: bold;
-}
-.sidebar .precios li span.amount {
-  width: 25%;
-  text-align: right;
-}
-.sidebar .caracteristicas li p {
-  margin-bottom: 20px;
-}
-.sidebar hr {
-  border: 0;
-  height: 1px;
-  background: #000;
 }
 .sidebar_elemento {
   height: 23px;
@@ -491,11 +465,11 @@ em {
   height: 15px;
   display: block;
   background: url('images/sprite.png') no-repeat;
-  background-position: -14px 0px;
+  background-position: -14px 2px;
   float: left;
 }
 .sidebar_elemento.newsletter p {
-  width: 146px;
+  width: 126px;
   line-height: 20px;
   text-align: center;
   float: left;
@@ -660,7 +634,7 @@ em {
   font-family: 'trade_bd2';
 }
 .single_content .content {
-  width: 75%;
+  width: 55%;
   float: left;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
@@ -668,6 +642,35 @@ em {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 30px;
+}
+.single_content .info_single {
+  width: 18%;
+  margin-left: 2%;
+  float: left;
+}
+.single_content .info_single .precios li {
+  width: 100%;
+  margin-bottom: 30px;
+  font-size: 14px;
+}
+.single_content .info_single .precios li span {
+  display: inline-block;
+}
+.single_content .info_single .precios li span.curr {
+  width: 30%;
+  font-weight: bold;
+}
+.single_content .info_single .precios li span.amount {
+  width: 25%;
+  text-align: right;
+}
+.single_content .info_single .caracteristicas li p {
+  margin-bottom: 20px;
+}
+.single_content .info_single hr {
+  border: 0;
+  height: 1px;
+  background: #000;
 }
 .single_content.noticia .content {
   width: 570px;
@@ -681,6 +684,38 @@ em {
   width: 100%;
   height: auto;
   margin: 0;
+}
+.single_content .audio {
+  width: 130px;
+  height: 25px;
+  margin: 0 0 20px 0;
+  background: #272425;
+}
+.single_content .audio.play .audio_status {
+  background-position: -3px -30px;
+}
+.single_content .audio.pause .audio_status {
+  background-position: -15px -30px;
+}
+.single_content .audio .audio_status {
+  width: 11px;
+  height: 10px;
+  margin: 0 5px 0 0;
+  position: relative;
+  top: 8px;
+  left: 8px;
+  background: url('images/sprite.png') no-repeat;
+  display: block;
+  float: left;
+}
+.single_content .audio p {
+  width: 100px;
+  margin: 0;
+  font-family: 'trade_18';
+  color: #fff;
+  line-height: 30px;
+  text-align: center;
+  float: left;
 }
 /* ------ CONTACTO ------ */
 #forma_contacto label {
@@ -708,6 +743,60 @@ em {
   margin-bottom: 30px;
   border: 1px solid #000000;
 }
+/* ------ REGISTRO ------ */
+#forma_registro label {
+  width: 100%;
+  font-family: 'trade_20';
+  font-size: 20px;
+  display: block;
+}
+#forma_registro input {
+  width: 100%;
+  height: 25px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+#forma_registro input[type='checkbox'] {
+  width: 20px;
+  float: left;
+}
+#forma_registro input[type='submit'] {
+  width: 100px;
+  line-height: 25px;
+  border: 1px solid #000000;
+  font-family: 'trade_bd2';
+  background: #ffffff;
+  cursor: pointer;
+}
+#forma_registro textarea {
+  width: 100%;
+  height: 275px;
+  margin-bottom: 30px;
+  border: 1px solid #000000;
+}
+#forma_registro .footnote {
+  width: 100%;
+  font-family: 'trade_light';
+  font-size: 11px;
+  display: block;
+  float: none;
+}
+#forma_registro .suscripcion {
+  width: 750px;
+  font-family: 'trade_light';
+  margin: 0 0 20px 0;
+  float: left;
+}
+#forma_registro .mitad {
+  width: 49%;
+  margin-right: 2%;
+  float: left;
+}
+#forma_registro .cuarto {
+  width: 23.5%;
+  margin-right: 2%;
+  float: left;
+}
 /* ------ CARRITO ------ */
 h3.categoria_carrito {
   margin: 16px 0;
@@ -715,11 +804,11 @@ h3.categoria_carrito {
   font-size: 16px;
 }
 .carrito_content {
+  margin: 0 0 20px 0;
   padding-bottom: 22px;
   border-bottom: 1px solid #000000;
 }
 .producto {
-  width: 983px;
   margin-bottom: 45px;
   zoom: 1;
 }
@@ -816,4 +905,95 @@ h3.categoria_carrito {
   font-size: 12px;
   line-height: 25px;
   text-align: center;
+}
+.carrito_total {
+  width: 50%;
+  float: right;
+}
+.carrito_total .detalles_producto {
+  width: 220px;
+}
+.carrito_total .detalles_producto .elemento_carrito_total {
+  margin: 0 0 10px 0;
+  zoom: 1;
+}
+.carrito_total .detalles_producto .elemento_carrito_total:before {
+  content: '';
+  display: block;
+}
+.carrito_total .detalles_producto .elemento_carrito_total:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.carrito_total .detalles_producto .elemento_carrito_total .titulo_detalles_producto {
+  width: 50px;
+  margin: 0;
+  font-family: 'trade_bold';
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.carrito_total .detalles_producto .elemento_carrito_total ul.left {
+  width: 141px;
+  float: right;
+}
+.carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects {
+  height: auto;
+}
+.carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects select {
+  width: 100%;
+  margin: 0 0 7px 0;
+}
+.carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input {
+  width: 100%;
+  margin: 0 0 7px 0;
+  padding: 5px 10px 0px 10px;
+}
+.carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input:focus {
+  outline: none;
+}
+.carrito_total .detalles_producto .elemento_carrito_total hr {
+  width: 141px;
+  margin: 10px 0;
+  padding: 0;
+  border: 0;
+  height: 1px;
+  background: #000;
+  float: right;
+}
+.carrito_total .detalles_producto button {
+  width: 110px;
+  height: 24px;
+  margin: 0 0 0 80px;
+  border: none;
+  padding: 0;
+  font-family: 'trade_light';
+  font-size: 11px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+/* ------ SEARCH ------ */
+.resultado_busqueda {
+  font-size: 14px;
+}
+.resultado_busqueda .portada {
+  width: 180px;
+  margin-right: 2%;
+  float: left;
+}
+.resultado_busqueda .portada img {
+  width: 100%;
+  height: auto;
+}
+.resultado_busqueda .info_resultado_busqueda {
+  width: 75%;
+  float: left;
+}
+.resultado_busqueda .info_resultado_busqueda .titulo {
+  font-family: 'trade_light_oblique';
+  color: #666666;
+}
+.resultado_busqueda .info_resultado_busqueda .titulo span {
+  font-family: 'trade_bd2';
 }
