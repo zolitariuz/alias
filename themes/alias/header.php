@@ -14,6 +14,10 @@
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
 
+		<?php
+		$template_url = get_bloginfo( 'template_url' );
+		?>
+
 		<div class="container">
 
 			<?php if( is_home() ) : ?>
@@ -24,7 +28,7 @@
 					</div><!-- logo -->
 
 					<div class="entrar">
-						<p> <a href="#">Entrar</a> / <a href="#">Enter</a> </p>
+						<p> <a href="<?php echo home_url('/libros') ?>">Entrar</a> / <a href="#">Enter</a> </p>
 					</div><!-- entrar -->
 
 				</div><!-- header -->
@@ -35,35 +39,35 @@
 				<div class="header">
 
 					<div class="logo">
-						<a href="#"><h1>Alias</h1></a>
+						<a href="<?php echo home_url('/libros') ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
 
 					<ul class="menu">
 						<li>
-							<a href="#" class="<?php if( is_page('colecciones') ){ echo 'active'; } ?>" >COLECCIONES</a>
+							<a href="<?php echo home_url('/libros') ?>" class="<?php if( is_page('colecciones') ){ echo 'active'; } ?>" >COLECCIONES</a>
 							<ul>
 								<li>·</li>
-								<li><a href="#">clásica</li></li>
+								<li><a href="<?php echo home_url('/colecciones/clasica/') ?>">clásica</li></li>
 								<li>·</li>
-								<li><a href="#">antítesis</a></li>
+								<li><a href="<?php echo home_url('/colecciones/antitesis/') ?>">antítesis</a></li>
 							</ul>
 						</li>
 						<li></li>
 						<li> / </li>
 						<li></li>
-					    <li><a href="#">QUÉ ES ALIAS</a></li>
+					    <li><a href="<?php echo home_url('/que-es-alias') ?>">QUÉ ES ALIAS</a></li>
 					    <li></li>
 					    <li> / </li>
 					    <li></li>
-					    <li><a href="#">NOTICIAS</a></li>
+					    <li><a href="<?php echo home_url('/noticias') ?>">NOTICIAS</a></li>
 					    <li></li>
 					    <li>/ </li>
 					    <li></li>
-					    <li><a href="#">GALERÍA</a></li>
+					    <li><a href="<?php echo home_url('/galeria') ?>">GALERÍA</a></li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
-						<li><a href="#">CONTACTO</a></li>
+						<li><a href="<?php echo home_url('/contacto') ?>">CONTACTO</a></li>
 					</ul><!-- menu -->
 
 				</div><!-- header -->
