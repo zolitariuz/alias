@@ -1,6 +1,6 @@
 <?php get_header(); the_post(); ?>
 
-	<form id="forma_contacto" method="POST" action="<?php site_url('/contacto-recibido/') ?>">
+	<form id="forma_contacto" method="POST" action="">
 
 		<label for="nombre">nombre</label>
 		<input type="text" id="nombre" name="nombre" required />

@@ -5,7 +5,7 @@
 	$(function(){
 
 
-		//Sidebar
+		// SIDEBAR
 		var altura_main;
 		setTimeout(function(){
 			var altura_main = $('.main').height();
@@ -14,7 +14,8 @@
 			}
 		},100);
 
-		//Buscador
+
+		// BUSCADOR
 		$('#form_buscador').on('click', function(){
 			$(this).css({
 				'background-color': 'black'
@@ -28,7 +29,7 @@
 			});
 		});
 
-		//Newsletter
+		// NEWSLETTER
 		$('.newsletter').on('click', function(){
 			$(this).css({
 				'background-color': 'black'
@@ -41,9 +42,10 @@
 			});
 		});
 
-		$('body').on('click', function(e){
 
-			console.log(e.target);
+
+
+		$('body').on('click', function(e){
 
 			if ( ! $(e.target).hasClass('s') ){
 				var form_buscador = $('#form_buscador');
@@ -73,6 +75,31 @@
 			}
 
 		});
+
+
+
+		// FORMA DE CONTACTO /////////////////////////////////////////////////////////////////
+
+
+
+			$('#forma_contacto').on('submit', function (e) {
+				e.preventDefault();
+
+				var form_fields = $(this).serialize();
+
+
+				console.log(ajax_url+'/?'+form_fields);
+
+				$.post(ajax_url+'/?'+form_fields,{
+					action: 'formulario_contacto_enviado'
+				}, 'json')
+
+				.done(function (data) {
+					console.log(data);
+				});
+
+			});
+
 
 	});
 
