@@ -4,12 +4,8 @@
 
 	$(function(){
 
-<<<<<<< HEAD
 
 		// SIDEBAR
-=======
-		//Sidebar
->>>>>>> 9add243e890832551a86355c0f16c08ed52b11fb
 		var altura_main;
 		setTimeout(function(){
 			var altura_main = $('.main').height();
@@ -79,8 +75,6 @@
 			}
 
 		});
-
-
 
 
 		// FORMA DE CONTACTO /////////////////////////////////////////////////////////////////
