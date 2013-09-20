@@ -85,7 +85,7 @@
 
 			<hr>
 
-			<button class="newsletter borde_gris sidebar_elemento">
+			<button class="newsletter borde_gris sidebar_elemento boton_negro">
 				<p>Comprar ahora</p>
 			</button><!-- newsletter -->
 

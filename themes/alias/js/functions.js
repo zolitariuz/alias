@@ -77,8 +77,16 @@
 		var altura_ventana = $(window).height(),
 			altura_header = $('.header').height(),
 			altura_main = altura_ventana - ( altura_header + 170 );
-		console.log(altura_main);
 		$('.main').css( 'min-height', altura_main );
+
+		//Isotope
+		var container = $('.main');
+		container.isotope();
+		$('.colecciones_menu a').click(function(){
+			var selector = $(this).attr('data-filter');
+			container.isotope({ filter: selector });
+			return false;
+		});
 
 
 	});
