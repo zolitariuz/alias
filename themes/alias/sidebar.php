@@ -18,8 +18,8 @@
 	</div><!-- carrito -->
 
 	<ul class="redes sidebar_elemento">
-		<li><a href="#" class="fb"></a></li>
-		<li><a href="#" class="tw"></a></li>
+		<li><a href="https://www.facebook.com/alias.editorial" target="_blank" class="fb"></a></li>
+		<li><a href="https://twitter.com/aliaseditorial" target="_blank" class="tw"></a></li>
 	</ul><!-- carrito -->
 
 
