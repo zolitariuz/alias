@@ -89,12 +89,11 @@
 				<p>Comprar ahora</p>
 			</button><!-- newsletter -->
 
-			<button class="newsletter borde_gris sidebar_elemento">
+			<button class="anadir newsletter borde_gris sidebar_elemento">
 				<span class="carrito_img"></span>
 				<p>Añadir al carrito</p>
 			</button><!-- newsletter -->
 
-			<hr>
 		</div><!-- info_single -->
 
 	</div><!-- single_content -->

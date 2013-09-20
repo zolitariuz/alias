@@ -824,38 +824,51 @@ em {
   height: 1px;
   background: #000;
 }
+/* line 306, style.less */
+.single_content .info_single .anadir .carrito_img {
+  width: 14px;
+  height: 14px;
+  margin: 0px;
+  background: url('images/sprite.png') no-repeat;
+  background-position: -26px 0px;
+  float: left;
+}
 /* line 307, style.less */
+.single_content .info_single .anadir p {
+  width: 100px;
+}
+/* line 312, style.less */
 .single_content.noticia .content {
   width: 570px;
   float: left;
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
-/* line 308, style.less */
+/* line 313, style.less */
 .single_content.noticia .content p {
   font-weight: 300;
 }
-/* line 309, style.less */
+/* line 314, style.less */
 .single_content.noticia .content img {
   width: 100%;
   height: auto;
   margin: 0;
 }
-/* line 314, style.less */
+/* line 319, style.less */
 .single_content .audio {
   width: 130px;
   height: 25px;
   margin: 0 0 20px 0;
   background: #272425;
 }
-/* line 316, style.less */
+/* line 321, style.less */
 .single_content .audio.play .audio_status {
   background-position: -3px -30px;
 }
-/* line 319, style.less */
+/* line 324, style.less */
 .single_content .audio.pause .audio_status {
   background-position: -15px -30px;
 }
-/* line 321, style.less */
+/* line 326, style.less */
 .single_content .audio .audio_status {
   width: 11px;
   height: 10px;
@@ -867,7 +880,7 @@ em {
   display: block;
   float: left;
 }
-/* line 322, style.less */
+/* line 327, style.less */
 .single_content .audio p {
   width: 100px;
   margin: 0;
@@ -878,20 +891,20 @@ em {
   float: left;
 }
 /* ------ CONTACTO ------ */
-/* line 329, style.less */
+/* line 334, style.less */
 #forma_contacto label {
   width: 100%;
   font-family: 'trade_20';
   font-size: 20px;
 }
-/* line 330, style.less */
+/* line 335, style.less */
 #forma_contacto input {
   width: 100%;
   height: 25px;
   margin-bottom: 30px;
   border: 1px solid #000000;
 }
-/* line 332, style.less */
+/* line 337, style.less */
 #forma_contacto input[type='submit'] {
   width: 100px;
   line-height: 25px;
@@ -900,7 +913,7 @@ em {
   background: #ffffff;
   cursor: pointer;
 }
-/* line 334, style.less */
+/* line 339, style.less */
 #forma_contacto textarea {
   width: 100%;
   height: 275px;
@@ -908,26 +921,26 @@ em {
   border: 1px solid #000000;
 }
 /* ------ REGISTRO ------ */
-/* line 340, style.less */
+/* line 345, style.less */
 #forma_registro label {
   width: 100%;
   font-family: 'trade_20';
   font-size: 20px;
   display: block;
 }
-/* line 341, style.less */
+/* line 346, style.less */
 #forma_registro input {
   width: 100%;
   height: 25px;
   margin-bottom: 30px;
   border: 1px solid #000000;
 }
-/* line 343, style.less */
+/* line 348, style.less */
 #forma_registro input[type='checkbox'] {
   width: 20px;
   float: left;
 }
-/* line 344, style.less */
+/* line 349, style.less */
 #forma_registro input[type='submit'] {
   width: 100px;
   line-height: 25px;
@@ -936,14 +949,14 @@ em {
   background: #ffffff;
   cursor: pointer;
 }
-/* line 346, style.less */
+/* line 351, style.less */
 #forma_registro textarea {
   width: 100%;
   height: 275px;
   margin-bottom: 30px;
   border: 1px solid #000000;
 }
-/* line 348, style.less */
+/* line 353, style.less */
 #forma_registro .footnote {
   width: 100%;
   font-family: 'trade_light';
@@ -951,39 +964,39 @@ em {
   display: block;
   float: none;
 }
-/* line 349, style.less */
+/* line 354, style.less */
 #forma_registro .suscripcion {
   width: 750px;
   font-family: 'trade_light';
   margin: 0 0 20px 0;
   float: left;
 }
-/* line 350, style.less */
+/* line 355, style.less */
 #forma_registro .mitad {
   width: 49%;
   margin-right: 2%;
   float: left;
 }
-/* line 351, style.less */
+/* line 356, style.less */
 #forma_registro .cuarto {
   width: 23.5%;
   margin-right: 2%;
   float: left;
 }
 /* ------ CARRITO ------ */
-/* line 356, style.less */
+/* line 361, style.less */
 h3.categoria_carrito {
   margin: 16px 0;
   font-family: 'trade_18';
   font-size: 16px;
 }
-/* line 358, style.less */
+/* line 363, style.less */
 .carrito_content {
   margin: 0 0 20px 0;
   padding-bottom: 22px;
   border-bottom: 1px solid #000000;
 }
-/* line 360, style.less */
+/* line 365, style.less */
 .producto {
   margin-bottom: 45px;
   zoom: 1;
@@ -999,39 +1012,39 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 362, style.less */
+/* line 367, style.less */
 .imagen_producto {
   width: 110px;
   margin-right: 15px;
   float: left;
 }
-/* line 363, style.less */
+/* line 368, style.less */
 .imagen_producto img {
   width: 100%;
   height: auto;
 }
-/* line 366, style.less */
+/* line 371, style.less */
 .info_producto {
   float: left;
   font-size: 14px;
 }
-/* line 367, style.less */
+/* line 372, style.less */
 .info_producto .numero {
   font-family: 'trade_bd2';
   display: inline;
 }
-/* line 368, style.less */
+/* line 373, style.less */
 .info_producto h3 {
   font-family: 'trade_light_oblique';
   display: inline;
 }
-/* line 369, style.less */
+/* line 374, style.less */
 .info_producto .caracteristicas_producto {
   margin-top: 20px;
   font-family: 'trade_light';
   font-size: 12px;
 }
-/* line 374, style.less */
+/* line 379, style.less */
 .detalles_producto {
   width: 18%;
   zoom: 1;
@@ -1049,20 +1062,20 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 375, style.less */
+/* line 380, style.less */
 .detalles_producto p {
   margin: 0 0 30px 0;
 }
-/* line 376, style.less */
+/* line 381, style.less */
 .detalles_producto li {
   height: 25px;
 }
-/* line 377, style.less */
+/* line 382, style.less */
 .detalles_producto .left {
   width: 70%;
   float: left;
 }
-/* line 379, style.less */
+/* line 384, style.less */
 .detalles_producto .left li {
   zoom: 1;
 }
@@ -1077,43 +1090,43 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 380, style.less */
+/* line 385, style.less */
 .detalles_producto .left li.moneda {
   width: 50%;
   font-family: 'trade_bold';
   float: left;
 }
-/* line 381, style.less */
+/* line 386, style.less */
 .detalles_producto .left li.precio {
   width: 50%;
   float: left;
 }
-/* line 384, style.less */
+/* line 389, style.less */
 .detalles_producto .right {
   width: 30%;
   float: left;
 }
-/* line 386, style.less */
+/* line 391, style.less */
 .detalles_producto .right .cantidad {
   border: 1px solid #000;
 }
-/* line 387, style.less */
+/* line 392, style.less */
 .detalles_producto .right .cantidad p {
   margin: 0;
   font-size: 12px;
   line-height: 25px;
   text-align: center;
 }
-/* line 392, style.less */
+/* line 397, style.less */
 .carrito_total {
   width: 50%;
   float: right;
 }
-/* line 393, style.less */
+/* line 398, style.less */
 .carrito_total .detalles_producto {
   width: 220px;
 }
-/* line 394, style.less */
+/* line 399, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total {
   margin: 0 0 10px 0;
   zoom: 1;
@@ -1129,7 +1142,7 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 395, style.less */
+/* line 400, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total .titulo_detalles_producto {
   width: 50px;
   margin: 0;
@@ -1137,31 +1150,31 @@ h3.categoria_carrito {
   font-size: 14px;
   text-transform: uppercase;
 }
-/* line 396, style.less */
+/* line 401, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left {
   width: 141px;
   float: right;
 }
-/* line 398, style.less */
+/* line 403, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects {
   height: auto;
 }
-/* line 399, style.less */
+/* line 404, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects select {
   width: 100%;
   margin: 0 0 7px 0;
 }
-/* line 400, style.less */
+/* line 405, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input {
   width: 100%;
   margin: 0 0 7px 0;
   padding: 5px 10px 0px 10px;
 }
-/* line 401, style.less */
+/* line 406, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input:focus {
   outline: none;
 }
-/* line 406, style.less */
+/* line 411, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total hr {
   width: 141px;
   margin: 10px 0;
@@ -1171,7 +1184,7 @@ h3.categoria_carrito {
   background: #000;
   float: right;
 }
-/* line 408, style.less */
+/* line 413, style.less */
 .carrito_total .detalles_producto button {
   width: 110px;
   height: 24px;
@@ -1185,32 +1198,32 @@ h3.categoria_carrito {
   cursor: pointer;
 }
 /* ------ SEARCH ------ */
-/* line 414, style.less */
+/* line 419, style.less */
 .resultado_busqueda {
   font-size: 14px;
 }
-/* line 415, style.less */
+/* line 420, style.less */
 .resultado_busqueda .portada {
   width: 180px;
   margin-right: 2%;
   float: left;
 }
-/* line 416, style.less */
+/* line 421, style.less */
 .resultado_busqueda .portada img {
   width: 100%;
   height: auto;
 }
-/* line 418, style.less */
+/* line 423, style.less */
 .resultado_busqueda .info_resultado_busqueda {
   width: 75%;
   float: left;
 }
-/* line 419, style.less */
+/* line 424, style.less */
 .resultado_busqueda .info_resultado_busqueda .titulo {
   font-family: 'trade_light_oblique';
   color: #666666;
 }
-/* line 420, style.less */
+/* line 425, style.less */
 .resultado_busqueda .info_resultado_busqueda .titulo span {
   font-family: 'trade_bd2';
 }
