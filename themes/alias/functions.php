@@ -185,6 +185,11 @@
 
 
 
+
+	/**
+	 * Enviar el mail (Formulario de Contacto)
+	 * @return boolean
+	 */
 	function formulario_contacto_enviado(){
 
 		if ( ! isset($_GET) OR ! filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
@@ -194,7 +199,7 @@
 		$nombre  = $_GET['nombre'];
 		$email   = $_GET['email'];
 		$mensaje =  "Fecha: " . date('Y-m-d H:i:s') .
-					"\r\nNuevo Mensaje de: $email\r\n Asunto: " .
+					"\r\nNuevo Mensaje de: $email\r\nAsunto: " .
 					$_GET['asunto'] . "\r\n\r\n" .
 					$_GET['mensaje'];
 
@@ -205,6 +210,8 @@
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
 	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
+
+
 
 
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
