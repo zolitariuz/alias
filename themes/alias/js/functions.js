@@ -4,8 +4,12 @@
 
 	$(function(){
 
+<<<<<<< HEAD
 
 		// SIDEBAR
+=======
+		//Sidebar
+>>>>>>> 9add243e890832551a86355c0f16c08ed52b11fb
 		var altura_main;
 		setTimeout(function(){
 			var altura_main = $('.main').height();
@@ -78,6 +82,7 @@
 
 
 
+
 		// FORMA DE CONTACTO /////////////////////////////////////////////////////////////////
 
 
@@ -99,6 +104,33 @@
 				});
 
 			});
+
+
+
+		// FOOTER Y SIDEBAR //////////////////////////////////////////////////////////////////
+
+
+
+			var altura_ventana = $(window).height(),
+				altura_header = $('.header').height(),
+				altura_main = altura_ventana - ( altura_header + 170 );
+
+			$('.main').css( 'min-height', altura_main );
+
+
+
+		// ISOTOPE ///////////////////////////////////////////////////////////////////////////
+
+
+
+			var container = $('.main');
+			container.isotope();
+			$('.colecciones_menu a').click(function(){
+				var selector = $(this).attr('data-filter');
+				container.isotope({ filter: selector });
+				return false;
+			});
+
 
 
 	});
