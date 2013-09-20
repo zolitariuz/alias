@@ -4,20 +4,31 @@
 
 	$(function(){
 
+		var pauseButton, playButton;
 
 		$('iframe').hide();
+
 
 		var iframeElement = document.querySelector('iframe'),
 			soundCloud    = SC.Widget(iframeElement);
 
-		$('.play').live('click', function() {
-			soundCloud.play();
-		});
+
+		$(document).ready(function(){
+
+			pauseButton = $('.pause').hide(),
+			playButton  = $('.play').hide();
 
 
-		$('.pause').live('click', function() {
-			soundCloud.pause();
-		});
+			playButton.on('click', function() {
+				console.log('playButton');
+				soundCloud.play();
+			});
+
+			pauseButton.on('click', function() {
+				console.log('pauseButton');
+				soundCloud.pause();
+			});
+		})
 
 
 	});
