@@ -31,22 +31,15 @@
 
 		// NEWSLETTER
 		$('.newsletter').on('click', function(){
-			$(this).css({
-				'background-color': 'black'
-			});
-			$(this).find('p').css({
-				'color': 'white'
-			});
-			$(this).find('.newsletter_img').css({
-				'background-position': '-14px -11px'
-			});
+			$(this).css({ 'background-color': 'black' });
+			$(this).find('p').hide();
+			$(this).find('.newsletter_img').css({ 'background-position': '-14px -11px' });
+
+			$(this).find('.form_newsletter').show();
+			$('.form_newsletter_input').focus();
 		});
 
-
-
-
 		$('body').on('click', function(e){
-
 			if ( ! $(e.target).hasClass('s') ){
 				var form_buscador = $('#form_buscador');
 				$(form_buscador).css({
@@ -63,15 +56,12 @@
 
 			if ( ! $(e.target).hasClass('newsletter') ){
 				var newsletter = $('.newsletter');
-				$(newsletter).css({
-					'background-color': 'white'
-				});
-				$(newsletter).find('p').css({
-					'color': 'black'
-				});
-				$(newsletter).find('.newsletter_img').css({
-					'background-position': '-14px 2px'
-				});
+				$(newsletter).css({ 'background-color': 'white' });
+				$(newsletter).find('p').show();
+				$(newsletter).find('.newsletter_img').css({ 'background-position': '-14px 2px'});
+
+				$(newsletter).find('.form_newsletter').hide();
+
 			}
 
 		});

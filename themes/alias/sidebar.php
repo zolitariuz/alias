@@ -29,9 +29,11 @@
 	<button class="newsletter borde_gris sidebar_elemento">
 
 		<span class="newsletter_img"></span>
-
 		<p class="newsletter">Suscríbete al newsletter</p>
-
+		<form class="form_newsletter" action="">
+			<input class="form_newsletter_input" type="text" value="" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" >
+			<input type="submit">
+		</form>
 	</button><!-- newsletter -->
 
 
