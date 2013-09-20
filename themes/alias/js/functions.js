@@ -4,7 +4,6 @@
 
 	$(function(){
 
-
 		//Sidebar
 		var altura_main;
 		setTimeout(function(){
@@ -73,6 +72,14 @@
 			}
 
 		});
+
+		//Footer y sidebar
+		var altura_ventana = $(window).height(),
+			altura_header = $('.header').height(),
+			altura_main = altura_ventana - ( altura_header + 170 );
+		console.log(altura_main);
+		$('.main').css( 'min-height', altura_main );
+
 
 	});
 
