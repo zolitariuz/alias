@@ -14,21 +14,21 @@
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
 
-		<?php
-		$template_url = get_bloginfo( 'template_url' );
-		?>
-
 		<div class="container">
 
 			<?php if( is_home() ) : ?>
 				<div class="header_index">
 
 					<div class="logo">
-						<a href="#"><h1>Alias</h1></a>
+						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
 
 					<div class="entrar">
-						<p> <a href="<?php echo home_url('/libros') ?>">Entrar</a> / <a href="#">Enter</a> </p>
+						<p>
+							<a href="<?php echo site_url('/colecciones/') ?>">Entrar</a>
+							 /
+							<a href="<?php echo site_url('/colecciones/') ?>">Enter</a>
+						</p>
 					</div><!-- entrar -->
 
 				</div><!-- header -->
@@ -39,41 +39,41 @@
 				<div class="header">
 
 					<div class="logo">
-						<a href="<?php echo home_url('/libros') ?>"><h1>Alias</h1></a>
+						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
 
 					<ul class="menu">
 						<li>
-							<a href="<?php echo home_url('/libros') ?>" class="<?php if( is_page('colecciones') ){ echo 'active'; } ?>" >COLECCIONES</a>
+							<a href="<?php echo site_url('/colecciones/') ?>" class="<?php nav_is('colecciones') ?>" >COLECCIONES</a>
 							<ul>
 								<li>·</li>
-								<li><a href="<?php echo home_url('/colecciones/clasica/') ?>">clásica</li></li>
+								<li><a href="#clasica">clásica</li></li>
 								<li>·</li>
-								<li><a href="<?php echo home_url('/colecciones/antitesis/') ?>">antítesis</a></li>
+								<li><a href="#antitesis">antítesis</a></li>
 							</ul>
 						</li>
 						<li></li>
 						<li> / </li>
 						<li></li>
-					    <li><a href="<?php echo home_url('/que-es-alias') ?>">QUÉ ES ALIAS</a></li>
+					    <li><a href="<?php echo site_url('/que-es-alias/') ?>" class="<?php nav_is('que-es-alias') ?>">QUÉ ES ALIAS</a></li>
 					    <li></li>
 					    <li> / </li>
 					    <li></li>
-					    <li><a href="<?php echo home_url('/noticias') ?>">NOTICIAS</a></li>
+					    <li><a href="<?php echo site_url('/noticias/') ?>" class="<?php nav_is('noticias') ?>">NOTICIAS</a></li>
 					    <li></li>
 					    <li>/ </li>
 					    <li></li>
-					    <li><a href="<?php echo home_url('/galeria') ?>">GALERÍA</a></li>
+					    <li><a href="<?php echo site_url('/galeria/') ?>" class="<?php nav_is('galeria') ?>">GALERÍA</a></li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
-						<li><a href="<?php echo home_url('/contacto') ?>">CONTACTO</a></li>
+						<li><a href="<?php echo site_url('/contacto/') ?>" class="<?php nav_is('contacto') ?>">CONTACTO</a></li>
 					</ul><!-- menu -->
 
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<div class="main <?php if ( is_home() ){ echo 'home'; } ?>">
+			<div class="main <?php if ( is_home() ) echo 'home'; ?>">
 
 
 

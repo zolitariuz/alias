@@ -29,11 +29,42 @@
 				'show_ui'           => true,
 				'show_admin_column' => true,
 				'query_var'         => true,
-				'rewrite'           => array( 'slug' => 'colecciones' ),
+				'rewrite'           => array( 'slug' => 'coleccion' ),
 			);
 
 			register_taxonomy( 'coleccion', 'libro', $args );
 		}
+
+
+
+		// IDIOMA
+		if( ! taxonomy_exists('idioma')){
+
+			$labels = array(
+				'name'              => 'Idiomas',
+				'singular_name'     => 'Idioma',
+				'search_items'      => 'Buscar',
+				'all_items'         => 'Todos',
+				'edit_item'         => 'Editar Idioma',
+				'update_item'       => 'Actualizar Idioma',
+				'add_new_item'      => 'Nuevo Idioma',
+				'new_item_name'     => 'Nuevo Idioma',
+				'menu_name'         => 'Idiomas'
+			);
+
+			$args = array(
+				'hierarchical'      => true,
+				'labels'            => $labels,
+				'show_ui'           => true,
+				'show_admin_column' => true,
+				'query_var'         => true,
+				'rewrite'           => array( 'slug' => 'idiomas' ),
+			);
+
+			register_taxonomy( 'idioma', 'libro', $args );
+		}
+
+
 
 		// AUTORES
 		if( ! taxonomy_exists('autores')){
@@ -61,4 +92,6 @@
 
 			register_taxonomy( 'autor', 'libro', $args );
 		}
+
+
 	}

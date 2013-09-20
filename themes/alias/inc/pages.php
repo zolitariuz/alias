@@ -31,12 +31,24 @@
 		}
 
 
-		// TÉRMINOS Y CONDICIONES
-		if( ! get_page_by_path('terminos-y-condiciones') ){
+		// GALERÍA
+		if( ! get_page_by_path('galeria') ){
 			$page = array(
 				'post_author' => 1,
 				'post_status' => 'publish',
-				'post_title'  => 'Términos y Condiciones',
+				'post_title'  => 'Galería',
+				'post_type'   => 'page'
+			);
+			wp_insert_post( $page, true );
+		}
+
+
+		// AVISO DE PRIVACIDAD
+		if( ! get_page_by_path('aviso-de-privacidad') ){
+			$page = array(
+				'post_author' => 1,
+				'post_status' => 'publish',
+				'post_title'  => 'Aviso de Privacidad',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );

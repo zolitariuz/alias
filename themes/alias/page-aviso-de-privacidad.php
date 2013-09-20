@@ -2,7 +2,7 @@
 
 	<div class="single_header">
 
-		<p>Aviso de privacidad</p>
+		<p><?php the_title(); ?></p>
 
 	</div><!-- single_header -->
 
