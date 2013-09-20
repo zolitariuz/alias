@@ -35,7 +35,8 @@
 	</button><!-- newsletter -->
 
 
-	<?php if ( ! is_page( 'que-es-alias' ) ) {?>
+	<?php if ( get_post_type() == 'noticia' || get_post_type() == 'libro' && ! is_single() ) {?>
+
 
 		<div class="sidebar_bottom">
 

@@ -2,7 +2,9 @@
 
 	<div class="home_slider cycle-slideshow" data-cycle-slides="div" data-cycle-fx="scrollHorz">
 
-		<?php $query = new WP_Query(array(
+		<?php
+
+		$query = new WP_Query(array(
 			'posts_per_page' => 5,
 			'post_type'      => 'noticia'
 		));
@@ -13,7 +15,7 @@
 
 				<?php the_post_thumbnail( 'slider' ); ?>
 
-				<p><span>Robert Smithson</span>  Hotel Palenque</p>
+				<p><span><?php the_title( ); ?></span> <?php subtiluo_noticia($post->ID); ?></p>
 
 			</div><!-- home_slide -->
 
