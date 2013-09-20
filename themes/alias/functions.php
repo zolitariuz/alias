@@ -112,7 +112,7 @@
 
 	add_filter( 'admin_footer_text', function() {
 		echo 'Creado por <a href="https://twitter.com/zolitariuz">@zolitariuz</a> ';
-		echo ' y <a href="https://twitter.com/scrubmx">@scrubmx</a>. ';
+		echo ' y <a href="https://twitter.com/scrubmx">@scrubmx</a> ';
 		echo 'Powered by <a href="http://www.wordpress.org">WordPress</a>';
 	});
 
@@ -183,6 +183,24 @@
 	add_action('wp_ajax_ajax_update_post_meta', 'ajax_update_post_meta');
 	add_action('wp_ajax_nopriv_ajax_update_post_meta', 'ajax_update_post_meta');
 
+
+
+	function formulario_contacto_enviado(){
+
+		if ( ! isset($_GET) OR ! filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
+			wp_send_json_error();
+		}
+
+		$nombre = $_GET['nombre'];
+		$email  = $_GET['email'];
+
+
+		$headers = "From: $nombre <$email> \r\n";
+  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
+		wp_send_json($mail);
+	}
+	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
+	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
 
 
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////

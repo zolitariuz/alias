@@ -4,7 +4,8 @@
 
 	$(function(){
 
-		//Sidebar
+
+		// SIDEBAR
 		var altura_main;
 		setTimeout(function(){
 			var altura_main = $('.main').height();
@@ -13,7 +14,8 @@
 			}
 		},100);
 
-		//Buscador
+
+		// BUSCADOR
 		$('#form_buscador').on('click', function(){
 			$(this).css({
 				'background-color': 'black'
@@ -27,7 +29,7 @@
 			});
 		});
 
-		//Newsletter
+		// NEWSLETTER
 		$('.newsletter').on('click', function(){
 			$(this).css({ 'background-color': 'black' });
 			$(this).find('p').hide();
@@ -38,7 +40,6 @@
 		});
 
 		$('body').on('click', function(e){
-
 			if ( ! $(e.target).hasClass('s') ){
 				var form_buscador = $('#form_buscador');
 				$(form_buscador).css({
@@ -65,20 +66,55 @@
 
 		});
 
-		//Footer y sidebar
-		var altura_ventana = $(window).height(),
-			altura_header = $('.header').height(),
-			altura_main = altura_ventana - ( altura_header + 170 );
-		$('.main').css( 'min-height', altura_main );
 
-		//Isotope
-		var container = $('.main');
-		container.isotope();
-		$('.colecciones_menu a').click(function(){
-			var selector = $(this).attr('data-filter');
-			container.isotope({ filter: selector });
-			return false;
-		});
+		// FORMA DE CONTACTO /////////////////////////////////////////////////////////////////
+
+
+
+			$('#forma_contacto').on('submit', function (e) {
+				e.preventDefault();
+
+				var form_fields = $(this).serialize();
+
+
+				console.log(ajax_url+'/?'+form_fields);
+
+				$.post(ajax_url+'/?'+form_fields,{
+					action: 'formulario_contacto_enviado'
+				}, 'json')
+
+				.done(function (data) {
+					console.log(data);
+				});
+
+			});
+
+
+
+		// FOOTER Y SIDEBAR //////////////////////////////////////////////////////////////////
+
+
+
+			var altura_ventana = $(window).height(),
+				altura_header = $('.header').height(),
+				altura_main = altura_ventana - ( altura_header + 170 );
+
+			$('.main').css( 'min-height', altura_main );
+
+
+
+		// ISOTOPE ///////////////////////////////////////////////////////////////////////////
+
+
+
+			var container = $('.main');
+			container.isotope();
+			$('.colecciones_menu a').click(function(){
+				var selector = $(this).attr('data-filter');
+				container.isotope({ filter: selector });
+				return false;
+			});
+
 
 
 	});

@@ -39,7 +39,6 @@
 
 	<?php if ( get_post_type() == 'noticia' || get_post_type() == 'libro' && ! is_single() ) {?>
 
-
 		<div class="sidebar_bottom">
 
 		<img src="<?php echo THEMEPATH; ?>images/sidebar_bottom.jpg">
