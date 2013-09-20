@@ -191,12 +191,16 @@
 			wp_send_json_error();
 		}
 
-		$nombre = $_GET['nombre'];
-		$email  = $_GET['email'];
+		$nombre  = $_GET['nombre'];
+		$email   = $_GET['email'];
+		$mensaje =  "Fecha: " . date('Y-m-d H:i:s') .
+					"\r\nNuevo Mensaje de: $email\r\n Asunto: " .
+					$_GET['asunto'] . "\r\n\r\n" .
+					$_GET['mensaje'];
 
 
 		$headers = "From: $nombre <$email> \r\n";
-  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
+  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
