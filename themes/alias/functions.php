@@ -190,8 +190,8 @@
 		if ( ! isset($_GET) and filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
 			wp_send_json_error();
 		}
-		$headers = "From: $_GET['nombre'] <$_GET['email']>" . "\r\n";
-  		$mail = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
+		$headers = "From: {$_GET['nombre']} <{$_GET['email']}>" . "\r\n";
+  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
