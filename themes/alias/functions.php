@@ -25,6 +25,8 @@
 		wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), null, false );
 		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 
+		enqueue_single_noticia_scripts();
+
 		// localize scripts
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
 
@@ -32,6 +34,14 @@
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
 
 	});
+
+
+	function enqueue_single_noticia_scripts(){
+		if ( is_single() AND get_query_var('post_type') === 'noticia' ) {
+			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
+			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
+		}
+	}
 
 
 
@@ -64,12 +74,33 @@
 
 
 
+// DISABLE WORDPRESS CORE UPDATES ////////////////////////////////////////////////////
+
+
+
+	remove_action( 'wp_version_check', 'wp_version_check' );
+
+
+	remove_action( 'admin_init', '_maybe_update_core' );
+
+
+	add_filter( 'pre_site_transient_update_core', function(){
+		return null;
+	});
+
+
+	add_action('admin_menu', function () use (&$submenu){
+		unset($submenu['index.php'][10]);
+	});
+
+
+
 // CAMBIAR EL CONTENIDO DEL FOOTER EN EL DASHBOARD ///////////////////////////////////
 
 
 
 	add_filter( 'admin_footer_text', function() {
-		echo 'Creado por <a href="https://twitter.com/zolitariuz">@zolitariuz</a>. ';
+		echo 'Creado por <a href="https://twitter.com/zolitariuz">@zolitariuz</a> ';
 		echo ' y <a href="https://twitter.com/scrubmx">@scrubmx</a>. ';
 		echo 'Powered by <a href="http://www.wordpress.org">WordPress</a>';
 	});
@@ -160,17 +191,20 @@
 
 	/**
 	 * Imprime una lista separada por commas de todos los terms de la taxonomia especificada.
-	 * @param  integer $post_id
-	 * @param  string  $taxonomy
+	 * @param  int      $post_id
+	 * @param  string   $taxonomy   default 'category'
+	 * @param  string   $delimiter  default ', '
+	 * @param  string   $key        default 'name'
 	 * @return string
 	 */
-	function print_the_terms($post_id, $taxonomy){
+	function print_the_terms($post_id, $taxonomy = 'category', $delimiter = ', ', $key = 'name'){
 		$terms = get_the_terms( $post_id, $taxonomy );
 
 		if ( $terms and ! is_wp_error($terms) ){
-			$names = wp_list_pluck($terms ,'name');
-			echo implode(', ', $names);
+			$names  = wp_list_pluck($terms , $key);
+			echo implode($delimiter, $names);
 		}
+
 	}
 
 
@@ -192,8 +226,6 @@
 	}
 
 
-
-
 	/**
 	 * Print the <title> tag based on what is being viewed.
 	 * @return string
@@ -208,4 +240,34 @@
 		if ( $paged >= 2 || $page >= 2 ){
 			echo ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) );
 		}
+	}
+
+
+
+	/**
+	 * Regresa el subtitulo del posts de acuerdo al idioma
+	 * @param  int $post_id
+	 * @return string
+	 */
+	function subtiluo_noticia($post_id){
+		$subtitulo = get_post_meta($post_id, '_subtitulo_meta', true);
+		$language  = qtrans_getLanguage();
+		echo is_array($subtitulo) ? $subtitulo[$language] : '';
+	}
+
+
+
+	/**
+	 * Imprime active si el string coincide con la pagina que se esta mostrando
+	 * @param  string $string
+	 * @return string
+	 */
+	function nav_is($string = ''){
+		$query = get_queried_object();
+
+		if( isset($query->slug) AND preg_match("/$string/i", $query->slug)
+			OR isset($query->name) AND preg_match("/$string/i", $query->name)
+			OR isset($query->rewrite) AND preg_match("/$string/i", $query->rewrite['slug'])
+			OR isset($query->post_title) AND preg_match("/$string/i", remove_accents(str_replace(' ', '-', $query->post_title) ) ) )
+			echo 'active';
 	}
