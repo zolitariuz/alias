@@ -27,7 +27,7 @@
 						<p>
 							<a href="<?php echo site_url('/colecciones/') ?>">Entrar</a>
 							 /
-							<a href="<?php echo site_url('/colecciones/') ?>">Enter</a>
+							<a href="<?php echo site_url('/en/colecciones/') ?>">Enter</a>
 						</p>
 					</div><!-- entrar -->
 
