@@ -14,12 +14,12 @@
 
 			<div class="audio play">
 				<div class="audio_status"></div>
-				<p>Pausar audio</p>
+				<p>Repdroducir audio</p>
 			</div><!-- audio -->
 
 			<div class="audio pause">
 				<div class="audio_status"></div>
-				<p>Repdroducir audio</p>
+				<p>Pausar audio</p>
 			</div><!-- audio -->
 
 		</div><!-- content -->

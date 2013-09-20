@@ -44,7 +44,9 @@
 
 					<ul class="menu">
 						<li>
-							<a href="<?php echo site_url('/colecciones/') ?>" class="<?php nav_is('colecciones') ?>" >COLECCIONES</a>
+<!doctype html>
+<!doctype html>
+							<a href="<?php echo site_url('/colecciones/') ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
 							<ul>
 								<li>·</li>
 								<li><a href="#clasica">clásica</li></li>
@@ -55,19 +57,27 @@
 						<li></li>
 						<li> / </li>
 						<li></li>
-					    <li><a href="<?php echo site_url('/que-es-alias/') ?>" class="<?php nav_is('que-es-alias') ?>">QUÉ ES ALIAS</a></li>
+<!doctype html>
+<!doctype html>
+					    <li><a href="<?php echo site_url('/que-es-alias/') ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li> / </li>
 					    <li></li>
-					    <li><a href="<?php echo site_url('/noticias/') ?>" class="<?php nav_is('noticias') ?>">NOTICIAS</a></li>
+<!doctype html>
+<!doctype html>
+					    <li><a href="<?php echo site_url('/noticias/') ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li>/ </li>
 					    <li></li>
-					    <li><a href="<?php echo site_url('/galeria/') ?>" class="<?php nav_is('galeria') ?>">GALERÍA</a></li>
+<!doctype html>
+<!doctype html>
+					    <li><a href="<?php echo site_url('/galeria/') ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
-						<li><a href="<?php echo site_url('/contacto/') ?>" class="<?php nav_is('contacto') ?>">CONTACTO</a></li>
+<!doctype html>
+<!doctype html>
+						<li><a href="<?php echo site_url('/contacto/') ?>" class="<?php nav_is('contacto') ?>"><?php _e('CONTACTO', 'alias'); ?></a></li>
 					</ul><!-- menu -->
 
 				</div><!-- header -->

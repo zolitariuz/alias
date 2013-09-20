@@ -15,6 +15,17 @@
 
 
 
+// INTERNATIONALIZE THEME ////////////////////////////////////////////////////////////
+
+
+
+	add_action( 'after_setup_theme', function (){
+		$result = load_theme_textdomain('alias', get_template_directory() . '/languages' );
+		apply_filters( 'theme_locale', get_locale(), 'alias' );
+	});
+
+
+
 // FRONT END SCRIPTS AND STYLES //////////////////////////////////////////////////////
 
 
@@ -68,9 +79,10 @@
 
 
 
-	add_filter( 'show_admin_bar', function($content){
-		return ( current_user_can('administrator') ) ? $content : false;
-	});
+	add_action('after_setup_theme', 'my_theme_setup');
+	function my_theme_setup(){
+		load_theme_textdomain('alias', get_template_directory() . '/languages');
+	}
 
 
 
@@ -270,4 +282,19 @@
 			OR isset($query->rewrite) AND preg_match("/$string/i", $query->rewrite['slug'])
 			OR isset($query->post_title) AND preg_match("/$string/i", remove_accents(str_replace(' ', '-', $query->post_title) ) ) )
 			echo 'active';
+	}
+
+
+	/**
+	 * Regresa un link para cambiar de idioma en la misma pagina
+	 * @return string
+	 */
+	function qtrans_languange_menu(){
+		$currentUrl = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : site_url();
+
+		if (qtrans_getlanguage() === 'es') { ?>
+			<a href="<?php echo qtrans_convertURL($currentUrl, 'en'); ?>"><p>En</p></a><?php
+		} else { ?>
+			<a href="<?php echo qtrans_convertURL($currentUrl, 'es'); ?>"><p>Es</p></a><?php
+		}
 	}
