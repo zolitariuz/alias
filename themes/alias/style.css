@@ -346,7 +346,6 @@ em {
 .header .logo {
   width: 100%;
   margin-bottom: 20px;
-  float: left;
 }
 /* line 137, style.less */
 .header .logo a {
