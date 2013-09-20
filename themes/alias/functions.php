@@ -20,7 +20,7 @@
 
 
 	add_action( 'after_setup_theme', function (){
-		$result = load_theme_textdomain('alias', get_template_directory() . '/languages' );
+		load_theme_textdomain('alias', get_template_directory() . '/languages' );
 		apply_filters( 'theme_locale', get_locale(), 'alias' );
 	});
 
@@ -79,10 +79,9 @@
 
 
 
-	add_action('after_setup_theme', 'my_theme_setup');
-	function my_theme_setup(){
-		load_theme_textdomain('alias', get_template_directory() . '/languages');
-	}
+	add_filter( 'show_admin_bar', function($content){
+		return ( current_user_can('administrator') ) ? $content : false;
+	});
 
 
 
