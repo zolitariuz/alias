@@ -185,22 +185,33 @@
 
 
 
+
+	/**
+	 * Enviar el mail (Formulario de Contacto)
+	 * @return boolean
+	 */
 	function formulario_contacto_enviado(){
 
 		if ( ! isset($_GET) OR ! filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
 			wp_send_json_error();
 		}
 
-		$nombre = $_GET['nombre'];
-		$email  = $_GET['email'];
+		$nombre  = $_GET['nombre'];
+		$email   = $_GET['email'];
+		$mensaje =  "Fecha: " . date('Y-m-d H:i:s') .
+					"\r\nNuevo Mensaje de: $email\r\nAsunto: " .
+					$_GET['asunto'] . "\r\n\r\n" .
+					$_GET['mensaje'];
 
 
 		$headers = "From: $nombre <$email> \r\n";
-  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
+  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
 	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
+
+
 
 
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
