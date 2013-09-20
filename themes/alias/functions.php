@@ -187,10 +187,15 @@
 
 	function formulario_contacto_enviado(){
 
-		if ( ! isset($_GET) and filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
+		if ( ! isset($_GET) OR ! filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
 			wp_send_json_error();
 		}
-		$headers = "From: {$_GET['nombre']} <{$_GET['email']}>" . "\r\n";
+
+		$nombre = $_GET['nombre'];
+		$email  = $_GET['email'];
+
+
+		$headers = "From: $nombre <$email> \r\n";
   		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $_GET['mensaje'], $headers );
 		wp_send_json($mail);
 	}
