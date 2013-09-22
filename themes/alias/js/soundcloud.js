@@ -15,8 +15,8 @@
 
 		$(document).ready(function(){
 
-			pauseButton = $('.pause').hide(),
-			playButton  = $('.play').hide();
+			pauseButton = $('.pause'),1
+			playButton  = $('.play');
 
 
 			playButton.on('click', function() {

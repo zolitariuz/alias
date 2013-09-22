@@ -205,12 +205,57 @@
 
 
 		$headers = "From: $nombre <$email> \r\n";
-  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
+		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
 	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
 
+
+
+
+// CREAR TABLA PARA GUARDAR LOS MAILS DEL NEWSLETTER /////////////////////////////////
+
+
+
+	add_action('init', function() use (&$wpdb){
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS wp_newsletter (
+				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				email VARCHAR(255) DEFAULT NULL,
+				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+				PRIMARY KEY (newsletter_id),
+				UNIQUE (email)
+			) DEFAULT CHARSET = utf8;"
+		);
+	});
+
+
+
+// AJAX SAVE NEWSLETTER EMAIL ////////////////////////////////////////////////////////
+
+
+
+	function save_newsletter_email(){
+
+		global $wpdb;
+
+		if ( ! isset($_POST['email']) OR ! filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+			wp_send_json_error();
+		}
+
+		$email = esc_sql( $_POST['email'] );
+
+		$result = $wpdb->replace(
+			'wp_newsletter',
+			array('email' => $email),
+			array('%s')
+		);
+
+		wp_send_json($result);
+	}
+	add_action('wp_ajax_save_newsletter_email', 'save_newsletter_email');
+	add_action('wp_ajax_nopriv_save_newsletter_email', 'save_newsletter_email');
 
 
 

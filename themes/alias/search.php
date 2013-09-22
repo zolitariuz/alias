@@ -1,7 +1,9 @@
 <?php get_header() ?>
 
+	<?php global $wp_query; ?>
+
 	<div class="single_header">
-		<p>3 resultados para</p>
+		<p><?php echo $wp_query->post_count ?> resultado para: <strong>"<?php echo $wp_query->query['s'] ?>"</strong></p>
 		<h3 class="subtitulo">"Campos"</h3>
 	</div><!-- single_header -->
 
@@ -20,7 +22,7 @@
 			</div><!-- portada -->
 
 			<div class="info_resultado_busqueda">
-				<p class="titulo"> <span> <?php echo $numero; ?> </span> <?php the_title( ); echo ', '; print_the_terms($post->ID, 'autor'); ?> </p>
+				<p class="titulo"> <span> <?php echo $numero; ?> </span> <?php the_title(); echo ', '; print_the_terms($post->ID, 'autor'); ?> </p>
 
 				<div class="excerpt_resultado_busqueda">
 					<?php the_excerpt(); ?>

@@ -8,12 +8,54 @@
 
 		if ( have_posts() ) : while ( have_posts() ) : the_post();
 
-			$searchPattern = '~<img [^\>]*\ />~';
 
-			preg_match_all( $searchPattern, $post->post_content, $images );
+		// IMAGENES ///////////////////////////////////////////
 
-			while( $image = array_pop($images[0]) ){
-				echo "<div class='galeria'>$image</div>";
+
+			$imageSearchPattern = '~<img [^\>]*\ />~';
+
+			preg_match_all( $imageSearchPattern, $post->post_content, $images );
+
+			while( $image = array_pop($images[0]) ){ ?>
+
+				<div class="libro">
+
+					<a href="<?php the_permalink() ?>"><?php echo $image ?></a>
+
+					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+
+					<p class="descripcion">
+						<a href="<?php the_permalink() ?>"><?php subtiluo_noticia($post->ID) ?></a>
+					</p>
+
+				</div><!-- libro -->
+
+				<?php
+			}
+
+
+		// VIDEOS ////////////////////////////////////////////
+
+
+			$videoSearchPattern = '~<iframe [^\>]*\ />~';
+
+			preg_match_all( $videoSearchPattern, $post->post_content, $videos );
+
+			while( $video = array_pop($videos[0]) ){ ?>
+
+				<div class="libro">
+
+					<a href="<?php the_permalink() ?>"><?php echo $video ?></a>
+
+					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+
+					<p class="descripcion">
+						<a href="<?php the_permalink() ?>"><?php subtiluo_noticia($post->ID) ?></a>
+					</p>
+
+				</div><!-- libro -->
+
+				<?php
 			}
 
 		endwhile; endif; wp_reset_query();

@@ -5,6 +5,14 @@
 	$(function(){
 
 
+
+		// VALIDATE EMAIL
+		window.validateEmail = function (email) {
+			var regExp = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return regExp.test(email);
+		};
+
+
 		// SIDEBAR
 		var altura_main;
 		setTimeout(function(){
@@ -108,11 +116,58 @@
 
 
 			var container = $('.main');
-			container.isotope();
+			container.isotope({
+				animationEngine: 'jquery'
+			});
 			$('.colecciones_menu a').click(function(){
 				var selector = $(this).attr('data-filter');
 				container.isotope({ filter: selector });
+				window.location.hash = $(this).attr('href');
 				return false;
+			});
+
+
+
+		// BOTONES DE PLAY Y PAUSE ///////////////////////////////////////////////////////////
+
+
+
+			$('.audio').on('click', function () {
+				$('.play').toggle();
+				$('.pause').toggle();
+			});
+
+
+
+		// FORMULARIO PARA EL NEWSLETTER /////////////////////////////////////////////////////
+
+
+
+			function saveNewsletterEmail (email) {
+
+				return $.post(ajax_url,{
+					email: email,
+					action: 'save_newsletter_email'
+				},'json');
+
+			}
+
+
+			$('.form_newsletter').on('submit', function (e) {
+				e.preventDefault();
+				var email = $('.form_newsletter_input').val();
+
+				if ( validateEmail(email) ){
+					var newMail = saveNewsletterEmail(email);
+
+					newMail.done(function (data) {
+						$('.form_newsletter_input').val('');
+						alert('Gracias, se guardo correctamente tu direccion de correo');
+					});
+
+				}else{
+					alert('Porfavor ingresa una direccion de correo valida');
+				}
 			});
 
 
