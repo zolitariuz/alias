@@ -11,7 +11,7 @@
 
 
 		<div class="carrito borde_gris sidebar_elemento">
-			<a href="<?php echo site_url('/carrito-de-compras/')?>">
+			<a href="<?php echo qtrans_convertURL(site_url('/carrito-de-compras/')) ?>">
 				<span class="carrito_img"></span>
 				<p><?php echo ShopingCart::get_total_products(); ?></p>
 			</a>
@@ -29,7 +29,7 @@
 		<button class="newsletter borde_gris sidebar_elemento">
 
 			<span class="newsletter_img"></span>
-			<p class="newsletter">Suscríbete al newsletter</p>
+			<p class="newsletter"><?php _e('Suscríbete al newsletter', 'alias'); ?></p>
 			<form class="form_newsletter" action="">
 				<input class="form_newsletter_input" type="text" value="" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" >
 				<input type="submit">

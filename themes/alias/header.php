@@ -21,7 +21,7 @@
 				<div class="header_index">
 
 					<div class="logo">
-						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
+						<a href="<?php echo qtrans_convertURL(site_url()); ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
 
 					<div class="entrar">
@@ -40,12 +40,13 @@
 				<div class="header clearfix">
 
 					<div class="logo">
-						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
+						<a href="<?php echo qtrans_convertURL(site_url()); ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
+
 
 					<ul class="menu">
 						<li>
-							<a href="<?php echo site_url('/colecciones/') ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
+							<a href="<?php echo qtrans_convertURL(site_url('/colecciones/')); ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
 
 							<?php if ( is_post_type_archive('libro') ) {
 								get_template_part( 'templates/header', 'colecciones-menu' );
@@ -57,50 +58,28 @@
 						<li></li>
 
 
-					    <li><a href="<?php echo site_url('/que-es-alias/') ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/que-es-alias/')); ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li> / </li>
 					    <li></li>
 
 
-					    <li><a href="<?php echo site_url('/noticias/') ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/noticias/')); ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li>/ </li>
 					    <li></li>
 
 
-					    <li><a href="<?php echo site_url('/galeria/') ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
 
 
-						<li><a href="<?php echo site_url('/contacto/') ?>" class="<?php nav_is('contacto') ?>"><?php _e('CONTACTO', 'alias'); ?></a></li>
+						<li><a href="<?php echo qtrans_convertURL(site_url('/contacto/')); ?>" class="<?php nav_is('contacto') ?>"><?php _e('CONTACTO', 'alias'); ?></a></li>
 					</ul><!-- menu -->
 
 				</div><!-- header -->
 			<?php endif; ?>
 
 			<div class="main <?php if (is_home()) echo 'home'; ?>">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
