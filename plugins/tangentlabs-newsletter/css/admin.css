@@ -1,0 +1,30 @@
+
+@charset 'utf-8';
+
+#newsletter-content{
+	width: 75%;
+	margin: 20px 0 0 20px;
+}
+
+#newsletter-content input#title{
+	color: #333;
+	-webkit-writing-mode: horizontal-tb;
+	font-size: 16px;
+	line-height: 1.4em;
+	border-width: 1px;
+	border-style: solid;
+	padding: 3px 3px 3px 5px;
+	-webkit-border-radius: 3px;
+			border-radius: 3px;
+}
+
+
+body#tinymce.wp-editor {
+	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.label-title{
+	font: 18px bold;
+	margin: 10px 0 0 2px;
+	display: block;
+}

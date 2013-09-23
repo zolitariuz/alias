@@ -170,6 +170,24 @@
 
 
 
+// CREA LA TABLA PARA GUARDAR LOS CORREOS DEL NEWSLETTER /////////////////////////////
+
+
+
+	add_action( 'init', function () use (&$wpdb){
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS wp_newsletter (
+				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				email VARCHAR(255) DEFAULT NULL,
+				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+				PRIMARY KEY (newsletter_id),
+				UNIQUE (email)
+			) DEFAULT CHARSET = utf8;"
+		);
+	});
+
+
+
 // AJAX UPDATE POST META /////////////////////////////////////////////////////////////
 
 
@@ -218,25 +236,6 @@
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
 	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
-
-
-
-
-// CREAR TABLA PARA GUARDAR LOS MAILS DEL NEWSLETTER /////////////////////////////////
-
-
-
-	add_action('init', function() use (&$wpdb){
-		$wpdb->query(
-			"CREATE TABLE IF NOT EXISTS wp_newsletter (
-				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				email VARCHAR(255) DEFAULT NULL,
-				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-				PRIMARY KEY (newsletter_id),
-				UNIQUE (email)
-			) DEFAULT CHARSET = utf8;"
-		);
-	});
 
 
 
