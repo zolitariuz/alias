@@ -26,6 +26,14 @@
 
 
 
+// SHOPING CART FUNCTIONS ////////////////////////////////////////////////////////////
+
+
+
+	require_once('inc/shoping_cart.php');
+
+
+
 // FRONT END SCRIPTS AND STYLES //////////////////////////////////////////////////////
 
 
@@ -259,6 +267,22 @@
 
 
 
+// AJAX ADD PRODUCT TO SHOPING CART //////////////////////////////////////////////////
+
+
+
+	function add_product_to_shopping_cart(){
+
+		if( ! isset($_POST['product_id'])) wp_send_json_error();
+
+		ShopingCart::add_to_cart($_POST['product_id'], 1);
+		wp_send_json_success();
+	}
+	add_action('wp_ajax_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
+	add_action('wp_ajax_nopriv_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
+
+
+
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
 
 
@@ -370,4 +394,9 @@
 		} else { ?>
 			<a href="<?php echo qtrans_convertURL($currentUrl, 'es'); ?>"><p>Es</p></a><?php
 		}
+	}
+
+
+	function libro_idiomas($post_id){
+		print_the_terms($post_id, 'idioma');
 	}

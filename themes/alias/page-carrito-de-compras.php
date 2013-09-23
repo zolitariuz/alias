@@ -1,118 +1,106 @@
 <?php get_header(); the_post(); ?>
 
 	<div class="single_header carrito">
-		<h2>Carrito de Compras</h2>
-		<h3 class="categoria_carrito">productos</h3>
+		<h2><?php _e('Carrito de Compras', 'alias'); ?></h2>
+		<h3 class="categoria_carrito"><?php _e('productos', 'alias'); ?></h3>
 	</div><!-- single_header -->
 
-	<div class="carrito_content">
+	<div class="clear"></div>
 
-		<div class="producto">
+	<?php $productos = ShopingCart::get_productos(); ?>
 
-			<div class="imagen_producto">
-				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
-			</div><!-- imagen_producto -->
+	<?php if ( $productos->have_posts() ) : ?>
 
-			<div class="info_producto">
-				<span class="numero">16</span><h3> Campos de acción: entre el performance y el objeto, 1949-1979</h3>
+		<div class="carrito_content">
 
-				<div class="caracteristicas_producto">
-					<p>
-						3 volúmenes<br />
-						rústica<br />
-						español<br />
-						14 x 21 cm<br />
-						406 pp.<br />
-						cosido y pegado<br />
-						978-607-461-110-6<br />
-					</p>
-				</div><!-- caracteristicas_producto -->
+		<?php while( $productos->have_posts() ) : $productos->the_post(); ?>
 
-			</div><!-- info_producto -->
+			<?php $meta = get_post_meta($post->ID, '_libro_meta', true);
 
-			<div class="detalles_producto">
+				$numero         = isset($meta['numero'])         ? $meta['numero']         : '';
+				$encuadernacion = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
+				$size           = isset($meta['size'])           ? $meta['size']           : '';
+				$paginas        = isset($meta['paginas'])        ? $meta['paginas']        : '';
+				$pasta          = isset($meta['pasta'])          ? $meta['pasta']          : '';
+				$isbn           = isset($meta['isbn'])           ? $meta['isbn']           : ''; ?>
 
-				<div class="left">
-					<p>Precio</p>
-					<ul>
-						<li class="moneda">mxn $</li>
-						<li class="precio">200.00</li>
-						<li class="moneda">usd $</li>
-						<li class="precio">16.00</li>
-						<li class="moneda">eur €</li>
-						<li class="precio">6.00</li>
-					</ul>
+			<div class="producto">
 
-				</div><!-- left -->
+				<div class="imagen_producto">
+					<a href="<?php the_permalink(); ?>">
+						<?php the_post_thumbnail('rectangulo') ?>
+					</a>
+				</div><!-- imagen_producto -->
 
-				<div class="right">
-					<p>Cantidad</p>
-					<div class="cantidad">
-						<p>1</p>
-					</div>
-				</div><!-- right -->
+				<div class="info_producto">
 
-			</div><!-- detalles_producto -->
+					<span class="numero"><?php echo $numero; ?></span>
+					<h3> <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> </h3>
 
-		</div><!-- producto -->
+					<div class="caracteristicas_producto">
+						<p><?php
+							echo $encuadernacion . '<br />';
+							echo $size           . '<br />';
+							echo $paginas        . '<br />';
+							echo $pasta          . '<br />';
+							echo $isbn           . '<br />'; ?>
+						</p>
+					</div><!-- caracteristicas_producto -->
 
-		<div class="producto">
+				</div><!-- info_producto -->
 
-			<div class="imagen_producto">
-				<img src="<?php echo THEMEPATH ?>/images/libro.jpg" >
-			</div><!-- imagen_producto -->
+				<div class="detalles_producto">
 
-			<div class="info_producto">
-				<span class="numero">16</span><h3> Campos de acción: entre el performance y el objeto, 1949-1979</h3>
+					<div class="left">
+						<p><?php _e('Precio', 'alias'); ?></p>
 
-				<div class="caracteristicas_producto">
-					<p>
-						3 volúmenes<br />
-						rústica<br />
-						español<br />
-						14 x 21 cm<br />
-						406 pp.<br />
-						cosido y pegado<br />
-						978-607-461-110-6<br />
-					</p>
-				</div><!-- caracteristicas_producto -->
+						<?php
+						$precio  = get_post_meta($post->ID, '_precio_meta', true);
+						$pesos   = isset($precio['pesos'])   ? $precio['pesos']   : '';
+						$dolares = isset($precio['dolares']) ? $precio['dolares'] : '';
+						$euros   = isset($precio['euros'])   ? $precio['euros']   : ''; ?>
 
-			</div><!-- info_producto -->
+						<ul>
+							<li class="moneda">mxn $</li>
+							<li class="precio"><?php echo $pesos ?></li>
+							<li class="moneda">usd $</li>
+							<li class="precio"><?php echo $dolares ?></li>
+							<li class="moneda">eur €</li>
+							<li class="precio"><?php echo $euros ?></li>
+						</ul>
 
-			<div class="detalles_producto">
+					</div><!-- left -->
 
-				<div class="left">
-					<p>Precio</p>
-					<ul>
-						<li class="moneda">mxn $</li>
-						<li class="precio">200.00</li>
-						<li class="moneda">usd $</li>
-						<li class="precio">16.00</li>
-						<li class="moneda">eur €</li>
-						<li class="precio">6.00</li>
-					</ul>
+					<div class="right">
+						<p><?php _e('Cantidad', 'alias'); ?></p>
+						<div class="cantidad">
+							<p><?php echo ShopingCart::get_product_quantity($post->ID); ?></p>
+						</div>
+					</div><!-- right -->
 
-				</div><!-- left -->
+				</div><!-- detalles_producto -->
 
-				<div class="right">
-					<p>Cantidad</p>
-					<div class="cantidad">
-						<p>1</p>
-					</div>
-				</div><!-- right -->
+			</div><!-- producto -->
 
-			</div><!-- detalles_producto -->
+		<?php endwhile; ?>
 
-		</div><!-- producto -->
+		</div><!-- carrito_content -->
 
-	</div><!-- carrito_content -->
+
+	<?php else : ?>
+
+		<h3><?php _e('Su carrito esta vacío.', 'alias'); ?></h3>
+
+	<?php endif; wp_reset_query(); ?>
+
+
 
 	<div class="carrito_total">
 
 		<div class="detalles_producto">
 
 			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left">Subtotal</p>
+				<p class="titulo_detalles_producto left"><?php _e('Subtotal', 'alias'); ?></p>
 				<ul class="left">
 					<li class="moneda">mxn $</li>
 					<li class="precio">200.00</li>
@@ -125,11 +113,11 @@
 			</div><!-- elemento_carrito_total -->
 
 			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left">Envío</p>
+				<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
 				<ul class="left">
 					<li class="selects">
 						<select class="borde_gris" >
-							<option value="">Selecciona tu país</option>
+							<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
 							<option value="mexico">México</option>
 						</select>
 						<select class="borde_gris" >
@@ -149,7 +137,7 @@
 			</div><!-- elemento_carrito_total -->
 
 			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left">Total</p>
+				<p class="titulo_detalles_producto left"><?php _e('Total', 'alias'); ?></p>
 				<ul class="left">
 					<li class="moneda">mxn $</li>
 					<li class="precio">200.00</li>
@@ -161,10 +149,9 @@
 				<hr>
 			</div><!-- elemento_carrito_total -->
 
-			<button>Realizar compra</button>
+			<button><?php _e('Realizar compra', 'alias'); ?></button>
 
 		</div><!-- detalles_producto -->
-
 
 	</div><!-- carrito_total -->
 

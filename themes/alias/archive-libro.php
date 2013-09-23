@@ -12,7 +12,7 @@
 
 			<p class="numero">
 				<a href="<?php the_permalink() ?>">
-					<?php echo $libro_meta['numero']; ?>
+					<?php echo isset($libro_meta['numero']) ? $libro_meta['numero'] : ''; ?>
 				</a>
 			</p>
 
