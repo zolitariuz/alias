@@ -93,27 +93,6 @@
 
 
 
-// DISABLE WORDPRESS CORE UPDATES ////////////////////////////////////////////////////
-
-
-
-	remove_action( 'wp_version_check', 'wp_version_check' );
-
-
-	remove_action( 'admin_init', '_maybe_update_core' );
-
-
-	add_filter( 'pre_site_transient_update_core', function(){
-		return null;
-	});
-
-
-	add_action('admin_menu', function () use (&$submenu){
-		unset($submenu['index.php'][10]);
-	});
-
-
-
 // CAMBIAR EL CONTENIDO DEL FOOTER EN EL DASHBOARD ///////////////////////////////////
 
 
@@ -189,6 +168,7 @@
 
 
 // AJAX UPDATE POST META /////////////////////////////////////////////////////////////
+
 
 
 	/**
@@ -334,6 +314,7 @@
 	}
 
 
+
 	/**
 	 * Print the <title> tag based on what is being viewed.
 	 * @return string
@@ -381,6 +362,7 @@
 	}
 
 
+
 	/**
 	 * Regresa un link para cambiar de idioma en la misma pagina
 	 * @return string
@@ -394,6 +376,7 @@
 			<a href="<?php echo qtrans_convertURL($currentUrl, 'es'); ?>"><p>Es</p></a><?php
 		}
 	}
+
 
 
 	function libro_idiomas($post_id){
