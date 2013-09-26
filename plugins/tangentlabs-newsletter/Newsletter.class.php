@@ -1,5 +1,6 @@
 <?php
 
+
 	/**
 	 * Class Newsletter
 	 */
@@ -73,40 +74,28 @@
 		public static function show_options_page()
 		{
 			add_menu_page('Neswletter', 'Neswletter', 'administrator', 'alias-newsletter', array('Newsletter', 'add_menu_page_callback'), '', 120 );
+			add_submenu_page( 'alias-newsletter', 'mailing-list', 'Mailing List', 'administrator', 'mailing-list', array('Newsletter', 'add_submenu_page_callback'));
 		}
 
 
-		public static function add_menu_page_callback(){
-
-			add_settings_section('newsletter_main_section', '', null, __FILE__); ?>
-
-			<div class="wrap">
-				<?php screen_icon('generic'); ?>
-				<h2>Newsletter</h2>
-
-				<div id="newsletter-content">
-					<form method="POST" action="">
-						<label for="title" class="label-title">Título</label>
-						<input type='text' class='widefat' id="title" name='newsletter_title' value=''>
-
-						<label for="newsletter_content" class="label-title">Contenido</label>
-						<?php wp_editor( '','newsletter_content', array('textarea_name' => 'newsletter_content','media_buttons' => false) ); ?>
-
-						<p class="submit">
-							<input name="submit" type="submit" class="button-primary" value="Enviar" />
-						</p>
-					</form>
-				</div>
-			</div><?php
-
-
-
-
-			//echo "<input type='text' class='widefat' name='newsletter_title' value=''>";
-			//wp_editor( '','newsletter_content',array('textarea_name' => 'newsletter_content','media_buttons' => false) );
+		public static function add_menu_page_callback()
+		{
+			add_settings_section('newsletter_main_section', '', null, __FILE__);
+			load_template( dirname( __FILE__ ) . '/templates/alias-newsletter.php' );
 		}
 
 
+		public static function add_submenu_page_callback()
+		{
+			load_template( dirname( __FILE__ ) . '/templates/mailing-list.php' );
+		}
+
+
+		public static function get_mails()
+		{
+			global $wpdb;
+			return $wpdb->get_col("SELECT email FROM {$wpdb->prefix}newsletter;");
+		}
 
 
 	}

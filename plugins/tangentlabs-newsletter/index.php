@@ -16,7 +16,10 @@
  * Author URI:  http://tangentlabs.mx
  */
 
-	require_once('Newsletter.class.php');
+
+	if( ! class_exists('Newsletter')){
+		require_once('Newsletter.class.php');
+	}
 
 
 	add_action('admin_menu', function() {
