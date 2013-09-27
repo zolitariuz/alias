@@ -26,6 +26,14 @@
 
 
 
+// SHOPING CART FUNCTIONS ////////////////////////////////////////////////////////////
+
+
+
+	require_once('inc/shoping_cart.php');
+
+
+
 // FRONT END SCRIPTS AND STYLES //////////////////////////////////////////////////////
 
 
@@ -81,27 +89,6 @@
 
 	add_filter( 'show_admin_bar', function($content){
 		return ( current_user_can('administrator') ) ? $content : false;
-	});
-
-
-
-// DISABLE WORDPRESS CORE UPDATES ////////////////////////////////////////////////////
-
-
-
-	remove_action( 'wp_version_check', 'wp_version_check' );
-
-
-	remove_action( 'admin_init', '_maybe_update_core' );
-
-
-	add_filter( 'pre_site_transient_update_core', function(){
-		return null;
-	});
-
-
-	add_action('admin_menu', function () use (&$submenu){
-		unset($submenu['index.php'][10]);
 	});
 
 
@@ -162,7 +149,26 @@
 
 
 
+// CREA LA TABLA PARA GUARDAR LOS CORREOS DEL NEWSLETTER /////////////////////////////
+
+
+
+	add_action( 'init', function () use (&$wpdb){
+		$wpdb->query(
+			"CREATE TABLE IF NOT EXISTS wp_newsletter (
+				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+				email VARCHAR(255) DEFAULT NULL,
+				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+				PRIMARY KEY (newsletter_id),
+				UNIQUE (email)
+			) DEFAULT CHARSET = utf8;"
+		);
+	});
+
+
+
 // AJAX UPDATE POST META /////////////////////////////////////////////////////////////
+
 
 
 	/**
@@ -205,12 +211,54 @@
 
 
 		$headers = "From: $nombre <$email> \r\n";
-  		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
+		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
 	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
 
+
+
+// AJAX SAVE NEWSLETTER EMAIL ////////////////////////////////////////////////////////
+
+
+
+	function save_newsletter_email(){
+
+		global $wpdb;
+
+		if ( ! isset($_POST['email']) OR ! filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
+			wp_send_json_error();
+		}
+
+		$email = esc_sql( $_POST['email'] );
+
+		$result = $wpdb->replace(
+			'wp_newsletter',
+			array('email' => $email),
+			array('%s')
+		);
+
+		wp_send_json($result);
+	}
+	add_action('wp_ajax_save_newsletter_email', 'save_newsletter_email');
+	add_action('wp_ajax_nopriv_save_newsletter_email', 'save_newsletter_email');
+
+
+
+// AJAX ADD PRODUCT TO SHOPING CART //////////////////////////////////////////////////
+
+
+
+	function add_product_to_shopping_cart(){
+
+		if( ! isset($_POST['product_id'])) wp_send_json_error();
+
+		ShopingCart::add_to_cart($_POST['product_id'], 1);
+		wp_send_json_success();
+	}
+	add_action('wp_ajax_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
+	add_action('wp_ajax_nopriv_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
 
 
 
@@ -266,6 +314,7 @@
 	}
 
 
+
 	/**
 	 * Print the <title> tag based on what is being viewed.
 	 * @return string
@@ -313,6 +362,7 @@
 	}
 
 
+
 	/**
 	 * Regresa un link para cambiar de idioma en la misma pagina
 	 * @return string
@@ -325,4 +375,10 @@
 		} else { ?>
 			<a href="<?php echo qtrans_convertURL($currentUrl, 'es'); ?>"><p>Es</p></a><?php
 		}
+	}
+
+
+
+	function libro_idiomas($post_id){
+		print_the_terms($post_id, 'idioma');
 	}

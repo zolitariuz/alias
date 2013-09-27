@@ -16,19 +16,22 @@
 		$(document).ready(function(){
 
 			pauseButton = $('.pause').hide(),
-			playButton  = $('.play').hide();
+			playButton  = $('.play');
 
 
 			playButton.on('click', function() {
-				console.log('playButton');
+				playButton.hide();
+				pauseButton.show();
 				soundCloud.play();
 			});
 
 			pauseButton.on('click', function() {
-				console.log('pauseButton');
+				playButton.show();
+				pauseButton.hide();
 				soundCloud.pause();
 			});
-		})
+
+		});
 
 
 	});

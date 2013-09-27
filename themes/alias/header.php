@@ -10,7 +10,8 @@
 	</head>
 
 	<body <?php body_class() ?>>
-		<!--[if lt IE 7]>
+
+		<!--[if lt IE 8]>
 			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 		<![endif]-->
 
@@ -20,7 +21,7 @@
 				<div class="header_index">
 
 					<div class="logo">
-						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
+						<a href="<?php echo qtrans_convertURL(site_url()); ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
 
 					<div class="entrar">
@@ -39,85 +40,46 @@
 				<div class="header clearfix">
 
 					<div class="logo">
-						<a href="<?php echo site_url() ?>"><h1>Alias</h1></a>
+						<a href="<?php echo qtrans_convertURL(site_url()); ?>"><h1>Alias</h1></a>
 					</div><!-- logo -->
+
 
 					<ul class="menu">
 						<li>
-							<a href="<?php echo site_url('/colecciones/') ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
-							<ul class="colecciones_menu">
-								<li>·</li>
-								<li>
-									<a href="#" data-filter=".clasica">
-										clásica
-										<div class="tooltip">
-											<p>Colección conformada por proyectos de artistas mexicanos. El nombre “antítesis” se desprende de la comprensión del arte como una dinámica de reflexión que constantemente se cuestiona a sí misma.</p>
-										</div><!-- tooltip -->
-									</a>
-								</li>
-								<li>·</li>
-								<li>
-									<a href="#" data-filter=".antitesis">
-										antítesis
-										<div class="tooltip">
-											<p>Colección constituida por textos, entrevistas, conferencias o proyectos específicos que no han sido traducidos, impresos y difundidos en habla hispana o cuyas ediciones están descontinuadas o nunca se han distribuido en México.</p>
+							<a href="<?php echo qtrans_convertURL(site_url('/colecciones/')); ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
 
-											<p>Alias · Fusil</p>
-											<p>Como parte de la colección principal de Alias, la línea Fusil incorpora textos de crítica de arte.</p>
-										</div><!-- tooltip -->
-									</a>
-								</li>
-							</ul>
+							<?php if ( is_post_type_archive('libro') ) {
+								get_template_part( 'templates/header', 'colecciones-menu' );
+							} ?>
+
 						</li>
 						<li></li>
 						<li> / </li>
 						<li></li>
-<!doctype html>
-<!doctype html>
-					    <li><a href="<?php echo site_url('/que-es-alias/') ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
+
+
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/que-es-alias/')); ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li> / </li>
 					    <li></li>
-<!doctype html>
-<!doctype html>
-					    <li><a href="<?php echo site_url('/noticias/') ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
+
+
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/noticias/')); ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
 					    <li></li>
 					    <li>/ </li>
 					    <li></li>
-<!doctype html>
-<!doctype html>
-					    <li><a href="<?php echo site_url('/galeria/') ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
+
+
+					    <li><a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
-<!doctype html>
-<!doctype html>
-						<li><a href="<?php echo site_url('/contacto/') ?>" class="<?php nav_is('contacto') ?>"><?php _e('CONTACTO', 'alias'); ?></a></li>
+
+
+						<li><a href="<?php echo qtrans_convertURL(site_url('/contacto/')); ?>" class="<?php nav_is('contacto') ?>"><?php _e('CONTACTO', 'alias'); ?></a></li>
 					</ul><!-- menu -->
 
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<div class="main <?php if ( is_home() ) echo 'home'; ?>">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			<div class="main <?php if (is_home()) echo 'home'; ?>">
