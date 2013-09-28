@@ -1280,7 +1280,7 @@ h3.categoria_carrito {
 }
 /* line 435, style.less */
 .detalles_producto {
-  width: 18%;
+  width: 25%;
   zoom: 1;
   float: right;
   font-family: 'trade_18';
@@ -1306,7 +1306,7 @@ h3.categoria_carrito {
 }
 /* line 438, style.less */
 .detalles_producto .left {
-  width: 75%;
+  width: 70%;
   float: left;
 }
 /* line 440, style.less */
@@ -1337,7 +1337,7 @@ h3.categoria_carrito {
 }
 /* line 445, style.less */
 .detalles_producto .right {
-  width: 13%;
+  width: 19%;
   float: right;
 }
 /* line 447, style.less */
