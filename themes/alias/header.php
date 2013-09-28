@@ -82,4 +82,4 @@
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<div class="main <?php if (is_home()) echo 'home'; ?>">
+			<div class="main <?php if (is_home()) {echo 'home';} if ( get_post_type() === 'libro' ) {echo 'libros';} ?>">

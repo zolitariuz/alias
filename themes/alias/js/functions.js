@@ -21,7 +21,7 @@
 
 
 
-		var container = $('.main');
+		var container = $('.main.libros');
 		container.isotope({
 			animationEngine: 'jquery'
 		});
@@ -224,6 +224,8 @@
 
 
 			$('#pais').chosen();
+			$('#estado').chosen();
+			$('#currency').chosen();
 
 
 

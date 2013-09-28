@@ -1268,12 +1268,17 @@ h3.categoria_carrito {
   display: inline;
 }
 /* line 428, style.less */
+.info_producto h3 a {
+  text-decoration: none;
+  color: #000000;
+}
+/* line 430, style.less */
 .info_producto .caracteristicas_producto {
   margin-top: 20px;
   font-family: 'trade_light';
   font-size: 12px;
 }
-/* line 433, style.less */
+/* line 435, style.less */
 .detalles_producto {
   width: 18%;
   zoom: 1;
@@ -1291,20 +1296,20 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 434, style.less */
+/* line 436, style.less */
 .detalles_producto p {
   margin: 0 0 30px 0;
 }
-/* line 435, style.less */
+/* line 437, style.less */
 .detalles_producto li {
   height: 25px;
 }
-/* line 436, style.less */
+/* line 438, style.less */
 .detalles_producto .left {
-  width: 70%;
+  width: 60%;
   float: left;
 }
-/* line 438, style.less */
+/* line 440, style.less */
 .detalles_producto .left li {
   zoom: 1;
 }
@@ -1319,43 +1324,43 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 439, style.less */
+/* line 441, style.less */
 .detalles_producto .left li.moneda {
   width: 50%;
   font-family: 'trade_bold';
   float: left;
 }
-/* line 440, style.less */
+/* line 442, style.less */
 .detalles_producto .left li.precio {
   width: 50%;
   float: left;
 }
-/* line 443, style.less */
+/* line 445, style.less */
 .detalles_producto .right {
   width: 30%;
-  float: left;
+  float: right;
 }
-/* line 445, style.less */
+/* line 447, style.less */
 .detalles_producto .right .cantidad {
   border: 1px solid #000;
 }
-/* line 446, style.less */
+/* line 448, style.less */
 .detalles_producto .right .cantidad p {
   margin: 0;
   font-size: 12px;
-  line-height: 25px;
+  line-height: 21px;
   text-align: center;
 }
-/* line 451, style.less */
+/* line 453, style.less */
 .carrito_total {
   width: 50%;
   float: right;
 }
-/* line 452, style.less */
+/* line 454, style.less */
 .carrito_total .detalles_producto {
   width: 220px;
 }
-/* line 453, style.less */
+/* line 455, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total {
   margin: 0 0 10px 0;
   zoom: 1;
@@ -1371,7 +1376,7 @@ h3.categoria_carrito {
   display: table;
   clear: both;
 }
-/* line 454, style.less */
+/* line 456, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total .titulo_detalles_producto {
   width: 50px;
   margin: 0;
@@ -1379,31 +1384,35 @@ h3.categoria_carrito {
   font-size: 14px;
   text-transform: uppercase;
 }
-/* line 455, style.less */
+/* line 457, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left {
   width: 141px;
   float: right;
 }
-/* line 457, style.less */
+/* line 459, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects {
   height: auto;
 }
-/* line 458, style.less */
+/* line 460, style.less */
+.carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects .chosen-container {
+  margin: 0 0 7px 0;
+}
+/* line 461, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects select {
   width: 100%;
   margin: 0 0 7px 0;
 }
-/* line 459, style.less */
+/* line 462, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input {
   width: 100%;
   margin: 0 0 7px 0;
   padding: 5px 10px 0px 10px;
 }
-/* line 460, style.less */
+/* line 463, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total ul.left li.selects input:focus {
   outline: none;
 }
-/* line 465, style.less */
+/* line 468, style.less */
 .carrito_total .detalles_producto .elemento_carrito_total hr {
   width: 141px;
   margin: 10px 0;
@@ -1413,7 +1422,7 @@ h3.categoria_carrito {
   background: #000;
   float: right;
 }
-/* line 467, style.less */
+/* line 470, style.less */
 .carrito_total .detalles_producto button {
   width: 110px;
   height: 24px;
@@ -1427,32 +1436,32 @@ h3.categoria_carrito {
   cursor: pointer;
 }
 /* ------ SEARCH ------ */
-/* line 473, style.less */
+/* line 476, style.less */
 .resultado_busqueda {
   font-size: 14px;
 }
-/* line 474, style.less */
+/* line 477, style.less */
 .resultado_busqueda .portada {
   width: 180px;
   margin-right: 2%;
   float: left;
 }
-/* line 475, style.less */
+/* line 478, style.less */
 .resultado_busqueda .portada img {
   width: 100%;
   height: auto;
 }
-/* line 477, style.less */
+/* line 480, style.less */
 .resultado_busqueda .info_resultado_busqueda {
   width: 75%;
   float: left;
 }
-/* line 478, style.less */
+/* line 481, style.less */
 .resultado_busqueda .info_resultado_busqueda .titulo {
   font-family: 'trade_light_oblique';
   color: #666666;
 }
-/* line 479, style.less */
+/* line 482, style.less */
 .resultado_busqueda .info_resultado_busqueda .titulo span {
   font-family: 'trade_bd2';
 }
