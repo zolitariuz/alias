@@ -60,7 +60,7 @@
 						$dolares = isset($precio['dolares']) ? $precio['dolares'] : '';
 						$euros   = isset($precio['euros'])   ? $precio['euros']   : ''; ?>
 
-						<select name="currency" id="currency">
+						<select name="currency" class="currency">
 							<option value="mxn">mxn $ <?php echo $pesos ?></option>
 							<option value="usd">usd $<?php echo $dolares ?></option>
 							<option value="euro">euro €<?php echo $dolares ?></option>

@@ -225,7 +225,7 @@
 
 			$('#pais').chosen();
 			$('#estado').chosen();
-			$('#currency').chosen();
+			$('.currency').chosen();
 
 
 
