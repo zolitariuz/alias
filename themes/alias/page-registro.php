@@ -27,8 +27,10 @@
 
 		<div class="mitad">
 			<label for="nombre">país</label>
-			<select class="borde_gris" >
+			<select id="pais" class="borde_gris" >
 				<option value="mexico">México</option>
+				<option value="mexico">Noruega</option>
+				<option value="mexico">Rusia</option>
 			</select>
 		</div><!-- mitad -->
 

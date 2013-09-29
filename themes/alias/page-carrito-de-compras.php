@@ -11,7 +11,7 @@
 
 	<?php if ( $productos->have_posts() ) : ?>
 
-		<div class="carrito_content">
+		<div class="carrito_content single_content">
 
 		<?php while( $productos->have_posts() ) : $productos->the_post(); ?>
 
@@ -60,14 +60,20 @@
 						$dolares = isset($precio['dolares']) ? $precio['dolares'] : '';
 						$euros   = isset($precio['euros'])   ? $precio['euros']   : ''; ?>
 
-						<ul>
+						<select name="currency" class="currency">
+							<option value="mxn">mxn $ <?php echo $pesos ?></option>
+							<option value="usd">usd $<?php echo $dolares ?></option>
+							<option value="euro">euro €<?php echo $dolares ?></option>
+						</select>
+
+						<!-- <ul>
 							<li class="moneda">mxn $</li>
 							<li class="precio"><?php echo $pesos ?></li>
 							<li class="moneda">usd $</li>
 							<li class="precio"><?php echo $dolares ?></li>
 							<li class="moneda">eur €</li>
 							<li class="precio"><?php echo $euros ?></li>
-						</ul>
+						</ul> -->
 
 					</div><!-- left -->
 
@@ -93,7 +99,7 @@
 
 	<?php endif; wp_reset_query(); ?>
 
-
+	<div class="clear"></div>
 
 	<div class="carrito_total">
 
@@ -116,11 +122,11 @@
 				<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
 				<ul class="left">
 					<li class="selects">
-						<select class="borde_gris" >
+						<select id="pais" class="borde_gris">
 							<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
 							<option value="mexico">México</option>
 						</select>
-						<select class="borde_gris" >
+						<select id="estado" class="borde_gris" >
 							<option value="">Estado</option>
 							<option value="df">D.F.</option>
 						</select>

@@ -21,7 +21,7 @@
 
 
 
-		var container = $('.main');
+		var container = $('.main.libros');
 		container.isotope({
 			animationEngine: 'jquery'
 		});
@@ -217,6 +217,16 @@
 			});
 
 		});
+
+
+		// CHOSEN ///////////////////////////////////////////////////////////////////////////
+
+
+
+			$('#pais').chosen();
+			$('#estado').chosen();
+			$('.currency').chosen();
+
 
 
 	});
