@@ -3,8 +3,8 @@
 	<?php global $wp_query; ?>
 
 	<div class="single_header">
-		<p><?php echo $wp_query->post_count ?> resultado para: <strong>"<?php echo $wp_query->query['s'] ?>"</strong></p>
-		<h3 class="subtitulo">"Campos"</h3>
+		<p><?php echo $wp_query->post_count ?> resultado para: <strong></strong></p>
+		<h3 class="subtitulo">"<?php echo $wp_query->query['s'] ?>"</h3>
 	</div><!-- single_header -->
 
 	<?php if( have_posts() ) : while ( have_posts() ) : the_post();

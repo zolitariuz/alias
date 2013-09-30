@@ -1445,6 +1445,18 @@ h3.categoria_carrito {
 /* line 477, style.less */
 .resultado_busqueda {
   font-size: 14px;
+  zoom: 1;
+}
+/* line 106, style.less */
+.resultado_busqueda:before {
+  content: '';
+  display: block;
+}
+/* line 107, style.less */
+.resultado_busqueda:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 /* line 478, style.less */
 .resultado_busqueda .portada {
