@@ -66,15 +66,6 @@
 							<option value="euro">euro €<?php echo $dolares ?></option>
 						</select>
 
-						<!-- <ul>
-							<li class="moneda">mxn $</li>
-							<li class="precio"><?php echo $pesos ?></li>
-							<li class="moneda">usd $</li>
-							<li class="precio"><?php echo $dolares ?></li>
-							<li class="moneda">eur €</li>
-							<li class="precio"><?php echo $euros ?></li>
-						</ul> -->
-
 					</div><!-- left -->
 
 					<div class="right">

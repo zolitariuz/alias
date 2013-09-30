@@ -22,7 +22,7 @@
 			} ?>
 
 			<p>
-				<a href="<?php echo $link; ?>">
+				<a  target="_blank" href="<?php echo $link; ?>" >
 					<?php _e('Hojear esta publicación', 'alias'); ?>
 				</a>
 			</p>

@@ -2,16 +2,16 @@
 
 	<form id="forma_contacto" method="POST" action="">
 
-		<label for="nombre">nombre</label>
+		<label for="nombre"><?php _e('nombre', 'alias') ?></label>
 		<input type="text" id="nombre" name="nombre" required />
 
-		<label for="email">correo electrónico</label>
+		<label for="email"><?php _e('correo electrónico', 'alias') ?></label>
 		<input type="email" id="email" name="email" required />
 
-		<label for="asunto">asunto</label>
+		<label for="asunto"><?php _e('asunto', 'alias') ?></label>
 		<input type="text" id="asunto" name="asunto" required />
 
-		<label for="mensaje">mensaje</label>
+		<label for="mensaje"><?php _e('mensaje', 'alias') ?></label>
 		<textarea id="mensaje" name="mensaje" required></textarea>
 
 		<input type="submit" value="enviar">
