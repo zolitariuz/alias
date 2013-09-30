@@ -61,7 +61,10 @@
 
 			if ( isset($_SESSION['cart']) ) {
 
-				if( ShopingCart::product_exists($product_id) ) return;
+				if( ShopingCart::product_exists($product_id) ){
+					ShopingCart::change_product_quantity($product_id, $quantity);
+					return;
+				}
 
 				$max = count($_SESSION['cart']);
 
@@ -123,7 +126,13 @@
 		public static function get_total_products()
 		{
 			if ( isset($_SESSION['cart']) ) {
-				return count($_SESSION['cart']);
+				$total = 0;
+				foreach ($_SESSION['cart'] as $index => $product) {
+					$total += $product['quantity'];
+				}
+				return $total;
+
+
 			} else {
 				return 0;
 			}
@@ -150,6 +159,48 @@
 
 
 		/**
+		 * Regresa el precio del product id en el tipo de moneda especificado
+		 * @param  int $product_id
+		 * @param  string $currency  Opciones: pesos, dolares, euros. Default: pesos
+		 * @return int
+		 */
+		public static function get_product_price($product_id, $currency = 'pesos')
+		{
+			$precio = get_post_meta($product_id, '_precio_meta', true);
+			return ($precio AND ! empty($precio[$currency])) ? trim($precio[$currency]) : 0;
+		}
+
+
+
+		public static function get_product_name($product_id)
+		{
+			$post_title = get_post_field( 'post_title', $product_id );
+			return __($post_title);
+		}
+
+
+		public static function get_product_data($product_id, $currency = 'pesos'){
+			$product = new stdClass();
+			$product->item_name = ShopingCart::get_product_name($product_id);
+			$product->quantity  = ShopingCart::get_product_quantity($product_id);
+			$product->amount    = ShopingCart::get_product_price($product_id, $currency);
+			return $product;
+		}
+
+
+		public static function change_product_quantity($product_id, $quantity)
+		{
+			if ( isset($_SESSION['cart']) ) {
+				foreach ( $_SESSION['cart'] as $index => &$product ) {
+					if ( $product['productid'] == $product_id )
+						return $product['quantity'] += $quantity;
+				}
+			}
+		}
+
+
+
+		/**
 		 * Regresa todos los posts (productos) en el carrito de compras
 		 * @uses ShopingCart::get_posts_ids
 		 *
@@ -166,6 +217,23 @@
 				'post_type' => 'libro',
 				'post__in'  => $post_ids
 			));
+		}
+
+
+		/**
+		 * Regresa los productos con nombre y precio en la moneda indicada
+		 * @param  string $currency Opciones: dolares, pesos, euros
+		 * @return array
+		 */
+		public static function get_shoping_cart_products($currency)
+		{
+			if ( ! isset($_SESSION['cart'])) return array();
+
+			$arrayResults = array();
+			foreach ($_SESSION['cart'] as $key => $post) {
+				$arrayResults[] = ShopingCart::get_product_data($post['productid'], $currency);
+			}
+			return $arrayResults;
 		}
 
 

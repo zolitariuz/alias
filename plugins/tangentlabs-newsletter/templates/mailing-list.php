@@ -5,7 +5,8 @@
 
 		<h2>Mailing List</h2>
 
-		<div id="newsletter-content">
+		<div id="newsletter-list">
+
 
 			<?php
 
@@ -127,7 +128,7 @@
 		{
 			global $wpdb , $_wp_column_headers;
 
-			$per_page = 2;
+			$per_page = 20;
 
 			$screen   = get_current_screen();
 			$columns  = $this->get_columns();

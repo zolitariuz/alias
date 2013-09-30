@@ -6,7 +6,7 @@
 
 	<div class="single_header">
 		<p><?php echo $numero; ?></p>
-		<h2><?php the_title() ?></h2>
+		<h2><?php the_title(); ?></h2>
 		<h3 class="subtitulo"><?php print_the_terms($post->ID, 'autor'); ?></h3>
 	</div><!-- single_header -->
 
@@ -35,10 +35,16 @@
 
 		<div class="info_single">
 
+			<?php
+			$precios = get_post_meta($post->ID, '_precio_meta', true);
+			$pesos   = isset($meta['pesos'])   ? $meta['pesos']   : '';
+			$dolares = isset($meta['dolares']) ? $meta['dolares'] : '';
+			$euros   = isset($meta['euros'])   ? $meta['euros']   : ''; ?>
+
 			<ul class="precios">
-				<li> <span class="curr">mxn $</span> <span class="amount">200.00</span> </li>
-				<li> <span class="curr">usd $</span> <span class="amount">16.00</span> </li>
-				<li> <span class="curr">eur €</span> <span class="amount">6.00</span> </li>
+				<li> <span class="curr">mxn $</span> <span class="amount"><?php echo $pesos; ?></span> </li>
+				<li> <span class="curr">usd $</span> <span class="amount"><?php echo $dolares; ?></span> </li>
+				<li> <span class="curr">eur €</span> <span class="amount"><?php echo $euros; ?></span> </li>
 			</ul><!-- precios -->
 
 
@@ -49,20 +55,20 @@
 				$encuadernacion = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
 				$size           = isset($meta['size'])           ? $meta['size']           : '';
 				$paginas        = isset($meta['paginas'])        ? $meta['paginas']        : '';
-				$pasta          = isset($meta['pasta'])          ? $meta['pasta']          : '';
+				$impresion      = isset($meta['impresion'])      ? $meta['impresion']      : '';
 				$isbn           = isset($meta['isbn'])           ? $meta['isbn']           : ''; ?>
 
 			<ul class="caracteristicas">
 
-				<li><p><strong><?php _e('pasta', 'alias'); ?></strong><br /><?php echo $pasta; ?></p></li>
+				<li><p><strong><?php _e('Idioma', 'alias'); ?></strong><br /><?php libro_idiomas($post->ID); ?></p></li>
 
-				<li><p><strong><?php _e('idioma', 'alias'); ?></strong><br /><?php libro_idiomas($post->ID) ?></p></li>
+				<li><p><strong><?php _e('Dimensiones', 'alias'); ?></strong><br /><?php echo $size; ?></p></li>
 
-				<li><p><strong><?php _e('dimensiones', 'alias'); ?></strong><br /><?php echo $size; ?></p></li>
+				<li><p><strong><?php _e('Número de páginas', 'alias'); ?></strong><br /><?php echo $paginas; ?></p></li>
 
-				<li><p><strong><?php _e('número de páginas', 'alias'); ?></strong><br /><?php echo $paginas; ?></p></li>
+				<li><p><strong><?php _e('Encuadernación', 'alias'); ?></strong><br /><?php echo $encuadernacion; ?></p></li>
 
-				<li><p><strong><?php _e('encuadernación', 'alias'); ?></strong><br /><?php echo $encuadernacion; ?></p></li>
+				<li><p><strong><?php _e('Impresión', 'alias'); ?></strong><br /><?php echo $impresion; ?></p></li>
 
 				<li><p><strong><?php _e('ISBN', 'alias'); ?></strong><br /><?php echo $isbn; ?></p></li>
 
@@ -72,11 +78,11 @@
 			<hr>
 
 
-			<button class="newsletter borde_gris sidebar_elemento boton_negro">
+			<button id="buy_now" class="newsletter borde_gris sidebar_elemento boton_negro" data-post_id="<?php echo $post->ID; ?>">
 				<p><?php _e('Comprar ahora', 'alias'); ?></p>
 			</button><!-- newsletter -->
 
-			<button id="add_to_cart" class="anadir newsletter borde_gris sidebar_elemento" data-post_id="<?php echo $post->ID ?>">
+			<button id="add_to_cart" class="anadir newsletter borde_gris sidebar_elemento" data-post_id="<?php echo $post->ID; ?>">
 				<span class="carrito_img"></span>
 				<p><?php _e('Añadir al carrito', 'alias'); ?></p>
 			</button><!-- newsletter -->

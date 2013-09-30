@@ -13,7 +13,7 @@
 		<div class="carrito borde_gris sidebar_elemento">
 			<a href="<?php echo qtrans_convertURL(site_url('/carrito-de-compras/')) ?>">
 				<span class="carrito_img"></span>
-				<p><?php echo ShopingCart::get_total_products(); ?></p>
+				<p id="carrito-total"><?php echo ShopingCart::get_total_products(); ?></p>
 			</a>
 		</div><!-- carrito -->
 

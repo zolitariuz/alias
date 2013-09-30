@@ -9,7 +9,7 @@
 
 	<?php $productos = ShopingCart::get_productos(); ?>
 
-	<?php if ( $productos->have_posts() ) : ?>
+	<?php if ( $productos AND $productos->have_posts() ) : ?>
 
 		<div class="carrito_content single_content">
 
@@ -60,20 +60,11 @@
 						$dolares = isset($precio['dolares']) ? $precio['dolares'] : '';
 						$euros   = isset($precio['euros'])   ? $precio['euros']   : ''; ?>
 
-						<select name="currency" class="currency">
-							<option value="mxn">mxn $ <?php echo $pesos ?></option>
-							<option value="usd">usd $<?php echo $dolares ?></option>
-							<option value="euro">euro €<?php echo $dolares ?></option>
+						<select name="currency" class="currency select-currency">
+							<option data-lc="MX" value="MXN">mxn $ <?php echo $pesos ?></option>
+							<option data-lc="US" value="USD">usd $<?php echo $dolares ?></option>
+							<option data-lc="GB" value="EURO">euro €<?php echo $euros ?></option>
 						</select>
-
-						<!-- <ul>
-							<li class="moneda">mxn $</li>
-							<li class="precio"><?php echo $pesos ?></li>
-							<li class="moneda">usd $</li>
-							<li class="precio"><?php echo $dolares ?></li>
-							<li class="moneda">eur €</li>
-							<li class="precio"><?php echo $euros ?></li>
-						</ul> -->
 
 					</div><!-- left -->
 
@@ -101,64 +92,62 @@
 
 	<div class="clear"></div>
 
-	<div class="carrito_total">
 
-		<div class="detalles_producto">
+	<?php if( $productos ) : ?>
 
-			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left"><?php _e('Subtotal', 'alias'); ?></p>
-				<ul class="left">
-					<li class="moneda">mxn $</li>
-					<li class="precio">200.00</li>
-					<li class="moneda">usd $</li>
-					<li class="precio">16.00</li>
-					<li class="moneda">eur €</li>
-					<li class="precio">6.00</li>
-				</ul>
-				<hr>
-			</div><!-- elemento_carrito_total -->
+		<div class="carrito_total">
 
-			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
-				<ul class="left">
-					<li class="selects">
-						<select id="pais" class="borde_gris">
-							<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
-							<option value="mexico">México</option>
-						</select>
-						<select id="estado" class="borde_gris" >
-							<option value="">Estado</option>
-							<option value="df">D.F.</option>
-						</select>
-						<input class="borde_gris" type="text" value="Código Postal" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-					</li>
-					<li class="moneda">mxn $</li>
-					<li class="precio">200.00</li>
-					<li class="moneda">usd $</li>
-					<li class="precio">16.00</li>
-					<li class="moneda">eur €</li>
-					<li class="precio">6.00</li>
-				</ul>
-				<hr>
-			</div><!-- elemento_carrito_total -->
+			<div class="detalles_producto">
 
-			<div class="elemento_carrito_total subtotal">
-				<p class="titulo_detalles_producto left"><?php _e('Total', 'alias'); ?></p>
-				<ul class="left">
-					<li class="moneda">mxn $</li>
-					<li class="precio">200.00</li>
-					<li class="moneda">usd $</li>
-					<li class="precio">16.00</li>
-					<li class="moneda">eur €</li>
-					<li class="precio">6.00</li>
-				</ul>
-				<hr>
-			</div><!-- elemento_carrito_total -->
+				<div class="elemento_carrito_total subtotal">
+					<p class="titulo_detalles_producto left"><?php _e('Subtotal', 'alias'); ?></p>
+					<ul class="left">
+						<li class="moneda">mxn $</li> <li class="precio"><?php echo $pesos; ?></li>
+						<li class="moneda">usd $</li> <li class="precio"><?php echo $dolares; ?></li>
+						<li class="moneda">eur €</li> <li class="precio"><?php echo $euros; ?></li>
+					</ul>
+					<hr>
+				</div><!-- elemento_carrito_total -->
 
-			<button><?php _e('Realizar compra', 'alias'); ?></button>
+				<div class="elemento_carrito_total subtotal">
+					<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
+					<ul class="left">
+						<li class="selects">
+							<select id="pais" class="borde_gris">
+								<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
+								<option value="mexico">México</option>
+							</select>
+							<select id="estado" class="borde_gris" >
+								<option value=""><?php _e('Estado', 'alias'); ?></option>
+								<option value="df">D.F.</option>
+							</select>
+							<input id="codigo_postal" class="borde_gris" type="text" value="<?php _e('Código Postal', 'alias'); ?>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
+						</li>
+						<li class="moneda">mxn $</li><li class="precio">100.00</li>
+						<li class="moneda">usd $</li><li class="precio">10.00</li>
+						<li class="moneda">eur €</li><li class="precio">9.00</li>
+					</ul>
+					<hr>
+				</div><!-- elemento_carrito_total -->
 
-		</div><!-- detalles_producto -->
+				<div class="elemento_carrito_total subtotal">
+					<p class="titulo_detalles_producto left"><?php _e('Total', 'alias'); ?></p>
+					<ul class="left">
+						<li class="moneda">mxn $</li><li class="precio">200.00</li>
+						<li class="moneda">usd $</li><li class="precio">16.00</li>
+						<li class="moneda">eur €</li><li class="precio">12.00</li>
+					</ul>
+					<hr>
+				</div><!-- elemento_carrito_total -->
 
-	</div><!-- carrito_total -->
+				<button id="comprar"><?php _e('Realizar compra', 'alias'); ?></button>
+
+			</div><!-- detalles_producto -->
+
+		</div><!-- carrito_total -->
+
+
+	<?php endif; ?>
+
 
 <?php get_footer(); ?>

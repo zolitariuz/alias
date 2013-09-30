@@ -16,6 +16,13 @@
 		};
 
 
+	// VALIDATE NUMBERS /////////////////////////////////////////////////////////////////
+
+
+		window.isNumber = function (value) {
+			return ! isNaN(parseInt(value, 10));
+		}
+
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
 
@@ -98,6 +105,19 @@
 				console.log(data);
 			});
 		});
+
+
+
+	// HILIGHT ELEMENTS IN COLECCIONES SUB MENU //////////////////////////////////////////
+
+
+
+		$('.colecciones_menu a').on('click', function () {
+			$('.colecciones_menu a').removeClass('active');
+			$(this).addClass('active');
+		});
+
+
 
 
 
@@ -197,6 +217,11 @@
 
 
 
+
+ 		/**
+ 		 * Agregar un elemento al carrito de compras
+ 		 * @param {int} product_id
+ 		 */
  		function add_to_shoping_cart (product_id) {
 
  			return $.post(ajax_url, {
@@ -205,6 +230,29 @@
  			},'json');
  		}
 
+
+
+ 		/**
+ 		 * Cambiar el total de elemntos en el carrito de compras
+ 		 * @param  {int} value    Valor que se sumara/restara del total
+ 		 * @return {int} newTotal Nuevo total
+ 		 */
+ 		function change_cart_total (value) {
+			var totalContainer = $('#carrito-total'),
+				currentTotal   = parseInt(totalContainer.text(), 10),
+				newTotal       = currentTotal + value;
+
+			totalContainer.text( newTotal );
+
+			return newTotal;
+ 		}
+
+
+
+ 	// AGREGAR AL CARRITO BUTTON ////////////////////////////////////////////////////////
+
+
+
 		$('button#add_to_cart').on('click', function (e) {
 
 			e.preventDefault();
@@ -212,20 +260,87 @@
 			var post_id    = $(this).data('post_id'),
 				addProduct = add_to_shoping_cart( post_id );
 
-			addProduct.done(function (data) {
-				console.log(data);
+			addProduct.done(function (object) {
+				if ( isNumber(object.data) ){
+					alert('Agregaste a tu carrito 1 libro');
+					change_cart_total( parseInt(object.data, 10) );
+				}
 			});
 
 		});
 
 
-		// CHOSEN ///////////////////////////////////////////////////////////////////////////
+
+	// COMPRAR AHORA BUTTON /////////////////////////////////////////////////////////////
 
 
 
-			$('#pais').chosen();
-			$('#estado').chosen();
-			$('.currency').chosen();
+		$('button#buy_now').on('click', function () {
+
+			var post_id    = $(this).data('post_id'),
+				addProduct = add_to_shoping_cart( post_id );
+
+			addProduct.done(function (object) {
+				if ( isNumber(object.data) ){
+					window.location.href = site_url+'/carrito-de-compra/?lang='+language;
+				}
+			});
+
+		});
+
+
+
+		$('.select-currency').on('change', function () {
+
+			var currency_code = $(this).val();
+
+			$('.select-currency').each(function (index, select) {
+
+				var test = $('option', this).filter(function (key, option){
+					return $(option).val() == currency_code;
+				}).prop('selected', true);
+
+			});
+
+			$('.select-currency').trigger('chosen:updated');
+		});
+
+
+	// COMPRAR BUTTON ///////////////////////////////////////////////////////////////////
+
+
+
+		$('button#comprar').on('click', function () {
+
+			var language_code = $('.select-currency :selected').data('lc'),
+				currency_code = $('.select-currency :selected').val(),
+				pais          = $('#pais').val(),
+				estado        = $('#estado').val(),
+				cp            = $('#codigo_postal').val();
+
+			var createPayPalForm = PayPal.init({
+				lc: language_code,
+				currency_code: currency_code,
+				custom: {
+					pais: pais,
+					estado: estado,
+					cp: cp
+				}
+			});
+
+			createPayPalForm.done(function () {
+				PayPal.submit();
+			});
+
+		});
+
+
+
+	// CHOSEN ///////////////////////////////////////////////////////////////////////////
+
+
+
+		$('#pais, #estado, .currency').chosen();
 
 
 

@@ -45,9 +45,12 @@
 		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 
 		enqueue_single_noticia_scripts();
+		enqueue_shoping_cart_scripts();
 
 		// localize scripts
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
+		wp_localize_script( 'functions', 'site_url', site_url() );
+		wp_localize_script( 'functions', 'language', qtrans_getlanguage() );
 
 		// styles
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
@@ -59,6 +62,21 @@
 		if ( is_single() AND get_query_var('post_type') === 'noticia' ) {
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
 			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
+		}
+	}
+
+
+	function enqueue_shoping_cart_scripts(){
+		if ( is_page('carrito-de-compras') ) {
+			wp_enqueue_script( 'paypal', JSPATH.'paypal.js', array('jquery'), null, false  );
+
+			$shoping_cart =  isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+
+			// localize paypal
+			wp_localize_script( 'paypal', 'ajax_url', admin_url('admin-ajax.php') );
+			wp_localize_script( 'functions', 'site_url', site_url() );
+			wp_localize_script( 'functions', 'shoping_cart', $shoping_cart );
+
 		}
 	}
 
@@ -255,11 +273,23 @@
 		if( ! isset($_POST['product_id'])) wp_send_json_error();
 
 		ShopingCart::add_to_cart($_POST['product_id'], 1);
-		wp_send_json_success();
+		wp_send_json_success(1);
 	}
 	add_action('wp_ajax_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
 	add_action('wp_ajax_nopriv_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
 
+
+
+// AJAX GET PAYPAL PRODUCTS //////////////////////////////////////////////////////////
+
+
+	function get_paypal_products(){
+		$currency = isset($_GET['currency']) ? $_GET['currency'] : 'pesos';
+		$result = ShopingCart::get_shoping_cart_products($currency);
+		wp_send_json($result);
+	}
+	add_action('wp_ajax_get_paypal_products', 'get_paypal_products');
+	add_action('wp_ajax_nopriv_get_paypal_products', 'get_paypal_products');
 
 
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
@@ -379,6 +409,25 @@
 
 
 
+	/**
+	 * Imprime los idiomas (terms) del post_type libro
+	 * @uses   print_the_terms
+	 *
+	 * @param  int $post_id
+	 * @return string
+	 */
 	function libro_idiomas($post_id){
 		print_the_terms($post_id, 'idioma');
+	}
+
+
+	/**
+	 * Imprime la clase active cuando el single pertenece a la cla
+	 * @param  [type]  $term [description]
+	 * @return boolean       [description]
+	 */
+	function is_colecciones_menu_active($term){
+		global $post;
+		if( is_singular('libro') AND has_term($term, 'coleccion') )
+			echo 'active';
 	}

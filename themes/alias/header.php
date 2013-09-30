@@ -46,9 +46,11 @@
 
 					<ul class="menu">
 						<li>
-							<a href="<?php echo qtrans_convertURL(site_url('/colecciones/')); ?>" class="<?php nav_is('colecciones') ?>" ><?php _e('COLECCIONES', 'alias'); ?></a>
+							<a href="<?php echo qtrans_convertURL(site_url('/colecciones/')); ?>" class="<?php nav_is('colecciones') ?> <?php if(is_singular('libro')) echo 'active'; ?>" >
+								<?php _e('COLECCIONES', 'alias'); ?>
+							</a>
 
-							<?php if ( is_post_type_archive('libro') ) {
+							<?php if ( is_post_type_archive('libro') OR is_singular('libro') ) {
 								get_template_part( 'templates/header', 'colecciones-menu' );
 							} ?>
 

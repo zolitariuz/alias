@@ -60,6 +60,7 @@ subtitulo_meta;
 		$embed = get_post_meta($post->ID, '_soundcloud_meta', true);
 		wp_nonce_field(__FILE__, '_soundcloud_meta_nonce');
 		echo "<input type='text' class='widefat' name='_soundcloud_meta' value='$embed'>";
+		echo '<p class="description">Widget Code</p>';
 	}
 
 
@@ -68,13 +69,13 @@ subtitulo_meta;
 	function libros_metadata_setup($post){
 
 		$meta           = get_post_meta($post->ID, '_libro_meta', true);
-		$numero         = isset($meta['numero']) ? $meta['numero'] : '';
-		$link           = isset($meta['link']) ? $meta['link'] : '';
-		$pasta          = isset($meta['pasta']) ? $meta['pasta'] : '';
-		$idioma         = isset($meta['idioma']) ? $meta['idioma'] : '';
+		$identificador  = isset($meta['numero']) ? $meta['numero'] : '';
 		$size           = isset($meta['size']) ? $meta['size'] : '';
 		$paginas        = isset($meta['paginas']) ? $meta['paginas'] : '';
+		$peso           = isset($meta['peso']) ? $meta['peso'] : '';
+		$link           = isset($meta['link']) ? $meta['link'] : '';
 		$encuadernacion = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
+		$impresion      = isset($meta['impresion']) ? $meta['impresion'] : '';
 		$isbn           = isset($meta['isbn']) ? $meta['isbn'] : '';
 
 		wp_nonce_field(__FILE__, '_libro_meta_nonce');
@@ -84,13 +85,7 @@ subtitulo_meta;
 			<div class="libro-meta">
 
 				<label for="numero">&nbsp;Identificador</label>
-				<input type='text' class='widefat' id='numero' name='_libro_meta[numero]' value='$numero'/>
-
-				<label for="link">&nbsp;Link</label>
-				<input type='url' class='widefat' id='link' name='_libro_meta[link]' value='$link'/>
-
-				<label for="pasta">&nbsp;Pasta</label>
-				<input type='text' class='widefat' id='pasta' name='_libro_meta[pasta]' value='$pasta'/>
+				<input type='text' class='widefat' id='numero' name='_libro_meta[numero]' value='$identificador'/>
 
 				<label for="size">&nbsp;Dimesiones</label>
 				<input type='text' class='widefat' id='size' name='_libro_meta[size]' value='$size'/>
@@ -98,8 +93,17 @@ subtitulo_meta;
 				<label for="paginas">&nbsp;Numero de Paginas</label>
 				<input type='number' class='widefat' id='paginas' name='_libro_meta[paginas]' value='$paginas'/>
 
+				<label for="peso">&nbsp;Peso</label>
+				<input type='text' class='widefat' id='peso' name='_libro_meta[peso]' value='$peso'/>
+
+				<label for="link">&nbsp;Link</label>
+				<input type='url' class='widefat' id='link' name='_libro_meta[link]' value='$link'/>
+
 				<label for="encuadernacion">&nbsp;Encuadernación</label>
 				<input type='text' class='widefat' id='encuadernacion' name='_libro_meta[encuadernacion]' value='$encuadernacion'/>
+
+				<label for="impresion">&nbsp;Impresión</label>
+				<input type='text' class='widefat' id='impresion' name='_libro_meta[impresion]' value='$impresion'/>
 
 				<label for="isbn">&nbsp;ISBN</label>
 				<input type='text' class='widefat' id='isbn' name='_libro_meta[isbn]' value='$isbn'/>
