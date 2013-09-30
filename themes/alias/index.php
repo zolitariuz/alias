@@ -15,7 +15,7 @@
 
 				<?php the_post_thumbnail( 'slider' ); ?>
 
-				<p><span><?php the_title( ); ?></span> <?php subtiluo_noticia($post->ID); ?></p>
+				<p><span><?php the_title( ); ?></span> <?php subtitulo_noticia($post->ID); ?></p>
 
 			</div><!-- home_slide -->
 

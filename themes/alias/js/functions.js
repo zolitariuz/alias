@@ -5,7 +5,6 @@
 	$(function(){
 
 
-
 	// VALIDATE EMAIL ////////////////////////////////////////////////////////////////////
 
 
@@ -26,17 +25,48 @@
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
 
+
+
 		var container = $('.main.libros');
-		container.imagesLoaded( function(){
+
+		container.imagesLoaded( function () {
 			container.isotope({
 				animationEngine: 'jquery'
 			});
+			$(document).trigger('isotopeDone');
 		});
-		$('.colecciones_menu a').click(function(){
+
+		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
 			container.isotope({ filter: selector });
-			window.location.hash = $(this).attr('href');
+			if (selector.charAt(0) === '#'){
+				window.location.hash = $(this).attr('href');
+			}else{
+				window.location = $(this).attr('href');
+			}
 			return false;
+		});
+
+
+
+	// ISOTOPE: REGRESAR DEL SINGLE AL ARCHIVE Y FILTRAR /////////////////////////////////
+
+
+
+		$(document).ready(function() {
+			var hash = window.location.hash;
+			$('.colecciones_menu a').filter(function (index, element) {
+				return $(element).attr('href') == hash;
+			}).addClass('active');
+		});
+
+
+		$(document).live('isotopeDone', function(){
+			var hash = window.location.hash;
+			if ( hash.charAt(0) == '#' ){
+				var selector = hash.replace('#', '.');
+				$('.main.libros').isotope({ filter: selector });
+			}
 		});
 
 

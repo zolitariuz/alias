@@ -2,7 +2,8 @@
 	<ul class="colecciones_menu">
 		<li>·</li>
 		<li>
-			<a href="#clasica" data-filter=".clasica" class="<?php is_colecciones_menu_active('clasica'); ?>">
+			<?php $href = is_singular('libro') ? site_url('/colecciones/#clasica') : '#clasica'; ?>
+			<a href="<?php echo $href; ?>" data-filter=".clasica" class="<?php is_colecciones_menu_active('clasica'); ?>">
 				clásica
 				<div class="tooltip">
 					<p>Colección constituida por textos, entrevistas, conferencias o proyectos específicos que no han sido traducidos, impresos y difundidos en habla hispana o cuyas ediciones están descontinuadas o nunca se han distribuido en México.</p>
@@ -15,7 +16,8 @@
 		</li>
 		<li>·</li>
 		<li>
-			<a href="#antitesis" data-filter=".antitesis" class="<?php is_colecciones_menu_active('antitesis'); ?>">
+			<?php $href = is_singular('libro') ? site_url('/colecciones/#antitesis') : '#antitesis'; ?>
+			<a href="<?php echo $href; ?>" data-filter=".antitesis" class="<?php is_colecciones_menu_active('antitesis'); ?>">
 				antítesis
 				<div class="tooltip">
 					<p>Colección conformada por proyectos de artistas mexicanos. El nombre “antítesis” se desprende de la comprensión del arte como una dinámica de reflexión que constantemente se cuestiona a sí misma.</p>

@@ -386,7 +386,7 @@
 	 * @param  int $post_id
 	 * @return string
 	 */
-	function subtiluo_noticia($post_id){
+	function subtitulo_noticia($post_id){
 		$subtitulo = get_post_meta($post_id, '_subtitulo_meta', true);
 		$language  = qtrans_getLanguage();
 		echo is_array($subtitulo) ? $subtitulo[$language] : '';

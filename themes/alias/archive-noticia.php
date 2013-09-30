@@ -10,7 +10,7 @@
 			<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
 			<p class="descripcion">
-				<a href="<?php the_permalink() ?>"><?php subtiluo_noticia($post->ID) ?></a>
+				<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
 			</p>
 
 		</div><!-- libro -->

@@ -110,7 +110,7 @@
 
 		<div class="single_header noticia">
 			<h2><?php the_title() ?></h2>
-			<h3 class="subtitulo"><?php subtiluo_noticia($post->ID) ?></h3>
+			<h3 class="subtitulo"><?php subtitulo_noticia($post->ID) ?></h3>
 		</div><!-- single_header -->
 
 		<div class="single_content noticia">
