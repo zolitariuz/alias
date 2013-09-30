@@ -2,7 +2,7 @@
 
 	$librerias = new WP_Query(array(
 		'post_type'     => 'distribuidor',
-		'post_per_page' => -1
+		'posts_per_page' => -1
 	)); ?>
 
 	<div class="librerias">

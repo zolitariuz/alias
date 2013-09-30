@@ -26,11 +26,11 @@
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
 
-
-
 		var container = $('.main.libros');
-		container.isotope({
-			animationEngine: 'jquery'
+		container.imagesLoaded( function(){
+			container.isotope({
+				animationEngine: 'jquery'
+			});
 		});
 		$('.colecciones_menu a').click(function(){
 			var selector = $(this).attr('data-filter');
@@ -340,7 +340,18 @@
 
 
 
-		$('#pais, #estado, .currency').chosen();
+		if( $('#pais').lenght > 0 ){
+			$('#pais').chosen();
+		}
+
+		if( $('#estado').lenght > 0 ){
+			$('#estado').chosen();
+		}
+
+		if( $('.currency').lenght > 0 ){
+			$('.currency').chosen();
+		}
+
 
 
 

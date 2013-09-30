@@ -86,7 +86,7 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
 
 @fondo: #fff;
 @color: #000;
-@color_claro: #666666;
+@color_claro: #888;
 
 /* ------ MIXINS ------ */
 
@@ -156,17 +156,18 @@ em{ font-style: italic; }
 	a:hover .tooltip{ display: block;}
 
 	.tooltip{ display: none; width: 100%; padding: 10px; color: @color_claro; background: url('images/bg_blanco_93.png') repeat; position: absolute; left: 0; z-index: 2;
-		p{ margin: 0; }
+		p{ margin: 0; text-transform: none; }
 	}
 }
 
 /* ------ FOOTER ------ */
 
 .footer{ width: 100%; padding: 20px 0; .position; .trade_18;
-	.aviso{ width: 30%; float: left;
+	.aviso{ width: 20%; float: left;
 		a{ color: @color; text-decoration: none; }
 	}
-	.librerias{ width: 70%; float: left;
+	a{ color: @color; text-decoration: none; }
+	.librerias{ width: 80%; float: left;
 		ul{ list-style: none;
 			li{ margin: 0 5px; display: inline;
 				a{ color: @color; text-decoration: none; }
@@ -473,7 +474,7 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 
 /* ------ SEARCH ------ */
 
-.resultado_busqueda{ font-size: 14px;
+.resultado_busqueda{ font-size: 14px; .clearfix;
 	.portada{ width: 180px; margin-right: 2%; float: left;
 		img{ width: 100%; height: auto; }
 	}

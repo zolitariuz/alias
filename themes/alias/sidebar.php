@@ -41,7 +41,17 @@
 
 			<div class="sidebar_bottom">
 
-			<img src="<?php echo THEMEPATH; ?>images/sidebar_bottom.jpg">
+			<?php
+				$args = array(
+					'post_type'      => 'banner',
+					'posts_per_page' => -1
+				);
+				$query_banner = new WP_Query($args);
+				if ( $query_banner->have_posts() ) : while ( $query_banner->have_posts() ) : $query_banner->the_post(); ?>
+
+					<?php the_post_thumbnail( 'full' ); ?>
+
+			<?php endwhile; endif; wp_reset_postdata(); ?>
 
 			</div><!-- sidebar_bottom -->
 
