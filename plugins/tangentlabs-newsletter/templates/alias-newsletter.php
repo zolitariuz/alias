@@ -15,7 +15,7 @@
 				<?php wp_editor( '','newsletter_content', array('textarea_name' => 'newsletter_content','media_buttons' => false) ); ?>
 
 				<p class="submit">
-					<input name="submit" type="submit" class="button-primary" value="<?php _e('Enviar', 'newsletter'); ?>" />
+					<input id="send-newsletter" name="submit" type="submit" class="button-primary" value="<?php _e('Enviar', 'newsletter'); ?>" />
 				</p>
 			</form>
 

@@ -97,4 +97,29 @@
 		}
 
 
+		public static function set_html_content_type()
+		{
+			return 'text/html';
+		}
+
+		public static function send_multiple_recipients($mails, $title, $message)
+		{
+
+			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+
+			wp_mail( $mails, $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
+
+			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+		}
+
+
+		public static function send($title, $message)
+		{
+			$recipients  = Newsletter::get_mails();
+			if ( ! $recipients) return false;
+
+			Newsletter::send_multiple_recipients($recipients, $title, $message);
+		}
+
+
 	}
