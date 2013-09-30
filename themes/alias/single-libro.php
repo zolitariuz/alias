@@ -91,4 +91,55 @@
 
 	</div><!-- single_content -->
 
+
+
+<?php
+
+/***********************************************************
+	 ____      _       _           _   ____           _
+	|  _ \ ___| | __ _| |_ ___  __| | |  _ \ ___  ___| |_
+	| |_) / _ \ |/ _` | __/ _ \/ _` | | |_) / _ \/ __| __|
+	|  _ |  __/ | (_| | ||  __/ (_| | |  __/ (_) \__ \ |_
+	|_| \_\___|_|\__,_|\__\___|\__,_| |_|   \___/|___/\__|
+
+ ************************************************************/
+
+	$related = get_related_post( $post->ID ); ?>
+
+	<?php if ($related and $related->have_posts() ) : while ( $related->have_posts() ) : $related->the_post(); ?>
+
+		<div class="single_header noticia">
+			<h2><?php the_title() ?></h2>
+			<h3 class="subtitulo"><?php subtiluo_noticia($post->ID) ?></h3>
+		</div><!-- single_header -->
+
+		<div class="single_content noticia">
+
+			<div class="content">
+
+				<?php the_content() ?>
+
+				<?php $soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true); ?>
+
+				<?php if ( $soundcloud ) : echo $soundcloud; ?>
+
+					<div class="audio play">
+						<div class="audio_status"></div>
+						<p>Repdroducir audio</p>
+					</div><!-- audio -->
+
+					<div class="audio pause" style="display: none;">
+						<div class="audio_status"></div>
+						<p>Pausar audio</p>
+					</div><!-- audio -->
+
+				<?php endif; ?>
+
+			</div><!-- content -->
+
+		</div><!-- single_content -->
+
+	<?php endwhile; endif; wp_reset_query(); ?>
+
+
 <?php get_footer(); ?>

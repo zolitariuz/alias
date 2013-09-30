@@ -237,6 +237,24 @@
 
 
 
+// RELATED POSTS /////////////////////////////////////////////////////////////////////
+
+
+
+	function get_related_post($post_id){
+		$categories = get_the_category( $post_id );
+
+		$categorie_ids = wp_list_pluck( $categories, 'cat_ID' );
+
+		return new WP_Query(array(
+			'post_type'      => 'noticia',
+			'posts_per_page' => 1,
+			'category__in'   => $categorie_ids
+		));
+
+	}
+
+
 // AJAX SAVE NEWSLETTER EMAIL ////////////////////////////////////////////////////////
 
 
