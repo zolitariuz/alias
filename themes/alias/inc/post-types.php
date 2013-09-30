@@ -104,5 +104,38 @@
 		);
 		register_post_type( 'distribuidor', $args );
 
+		// BANNERS
+		$labels = array(
+			'name'          => 'Banners',
+			'singular_name' => 'Banner',
+			'add_new'       => 'Nuevo Banner',
+			'add_new_item'  => 'Nuevo Banner',
+			'edit_item'     => 'Editar Banner',
+			'new_item'      => 'Nuevo Banner',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver Banner',
+			'search_items'  => 'Buscar Banner',
+			'not_found'     => 'No se encontro',
+			'menu_name'     => 'Banners'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'banners' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'banner', 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'banner', $args );
+
+
 
 	});
