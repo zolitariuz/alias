@@ -369,19 +369,21 @@
 	// CHOSEN ///////////////////////////////////////////////////////////////////////////
 
 
+		$(document).ready(function(){
 
-		if( $('#pais').lenght > 0 ){
-			$('#pais').chosen();
-		}
+			if( $('#pais').lenght > 0 ){
+				$('#pais').chosen();
+			}
 
-		if( $('#estado').lenght > 0 ){
-			$('#estado').chosen();
-		}
+			if( $('#estado').lenght > 0 ){
+				$('#estado').chosen();
+			}
 
-		if( $('.currency').lenght > 0 ){
-			$('.currency').chosen();
-		}
+			if( $('.currency').lenght > 0 ){
+				$('.currency').chosen();
+			}
 
+		});
 
 
 
