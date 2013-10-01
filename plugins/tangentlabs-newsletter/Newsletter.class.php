@@ -72,7 +72,7 @@
 
 		public static function show_options_page()
 		{
-			add_menu_page('Neswletter', 'Neswletter', 'administrator', 'alias-newsletter', array('Newsletter', 'add_menu_page_callback'), '', 120 );
+			add_menu_page('Newsletter', 'Newsletter', 'administrator', 'alias-newsletter', array('Newsletter', 'add_menu_page_callback'), '', 120 );
 			add_submenu_page( 'alias-newsletter', 'mailing-list', 'Mailing List', 'administrator', 'mailing-list', array('Newsletter', 'add_submenu_page_callback'));
 		}
 
