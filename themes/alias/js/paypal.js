@@ -36,7 +36,7 @@
 			return $.get(ajax_url, {
 				currency: currency,
 				action: 'get_paypal_products'
-			}, 'json')
+			}, 'json');
 		};
 
 

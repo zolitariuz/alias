@@ -20,7 +20,7 @@
 
 		window.isNumber = function (value) {
 			return ! isNaN(parseInt(value, 10));
-		}
+		};
 
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
@@ -132,7 +132,7 @@
 			}, 'json')
 
 			.done(function (data) {
-				console.log(data);
+				alert('Se envio el formulario de contacto');
 			});
 		});
 
@@ -279,7 +279,7 @@
 
 
 
- 	// AGREGAR AL CARRITO BUTTON ////////////////////////////////////////////////////////
+	// AGREGAR AL CARRITO BUTTON ////////////////////////////////////////////////////////
 
 
 
@@ -326,8 +326,8 @@
 
 			$('.select-currency').each(function (index, select) {
 
-				var test = $('option', this).filter(function (key, option){
-					return $(option).val() == currency_code;
+				$('option', this).filter(function (key, option){
+					return $(option).val() === currency_code;
 				}).prop('selected', true);
 
 			});
