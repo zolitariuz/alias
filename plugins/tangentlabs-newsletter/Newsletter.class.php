@@ -107,8 +107,18 @@
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
+
+			// To send HTML mail, the Content-type header must be set
+			$headers  = 'MIME-Version: 1.0' . "\r\n";
+			$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+			// Additional headers_list(oid)
+			$headers .= 'From: Alias <informes@aliaseditorial.com>' . "\r\n";
+
+
 			//wp_mail( $mails, $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
-			wp_mail( 'raul@losmaquiladores.com', $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
+			//wp_mail( 'raul@losmaquiladores.com', $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
+			wp_mail( 'raul@losmaquiladores.com', $title, $message, $headers );
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
