@@ -371,16 +371,16 @@
 
 		$(document).ready(function(){
 
-			if( $('#pais').lenght > 0 ){
+			if( $('#pais').length > 0){
 				$('#pais').chosen();
 			}
 
-			if( $('#estado').lenght > 0 ){
+			if( $('#estado').length > 0){
 				$('#estado').chosen();
 			}
 
-			if( $('.currency').lenght > 0 ){
-				$('.currency').chosen();
+			if( $('.select-currency').length > 0 ){
+				$('.select-currency').chosen();
 			}
 
 		});
