@@ -90,6 +90,12 @@
 		}
 
 
+		public static function get_newsletter_content()
+		{
+			$path = dirname( __FILE__ ) . '/templates/newsletter.template.html';
+			return file_exists($path) ? file_get_contents($path) : '';
+		}
+
 		public static function get_mails()
 		{
 			global $wpdb;
@@ -102,25 +108,28 @@
 			return 'text/html';
 		}
 
-		public static function send_multiple_recipients($mails, $title, $message)
+		public static function send_multiple_recipients($mails, $subject, $message)
 		{
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-			//wp_mail( $mails, $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
-			wp_mail( 'raul@losmaquiladores.com', $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
+			foreach ($mails as $mail) {
+				wp_mail( $mail, $subject, $message, 'From: Alias <informes@aliaseditorial.com>' );
+			}
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
 
 
-		public static function send($title, $message)
+		public static function send($subject, $message)
 		{
 			$recipients  = Newsletter::get_mails();
 			if ( ! $recipients) return false;
 
-			Newsletter::send_multiple_recipients($recipients, $title, $message);
+			Newsletter::send_multiple_recipients($recipients, $subject, $message);
 		}
+
+
 
 
 	}

@@ -19,15 +19,20 @@
 		$('#send-newsletter').on('click', function (e) {
 			e.preventDefault();
 
+			var sendButton = $(this);
+
+			sendButton.prop('disabled', true);
+
+
 			var ajax_newsletter = sendNewsletter(
-				$('#title').val(),               // title
-				$('#newsletter_content').val()   // message
+				$('#title').val(),             // subject
+				$('#newsletter_content').val() // message
 			);
 
 			ajax_newsletter.done(function (data){
-				console.log(data);
-				alert('Se envio el newsletter');
-			})
+				$('#newsletter-success').show();
+				sendButton.prop('disabled', false);
+			});
 		});
 
 

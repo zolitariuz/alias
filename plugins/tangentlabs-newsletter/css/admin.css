@@ -2,8 +2,8 @@
 @charset 'utf-8';
 
 #newsletter-content{
-	width: 80%;
-	margin: 20px 0 0 10px;
+	width: 90%;
+	margin: 20px 0 0 5px;
 }
 #newsletter-list{
 	width: 100%;
@@ -20,7 +20,9 @@
 	-webkit-border-radius: 3px;
 			border-radius: 3px;
 }
-
+#newsletter-success{
+	display: none;
+}
 
 body#tinymce.wp-editor {
 	font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
