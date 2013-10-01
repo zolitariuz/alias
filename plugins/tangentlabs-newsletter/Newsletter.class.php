@@ -108,7 +108,7 @@
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			//wp_mail( $mails, $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
-			wp_mail( 'raul@zamacona.me', $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
+			wp_mail( 'raul@losmaquiladores.com', $title, $message, 'From: Alias <informes@aliaseditorial.com>' );
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
