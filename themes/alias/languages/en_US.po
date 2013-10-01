@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
-"POT-Creation-Date: 2013-09-28 19:17-0600\n"
-"PO-Revision-Date: 2013-09-28 19:17-0600\n"
+"POT-Creation-Date: 2013-09-30 18:59-0600\n"
+"PO-Revision-Date: 2013-09-30 19:00-0600\n"
 "Last-Translator: Raúl De Zamacona <raul@zamacona.me>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
@@ -19,32 +19,32 @@ msgstr ""
 msgid "Aviso de privacidad"
 msgstr "Privacy Policy / Legal Notice"
 
-#: ../functions.php:146
+#: ../functions.php:164
 msgid "Posts"
 msgstr ""
 
-#: ../functions.php:330
+#: ../functions.php:378
 #, php-format
 msgid "Page %s"
 msgstr ""
 
-#: ../header.php:49
+#: ../header.php:50
 msgid "COLECCIONES"
 msgstr "SERIES"
 
-#: ../header.php:61
+#: ../header.php:63
 msgid "QUÉ ES ALIAS"
 msgstr "About Alias"
 
-#: ../header.php:67
+#: ../header.php:69
 msgid "NOTICIAS"
 msgstr "NEWS"
 
-#: ../header.php:73
+#: ../header.php:75
 msgid "GALERÍA"
 msgstr "GALLERY"
 
-#: ../header.php:79
+#: ../header.php:81
 msgid "CONTACTO"
 msgstr "CONTACT"
 
@@ -68,7 +68,7 @@ msgstr "Quantity"
 msgid "Su carrito esta vacío."
 msgstr "Your cart is empty"
 
-#: ../page-carrito-de-compras.php:100
+#: ../page-carrito-de-compras.php:103
 msgid "Subtotal"
 msgstr "Subtotal"
 
@@ -80,11 +80,19 @@ msgstr "Shipping"
 msgid "Selecciona tu país"
 msgstr "Choose your country"
 
-#: ../page-carrito-de-compras.php:137
+#: ../page-carrito-de-compras.php:121
+msgid "Estado"
+msgstr "State"
+
+#: ../page-carrito-de-compras.php:124 ../page-registro.php:38
+msgid "Código Postal"
+msgstr "Postcode"
+
+#: ../page-carrito-de-compras.php:134
 msgid "Total"
 msgstr "Total"
 
-#: ../page-carrito-de-compras.php:149
+#: ../page-carrito-de-compras.php:143
 msgid "Realizar compra"
 msgstr "Confirm checkout"
 
@@ -130,10 +138,6 @@ msgstr "State"
 msgid "País"
 msgstr "Country"
 
-#: ../page-registro.php:38
-msgid "Código Postal"
-msgstr "Postcode"
-
 #: ../page-registro.php:43
 msgid "Teléfono fijo"
 msgstr "Telephone"
@@ -158,6 +162,10 @@ msgid ""
 "anuncio de privacidad."
 msgstr "Alias keep the personal information safe. Read our Privacy Policy."
 
+#: ../search.php:6
+msgid " resultado para"
+msgstr "Results for"
+
 #: ../sidebar.php:32
 msgid "Suscríbete al newsletter"
 msgstr "Newsletter subscription"
@@ -166,34 +174,38 @@ msgstr "Newsletter subscription"
 msgid "Hojear esta publicación"
 msgstr "Browse this publication"
 
-#: ../single-libro.php:57
-msgid "pasta"
-msgstr ""
-
-#: ../single-libro.php:59
-msgid "idioma"
+#: ../single-libro.php:63
+#, fuzzy
+msgid "Idioma"
 msgstr "Language"
 
-#: ../single-libro.php:61
-msgid "dimensiones"
+#: ../single-libro.php:65
+#, fuzzy
+msgid "Dimensiones"
 msgstr "Dimensions "
 
-#: ../single-libro.php:63
-msgid "número de páginas"
+#: ../single-libro.php:67
+#, fuzzy
+msgid "Número de páginas"
 msgstr "Number of pages"
 
-#: ../single-libro.php:65
-msgid "encuadernación"
+#: ../single-libro.php:69
+#, fuzzy
+msgid "Encuadernación"
 msgstr "Binding"
 
-#: ../single-libro.php:67
+#: ../single-libro.php:71
+msgid "Impresión"
+msgstr "Print"
+
+#: ../single-libro.php:73
 msgid "ISBN"
 msgstr "ISBN"
 
-#: ../single-libro.php:76
+#: ../single-libro.php:82
 msgid "Comprar ahora"
 msgstr "Buy now"
 
-#: ../single-libro.php:81
+#: ../single-libro.php:87
 msgid "Añadir al carrito"
 msgstr "Add to cart"
