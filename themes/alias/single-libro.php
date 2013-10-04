@@ -36,10 +36,10 @@
 		<div class="info_single">
 
 			<?php
-			$precios = get_post_meta($post->ID, '_precio_meta', true);
-			$pesos   = isset($meta['pesos'])   ? $meta['pesos']   : '';
-			$dolares = isset($meta['dolares']) ? $meta['dolares'] : '';
-			$euros   = isset($meta['euros'])   ? $meta['euros']   : ''; ?>
+			$precio  = get_post_meta($post->ID, '_precio_meta', true);
+			$pesos   = isset($precio['pesos'])   ? $precio['pesos']   : '';
+			$dolares = isset($precio['dolares']) ? $precio['dolares'] : '';
+			$euros   = isset($precio['euros'])   ? $precio['euros']   : ''; ?>
 
 			<ul class="precios">
 				<li> <span class="curr">mxn $</span> <span class="amount"><?php echo $pesos; ?></span> </li>

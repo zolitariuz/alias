@@ -140,6 +140,23 @@
 
 
 
+// MODIFICAR EL MAIN QUERY ///////////////////////////////////////////////////////////
+
+
+
+	add_action( 'pre_get_posts', function($query){
+
+		if ( $query->is_main_query() and ! is_admin() ) {
+			if ( is_post_type_archive('libro') ){
+				$query->set('posts_per_page', -1);
+			}
+		}
+		return $query;
+
+	});
+
+
+
 // POST THUMBNAILS SUPPORT ///////////////////////////////////////////////////////////
 
 
