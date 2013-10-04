@@ -9,7 +9,7 @@
 			Config: {
 				cmd           : '_cart',
 				upload        : '1',
-				business      : 'scrub.mx@gmail.com',
+				business      : 'informes@aliaseditorial.com',
 				tax_cart      : '0',
 				notify_url    : site_url+'/paypal-ipn/',
 				return        : site_url,
@@ -36,7 +36,7 @@
 			return $.get(ajax_url, {
 				currency: currency,
 				action: 'get_paypal_products'
-			}, 'json')
+			}, 'json');
 		};
 
 

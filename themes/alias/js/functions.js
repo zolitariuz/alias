@@ -20,7 +20,7 @@
 
 		window.isNumber = function (value) {
 			return ! isNaN(parseInt(value, 10));
-		}
+		};
 
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
@@ -132,7 +132,7 @@
 			}, 'json')
 
 			.done(function (data) {
-				console.log(data);
+				alert('Se envio el formulario de contacto');
 			});
 		});
 
@@ -279,7 +279,7 @@
 
 
 
- 	// AGREGAR AL CARRITO BUTTON ////////////////////////////////////////////////////////
+	// AGREGAR AL CARRITO BUTTON ////////////////////////////////////////////////////////
 
 
 
@@ -326,8 +326,8 @@
 
 			$('.select-currency').each(function (index, select) {
 
-				var test = $('option', this).filter(function (key, option){
-					return $(option).val() == currency_code;
+				$('option', this).filter(function (key, option){
+					return $(option).val() === currency_code;
 				}).prop('selected', true);
 
 			});
@@ -369,19 +369,21 @@
 	// CHOSEN ///////////////////////////////////////////////////////////////////////////
 
 
+		$(document).ready(function(){
 
-		if( $('#pais').lenght > 0 ){
-			$('#pais').chosen();
-		}
+			if( $('#pais').length > 0){
+				$('#pais').chosen();
+			}
 
-		if( $('#estado').lenght > 0 ){
-			$('#estado').chosen();
-		}
+			if( $('#estado').length > 0){
+				$('#estado').chosen();
+			}
 
-		if( $('.currency').lenght > 0 ){
-			$('.currency').chosen();
-		}
+			if( $('.select-currency').length > 0 ){
+				$('.select-currency').chosen();
+			}
 
+		});
 
 
 
