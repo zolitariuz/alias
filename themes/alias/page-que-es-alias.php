@@ -13,7 +13,7 @@
 
 	<div class="single_content">
 
-		<div class="portada">
+		<div class="portada que-es-alias">
 			<?php the_post_thumbnail( 'full' ); ?>
 			<p>
 				<strong>Sara Schulz y Damián Ortega</strong> <br />

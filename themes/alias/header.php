@@ -72,7 +72,14 @@
 					    <li></li>
 
 
-					    <li><a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>"><?php _e('GALERÍA', 'alias'); ?></a></li>
+					    <li>
+					    	<a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>">
+					    		<?php _e('GALERÍA', 'alias'); ?>
+					    	</a>
+					    	<?php if ( is_page('galeria') ) {
+								get_template_part( 'templates/header', 'galeria-menu' );
+							} ?>
+					    </li>
 					    <li></li>
 						<li>/ </li>
 						<li></li>
@@ -84,4 +91,12 @@
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<div class="main <?php if (is_home()) {echo 'home';} if ( get_post_type() === 'libro' ) {echo 'libros';} ?>">
+			<div class="main
+				<?php
+					if (is_home()) {
+						echo 'home';
+					}
+					if ( get_post_type() === 'libro' OR is_page('galeria') ) {
+						echo 'main_isotope';
+					} ?>"
+			>

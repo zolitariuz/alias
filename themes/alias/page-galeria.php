@@ -18,7 +18,7 @@
 
 			while( $image = array_pop($images[0]) ){ ?>
 
-				<div class="libro">
+				<div class="libro fotografias">
 
 					<a href="<?php the_permalink() ?>"><?php echo $image ?></a>
 
@@ -43,7 +43,7 @@
 
 			while( $video = array_pop($videos[0]) ){ ?>
 
-				<div class="libro">
+				<div class="libro video">
 
 					<a href="<?php the_permalink() ?>"><?php echo $video ?></a>
 

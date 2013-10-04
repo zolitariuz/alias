@@ -463,6 +463,10 @@
 	 */
 	function is_colecciones_menu_active($term){
 		global $post;
-		if( is_singular('libro') AND has_term($term, 'coleccion') )
+		if( is_singular('libro') AND has_term($term, 'coleccion') ){
 			echo 'active';
+		}
+		if( is_page('galeria') AND has_term($term, 'galeria') ){
+			echo 'active';
+		}
 	}

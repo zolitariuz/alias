@@ -27,10 +27,11 @@
 
 
 
-		var container = $('.main.libros');
+		var container = $('.main_isotope');
 
 		container.imagesLoaded( function () {
 			container.isotope({
+				layoutMode : 'fitRows',
 				animationEngine: 'jquery'
 			});
 			$(document).trigger('isotopeDone');
