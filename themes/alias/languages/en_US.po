@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
-"POT-Creation-Date: 2013-09-30 22:34-0600\n"
-"PO-Revision-Date: 2013-09-30 22:34-0600\n"
+"POT-Creation-Date: 2013-10-03 20:55-0600\n"
+"PO-Revision-Date: 2013-10-03 20:58-0600\n"
 "Last-Translator: Jorge González <scrub.mx@gmail.com>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
@@ -127,36 +127,34 @@ msgstr "Add to cart"
 msgid "Suscríbete al newsletter"
 msgstr "Newsletter subscription"
 
-#: ../functions.php:164
+#: ../functions.php:181
 msgid "Posts"
-msgstr ""
+msgstr "Posts"
 
-#: ../functions.php:378
+#: ../functions.php:395
 #, php-format
 msgid "Page %s"
-msgstr ""
+msgstr "Pagina %s"
 
 #: ../page-contacto.php:5 ../page-registro.php:6
 msgid "Nombre"
-msgstr "First Name"
+msgstr "Name"
 
 #: ../page-contacto.php:8 ../page-registro.php:50
 msgid "Correo electrónico"
-msgstr "E-mail address"
+msgstr "E-mail"
 
 #: ../page-contacto.php:11
-#, fuzzy
-msgid " Asunto"
+msgid "Asunto"
 msgstr "Subject"
 
 #: ../page-contacto.php:14
-#, fuzzy
-msgid " Mensaje"
+msgid "Mensaje"
 msgstr "Message"
 
 #: ../page-contacto.php:17
 msgid "enviar"
-msgstr ""
+msgstr "send"
 
 #: ../page-registro.php:11
 msgid "Apellido"
