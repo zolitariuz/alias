@@ -2,19 +2,19 @@
 
 	<form id="forma_contacto" method="POST" action="">
 
-		<label for="nombre"><?php _e('nombre', 'alias') ?></label>
+		<label for="nombre"><?php _e('Nombre', 'alias'); ?></label>
 		<input type="text" id="nombre" name="nombre" required />
 
-		<label for="email"><?php _e('correo electrónico', 'alias') ?></label>
+		<label for="email"><?php _e('Correo electrónico', 'alias'); ?></label>
 		<input type="email" id="email" name="email" required />
 
-		<label for="asunto"><?php _e('asunto', 'alias') ?></label>
+		<label for="asunto"><?php _e('Asunto', 'alias'); ?></label>
 		<input type="text" id="asunto" name="asunto" required />
 
-		<label for="mensaje"><?php _e('mensaje', 'alias') ?></label>
+		<label for="mensaje"><?php _e('Mensaje', 'alias'); ?></label>
 		<textarea id="mensaje" name="mensaje" required></textarea>
 
-		<input type="submit" value="enviar">
+		<input type="submit" value="<?php _e('enviar', 'alias'); ?>">
 
 		<p>
 			<strong>informes@aliaseditorial.com<br />

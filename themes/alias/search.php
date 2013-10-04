@@ -3,7 +3,7 @@
 	<?php global $wp_query; ?>
 
 	<div class="single_header">
-		<p><?php echo $wp_query->post_count; _e(' resultado para', 'alias'); ?>:</p>
+		<p><?php echo $wp_query->post_count; _e('resultado para', 'alias'); ?>:</p>
 		<h3 class="subtitulo">"<?php echo $wp_query->query['s'] ?>"</h3>
 	</div><!-- single_header -->
 

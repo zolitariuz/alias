@@ -1,52 +1,19 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
-"POT-Creation-Date: 2013-09-30 18:59-0600\n"
-"PO-Revision-Date: 2013-09-30 19:00-0600\n"
-"Last-Translator: Raúl De Zamacona <raul@zamacona.me>\n"
+"POT-Creation-Date: 2013-09-30 22:34-0600\n"
+"PO-Revision-Date: 2013-09-30 22:34-0600\n"
+"Last-Translator: Jorge González <scrub.mx@gmail.com>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.5.4\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: ..\n"
-
-#: ../footer.php:7
-msgid "Aviso de privacidad"
-msgstr "Privacy Policy / Legal Notice"
-
-#: ../functions.php:164
-msgid "Posts"
-msgstr ""
-
-#: ../functions.php:378
-#, php-format
-msgid "Page %s"
-msgstr ""
-
-#: ../header.php:50
-msgid "COLECCIONES"
-msgstr "SERIES"
-
-#: ../header.php:63
-msgid "QUÉ ES ALIAS"
-msgstr "About Alias"
-
-#: ../header.php:69
-msgid "NOTICIAS"
-msgstr "NEWS"
-
-#: ../header.php:75
-msgid "GALERÍA"
-msgstr "GALLERY"
-
-#: ../header.php:81
-msgid "CONTACTO"
-msgstr "CONTACT"
 
 #: ../page-carrito-de-compras.php:4
 msgid "Carrito de Compras"
@@ -96,79 +63,25 @@ msgstr "Total"
 msgid "Realizar compra"
 msgstr "Confirm checkout"
 
-#: ../page-contacto.php:5
-#, fuzzy
-msgid "nombre"
-msgstr "First Name"
+#: ../header.php:50
+msgid "COLECCIONES"
+msgstr "SERIES"
 
-#: ../page-contacto.php:8
-#, fuzzy
-msgid "correo electrónico"
-msgstr "E-mail address"
+#: ../header.php:63
+msgid "QUÉ ES ALIAS"
+msgstr "About Alias"
 
-#: ../page-contacto.php:11
-msgid "asunto"
-msgstr "Subject"
+#: ../header.php:69
+msgid "NOTICIAS"
+msgstr "NEWS"
 
-#: ../page-contacto.php:14
-msgid "mensaje"
-msgstr "Message"
+#: ../header.php:75
+msgid "GALERÍA"
+msgstr "GALLERY"
 
-#: ../page-registro.php:6
-msgid "Nombre"
-msgstr "First Name"
-
-#: ../page-registro.php:11
-msgid "Apellido"
-msgstr "Last name"
-
-#: ../page-registro.php:15
-msgid "Dirección"
-msgstr "Address"
-
-#: ../page-registro.php:19
-msgid "Ciudad"
-msgstr "City"
-
-#: ../page-registro.php:24
-msgid "Estado / Provincia"
-msgstr "State"
-
-#: ../page-registro.php:29
-msgid "País"
-msgstr "Country"
-
-#: ../page-registro.php:43
-msgid "Teléfono fijo"
-msgstr "Telephone"
-
-#: ../page-registro.php:47
-msgid "Notas especiales para la entrega"
-msgstr "Comments for delivery"
-
-#: ../page-registro.php:50
-msgid "Correo electrónico"
-msgstr "E-mail address"
-
-#: ../page-registro.php:54
-msgid ""
-"No deseo recibir en mi correo electrónico noticias o recomendaciones de "
-"Alias."
-msgstr "I do not want to receive news or recommendations about Alias."
-
-#: ../page-registro.php:57
-msgid ""
-"Los datos personales que se proporcionen serán usados responsablemente. Leer "
-"anuncio de privacidad."
-msgstr "Alias keep the personal information safe. Read our Privacy Policy."
-
-#: ../search.php:6
-msgid " resultado para"
-msgstr "Results for"
-
-#: ../sidebar.php:32
-msgid "Suscríbete al newsletter"
-msgstr "Newsletter subscription"
+#: ../header.php:81
+msgid "CONTACTO"
+msgstr "CONTACT"
 
 #: ../single-libro.php:26
 msgid "Hojear esta publicación"
@@ -209,3 +122,95 @@ msgstr "Buy now"
 #: ../single-libro.php:87
 msgid "Añadir al carrito"
 msgstr "Add to cart"
+
+#: ../sidebar.php:32
+msgid "Suscríbete al newsletter"
+msgstr "Newsletter subscription"
+
+#: ../functions.php:164
+msgid "Posts"
+msgstr ""
+
+#: ../functions.php:378
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: ../page-contacto.php:5 ../page-registro.php:6
+msgid "Nombre"
+msgstr "First Name"
+
+#: ../page-contacto.php:8 ../page-registro.php:50
+msgid "Correo electrónico"
+msgstr "E-mail address"
+
+#: ../page-contacto.php:11
+#, fuzzy
+msgid " Asunto"
+msgstr "Subject"
+
+#: ../page-contacto.php:14
+#, fuzzy
+msgid " Mensaje"
+msgstr "Message"
+
+#: ../page-contacto.php:17
+msgid "enviar"
+msgstr ""
+
+#: ../page-registro.php:11
+msgid "Apellido"
+msgstr "Last name"
+
+#: ../page-registro.php:15
+msgid "Dirección"
+msgstr "Address"
+
+#: ../page-registro.php:19
+msgid "Ciudad"
+msgstr "City"
+
+#: ../page-registro.php:24
+msgid "Estado / Provincia"
+msgstr "State"
+
+#: ../page-registro.php:29
+msgid "País"
+msgstr "Country"
+
+#: ../page-registro.php:43
+msgid "Teléfono fijo"
+msgstr "Telephone"
+
+#: ../page-registro.php:47
+msgid "Notas especiales para la entrega"
+msgstr "Comments for delivery"
+
+#: ../page-registro.php:54
+msgid ""
+"No deseo recibir en mi correo electrónico noticias o recomendaciones de "
+"Alias."
+msgstr "I do not want to receive news or recommendations about Alias."
+
+#: ../page-registro.php:57
+msgid ""
+"Los datos personales que se proporcionen serán usados responsablemente. Leer "
+"anuncio de privacidad."
+msgstr "Alias keep the personal information safe. Read our Privacy Policy."
+
+#: ../footer.php:7
+msgid "Aviso de privacidad"
+msgstr "Privacy Policy / Legal Notice"
+
+#: ../search.php:6
+#, fuzzy
+msgid "resultado para"
+msgstr "Results for"
+
+#, fuzzy
+#~ msgid "nombre"
+#~ msgstr "First Name"
+
+#, fuzzy
+#~ msgid "correo electrónico"
+#~ msgstr "E-mail address"
