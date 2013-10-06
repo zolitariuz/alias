@@ -470,3 +470,11 @@
 			echo 'active';
 		}
 	}
+
+
+	function div_main_class(){
+		echo is_home() ? 'home' : '';
+		if ( get_post_type() === 'libro' OR is_page('galeria') ) {
+			echo 'main_isotope';
+		}
+	}

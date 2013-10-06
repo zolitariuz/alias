@@ -66,7 +66,7 @@
 			var hash = window.location.hash;
 			if ( hash.charAt(0) == '#' ){
 				var selector = hash.replace('#', '.');
-				$('.main.libros').isotope({ filter: selector });
+				$('.main_isotope').isotope({ filter: selector });
 			}
 		});
 

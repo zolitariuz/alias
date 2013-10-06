@@ -91,12 +91,4 @@
 				</div><!-- header -->
 			<?php endif; ?>
 
-			<div class="main
-				<?php
-					if (is_home()) {
-						echo 'home';
-					}
-					if ( get_post_type() === 'libro' OR is_page('galeria') ) {
-						echo 'main_isotope';
-					} ?>"
-			>
+			<div class="main <?php div_main_class() ?>">
