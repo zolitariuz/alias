@@ -136,6 +136,38 @@
 		);
 		register_post_type( 'banner', $args );
 
+		// SLIDER
+		$labels = array(
+			'name'          => 'Slides',
+			'singular_name' => 'Slide',
+			'add_new'       => 'Nuevo Slide',
+			'add_new_item'  => 'Nuevo Slide',
+			'edit_item'     => 'Editar Slide',
+			'new_item'      => 'Nuevo Slide',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver Slide',
+			'search_items'  => 'Buscar Slides',
+			'not_found'     => 'No se encontro',
+			'menu_name'     => 'Slides'
+		);
+
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'slides' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'taxonomies'         => array( 'slide', 'category' ),
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'slide', $args );
+
 
 
 	});
