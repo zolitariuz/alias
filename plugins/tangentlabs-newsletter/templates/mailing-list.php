@@ -160,7 +160,7 @@
 
 
 			if ( isset($_GET['s']) ){
-				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter WHERE email REGEXP '{$_GET['s']}'", ARRAY_A);
+				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter WHERE email LIKE '%{$_GET['s']}%'", ARRAY_A);
 			} else {
 				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter", ARRAY_A);
 			}
