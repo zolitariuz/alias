@@ -3,7 +3,7 @@
 	<?php global $wp_query; ?>
 
 	<div class="single_header">
-		<p><?php echo $wp_query->post_count; _e('resultado para', 'alias'); ?>:</p>
+		<p><?php echo $wp_query->post_count.' '; _e('Resultado para', 'alias'); ?>:</p>
 		<h3 class="subtitulo">"<?php echo $wp_query->query['s'] ?>"</h3>
 	</div><!-- single_header -->
 
@@ -12,9 +12,7 @@
 		$meta   = get_post_meta($post->ID, '_libro_meta', true);
 		$numero = isset($meta['numero']) ? $meta['numero'] : '';
 		$precio = isset($meta['precio']) ? $meta['precio'] : '';
-		$link   = isset($meta['link'])   ? $meta['link']   : '';
-
-		?>
+		$link   = isset($meta['link'])   ? $meta['link']   : ''; ?>
 
 		<div class="resultado_busqueda">
 			<div class="portada">

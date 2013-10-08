@@ -335,9 +335,8 @@
 	 * Regresa true si es el ultimo post del query
 	 * @return boolean
 	 */
-	function is_last_post() {
-		global $wp_query;
-		return $wp_query->current_post + 1 == $wp_query->post_count;
+	function is_last_post($query) {
+		return $query->current_post + 1 == $query->post_count;
 	}
 
 

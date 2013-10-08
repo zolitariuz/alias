@@ -14,12 +14,18 @@
 		<label for="mensaje"><?php _e('Mensaje', 'alias'); ?></label>
 		<textarea id="mensaje" name="mensaje" required></textarea>
 
-		<input type="submit" value="<?php _e('enviar', 'alias'); ?>">
+		<input type="submit" value="<?php _e('Enviar', 'alias'); ?>">
 
 		<p>
-			<strong>informes@aliaseditorial.com<br />
-			t. 5533 2849</strong><br />
-			Orizaba 36, interior 403, colonia Roma, 06700, Distrito Federal , México
+			<a href="mailto:informes@aliaseditorial.com" style="color:black; text-decoration:none;">
+				<strong>informes@aliaseditorial.com</strong>
+			</a>
+			<br />
+			<a href="tel://5555332849" style="color:black; text-decoration:none;">
+				T. (5255) 55332849
+			</a>
+			<br />
+			Av. Oaxaca 46, interior 205, colonia Roma Norte, Cuauhtémoc, 06700, Distrito Federal, México
 		</p>
 
 	</form>

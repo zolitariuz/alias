@@ -211,6 +211,24 @@
 		}
 
 
+		function alert_email_saved(){
+			if (language === 'es'){
+				alert('Gracias, se guardo correctamente tu direccion de correo');
+			} else if (language === 'en'){
+				alert('Thank you, your email was successfully saved');
+			}
+		}
+
+
+		function alert_email_not_valid(){
+			if (language === 'es'){
+				alert('Porfavor ingresa una direccion de correo valida');
+			} else if (language === 'en'){
+				alert('Please enter valid email address');
+			}
+		}
+
+
 		$('form.form_newsletter').on('submit', function (e) {
 			e.preventDefault();
 			var email = $('.form_newsletter_input').val();
@@ -220,11 +238,10 @@
 
 				newMail.done(function (data) {
 					$('.form_newsletter_input').val('');
-					alert('Gracias, se guardo correctamente tu direccion de correo');
+					alert_email_saved();
 				});
-
 			}else{
-				alert('Porfavor ingresa una direccion de correo valida');
+				alert_email_not_valid();
 			}
 		});
 
