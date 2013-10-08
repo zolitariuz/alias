@@ -51,6 +51,7 @@
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
 		wp_localize_script( 'functions', 'site_url', site_url() );
 		wp_localize_script( 'functions', 'language', qtrans_getlanguage() );
+		wp_localize_script( 'functions', 'i18n',  get_language_strings() );
 
 		// styles
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
@@ -78,6 +79,13 @@
 			wp_localize_script( 'functions', 'shoping_cart', $shoping_cart );
 
 		}
+	}
+
+	function get_language_strings(){
+		return array(
+			'email_saved'   => __('Gracias, se guardo correctamente tu direccion de correo', 'alias'),
+			'email_invalid' => __('Porfavor ingresa una direccion de correo valida', 'alias')
+		);
 	}
 
 

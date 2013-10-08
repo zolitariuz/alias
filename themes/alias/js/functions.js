@@ -211,7 +211,7 @@
 		}
 
 
-		function alert_email_saved(){
+/*		function alert_email_saved(){
 			if (language === 'es'){
 				alert('Gracias, se guardo correctamente tu direccion de correo');
 			} else if (language === 'en'){
@@ -226,7 +226,7 @@
 			} else if (language === 'en'){
 				alert('Please enter valid email address');
 			}
-		}
+		}*/
 
 
 		$('form.form_newsletter').on('submit', function (e) {
@@ -238,10 +238,10 @@
 
 				newMail.done(function (data) {
 					$('.form_newsletter_input').val('');
-					alert_email_saved();
+					alert( i18n.email_saved );
 				});
 			}else{
-				alert_email_not_valid();
+				alert( i18n.email_invalid );
 			}
 		});
 

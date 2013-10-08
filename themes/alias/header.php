@@ -5,9 +5,6 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="description" content="<?php bloginfo('description') ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<style>
-			#forma_contacto input, #forma_contacto textarea{ padding-left: 3px; }
-		</style>
 		<title><?php print_title(); ?></title>
 		<?php wp_head() ?>
 	</head>

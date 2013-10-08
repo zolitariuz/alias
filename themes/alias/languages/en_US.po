@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
-"POT-Creation-Date: 2013-10-08 00:21-0600\n"
-"PO-Revision-Date: 2013-10-08 00:23-0600\n"
+"POT-Creation-Date: 2013-10-08 00:31-0600\n"
+"PO-Revision-Date: 2013-10-08 00:31-0600\n"
 "Last-Translator: Jorge González <scrub.mx@gmail.com>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
@@ -56,23 +56,23 @@ msgstr "Total"
 msgid "Realizar compra"
 msgstr "Confirm checkout"
 
-#: ../header.php:53
+#: ../header.php:50
 msgid "COLECCIONES"
 msgstr "SERIES"
 
-#: ../header.php:66
+#: ../header.php:63
 msgid "QUÉ ES ALIAS"
 msgstr "About Alias"
 
-#: ../header.php:72
+#: ../header.php:69
 msgid "NOTICIAS"
 msgstr "NEWS"
 
-#: ../header.php:80
+#: ../header.php:77
 msgid "GALERÍA"
 msgstr "GALLERY"
 
-#: ../header.php:91
+#: ../header.php:88
 msgid "CONTACTO"
 msgstr "CONTACT"
 
@@ -116,32 +116,40 @@ msgstr "Add to cart"
 msgid "Suscríbete al boletín"
 msgstr "Newsletter subscription"
 
-#: ../functions.php:181
+#: ../functions.php:86
+msgid "Gracias, se guardo correctamente tu direccion de correo"
+msgstr "Thank you, your email was successfully saved"
+
+#: ../functions.php:87
+msgid "Porfavor ingresa una direccion de correo valida"
+msgstr "Please enter valid email address"
+
+#: ../functions.php:189
 msgid "Posts"
 msgstr "Posts"
 
-#: ../functions.php:394
+#: ../functions.php:402
 #, php-format
 msgid "Page %s"
 msgstr "Pagina %s"
 
-#: ../page-contacto.php:5 ../templates/carrito-registro.php:5
+#: ../page-contacto.php:7 ../templates/carrito-registro.php:5
 msgid "Nombre"
 msgstr "Name"
 
-#: ../page-contacto.php:8 ../templates/carrito-registro.php:49
+#: ../page-contacto.php:10 ../templates/carrito-registro.php:49
 msgid "Correo electrónico"
 msgstr "E-mail"
 
-#: ../page-contacto.php:11
+#: ../page-contacto.php:13
 msgid "Asunto"
 msgstr "Subject"
 
-#: ../page-contacto.php:14
+#: ../page-contacto.php:16
 msgid "Mensaje"
 msgstr "Message"
 
-#: ../page-contacto.php:17
+#: ../page-contacto.php:19
 msgid "Enviar"
 msgstr "Send"
 

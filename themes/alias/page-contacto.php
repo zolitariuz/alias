@@ -1,5 +1,7 @@
 <?php get_header(); the_post(); ?>
 
+	<style>#forma_contacto input, #forma_contacto textarea{ padding-left: 3px; }</style>
+
 	<form id="forma_contacto" method="POST" action="">
 
 		<label for="nombre"><?php _e('Nombre', 'alias'); ?></label>
