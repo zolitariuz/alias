@@ -31,7 +31,14 @@
 			<span class="newsletter_img"></span>
 			<p class="newsletter"><?php _e('Suscríbete al boletín', 'alias'); ?></p>
 			<form class="form_newsletter" action="">
-				<input class="form_newsletter_input" type="text" value="" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;" >
+				<input
+					class="form_newsletter_input"
+					type="text"
+					value=""
+					onfocus="if(this.value==this.defaultValue)this.value='';"
+					onblur="if(this.value=='')this.value=this.defaultValue;"
+					placeholder="<?php _e('escribe tu correo', 'alias'); ?>"
+				>
 				<input type="submit">
 			</form>
 		</button><!-- newsletter -->
@@ -41,15 +48,14 @@
 
 			<div class="sidebar_bottom">
 
-			<?php
-				$args = array(
+			<?php $query_banner = new WP_Query(array(
 					'post_type'      => 'banner',
 					'posts_per_page' => -1
-				);
-				$query_banner = new WP_Query($args);
-				if ( $query_banner->have_posts() ) : while ( $query_banner->have_posts() ) : $query_banner->the_post(); ?>
+			));
 
-					<?php the_post_thumbnail( 'full' ); ?>
+			if ( $query_banner->have_posts() ) : while ( $query_banner->have_posts() ) : $query_banner->the_post(); ?>
+
+				<?php the_post_thumbnail( 'full' ); ?>
 
 			<?php endwhile; endif; wp_reset_postdata(); ?>
 

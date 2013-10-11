@@ -426,18 +426,27 @@
 	// CHOSEN ///////////////////////////////////////////////////////////////////////////
 
 
+		/**
+		 * Busca que el selector exista en el DOM y que sea visible
+		 * @param  {string}  selector
+		 * @return {boolean}
+		 */
+		function findElement (selector) {
+			return ( $(selector).length > 0 && $(selector).is(":visible") == true );
+		}
+
 
 		$(document).ready(function(){
 
-			if( $('#pais').length > 0){
+			if ( findElement('#pais') ){
 				$('#pais').chosen();
 			}
 
-			if( $('#estado').length > 0){
+			if ( findElement('#estado') ){
 				$('#estado').chosen();
 			}
 
-			if( $('.select-currency').length > 0 ){
+			if ( findElement('.select-currency') ){
 				$('.select-currency').chosen();
 			}
 

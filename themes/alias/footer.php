@@ -1,6 +1,8 @@
 	</div><!-- main -->
 
-		<?php if( ! is_home() ) get_sidebar(); ?>
+		<?php if( ! is_home() ) :
+
+			get_sidebar(); ?>
 
 			<div class="footer">
 
@@ -13,6 +15,8 @@
 				<?php get_template_part( 'templates/footer', 'librerias' ) ?>
 
 			</div><!-- footer -->
+
+		<?php endif; ?>
 
 		</div><!-- container -->
 
