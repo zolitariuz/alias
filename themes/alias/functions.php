@@ -7,9 +7,7 @@
 
 	define( 'JSPATH', get_template_directory_uri() . '/js/' );
 
-
 	define( 'CSSPATH', get_template_directory_uri() . '/css/' );
-
 
 	define( 'THEMEPATH', get_template_directory_uri() . '/' );
 
@@ -80,6 +78,7 @@
 
 		}
 	}
+
 
 	function get_language_strings(){
 		return array(
@@ -477,6 +476,7 @@
 			echo 'active';
 		}
 	}
+
 
 
 	function div_main_class(){
