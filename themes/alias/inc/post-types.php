@@ -65,10 +65,10 @@
 			'rewrite'            => array( 'slug' => 'colecciones' ),
 			'capability_type'    => 'post',
 			'has_archive'        => true,
-			'hierarchical'       => false,
+			'hierarchical'       => true,
 			'menu_position'      => 6,
 			'taxonomies'         => array( 'coleccion', 'category' ),
-			'supports'           => array( 'title', 'editor', 'thumbnail' )
+			'supports'           => array( 'title', 'editor', 'thumbnail', 'page-attributes' )
 		);
 		register_post_type( 'libro', $args );
 

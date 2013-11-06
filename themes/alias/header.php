@@ -60,27 +60,27 @@
 						<li></li>
 
 
-					    <li><a href="<?php echo qtrans_convertURL(site_url('/que-es-alias/')); ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
-					    <li></li>
-					    <li> / </li>
-					    <li></li>
+						<li><a href="<?php echo qtrans_convertURL(site_url('/que-es-alias/')); ?>" class="<?php nav_is('que-es-alias') ?>"><?php _e('QUÉ ES ALIAS', 'alias'); ?></a></li>
+						<li></li>
+						<li> / </li>
+						<li></li>
 
 
-					    <li><a href="<?php echo qtrans_convertURL(site_url('/noticias/')); ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
-					    <li></li>
-					    <li>/ </li>
-					    <li></li>
+						<li><a href="<?php echo qtrans_convertURL(site_url('/noticias/')); ?>" class="<?php nav_is('noticias') ?>"><?php _e('NOTICIAS', 'alias'); ?></a></li>
+						<li></li>
+						<li>/ </li>
+						<li></li>
 
 
-					    <li>
-					    	<a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>">
-					    		<?php _e('GALERÍA', 'alias'); ?>
-					    	</a>
-					    	<?php if ( is_page('galeria') ) {
+						<li>
+							<a href="<?php echo qtrans_convertURL(site_url('/galeria/')); ?>" class="<?php nav_is('galeria') ?>">
+								<?php _e('GALERÍA', 'alias'); ?>
+							</a>
+							<?php if ( is_page('galeria') ) {
 								get_template_part( 'templates/header', 'galeria-menu' );
 							} ?>
-					    </li>
-					    <li></li>
+						</li>
+						<li></li>
 						<li>/ </li>
 						<li></li>
 

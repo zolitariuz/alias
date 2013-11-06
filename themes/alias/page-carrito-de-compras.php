@@ -26,7 +26,7 @@
 
 			<div class="producto">
 
-				<div class="imagen_producto">
+					<div class="imagen_producto">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_post_thumbnail('rectangulo') ?>
 					</a>
@@ -96,7 +96,10 @@
 
 	<?php if( $productos ) : ?>
 
+
 		<div class="carrito_total">
+
+			<!-- fedex embed code -->
 
 			<div class="detalles_producto">
 
@@ -110,21 +113,14 @@
 					<hr>
 				</div><!-- elemento_carrito_total -->
 
+				<!--
 				<div class="elemento_carrito_total subtotal">
-					<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
-					<ul class="left">
-						<li class="selects">
-							<select id="pais" class="borde_gris">
-								<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
-								<option value="mexico">México</option>
-							</select>
-						</li>
-						<li class="moneda MXN">mxn $</li><li class="precio MXN">100.00</li>
-						<li class="moneda USD">usd $</li><li class="precio USD">10.00</li>
-						<li class="moneda EURO">eur €</li><li class="precio EURO">9.00</li>
-					</ul>
+					<p class="titulo_detalles_producto left">
+						<?php _e('Envío', 'alias'); ?>
+					</p>
 					<hr>
-				</div><!-- elemento_carrito_total -->
+				</div>
+				-->
 
 				<div class="elemento_carrito_total subtotal">
 					<p class="titulo_detalles_producto left"><?php _e('Total', 'alias'); ?></p>

@@ -5,6 +5,7 @@
 	$(function(){
 
 
+
 	// VALIDATE EMAIL ////////////////////////////////////////////////////////////////////
 
 
@@ -29,13 +30,18 @@
 
 		var container = $('.main_isotope');
 
-		container.imagesLoaded( function () {
+
+		var imagesLoaded = new ImagesLoaded(container);
+
+		imagesLoaded.done(function (a) {
 			container.isotope({
 				layoutMode : 'fitRows',
 				animationEngine: 'jquery'
 			});
 			$(document).trigger('isotopeDone');
 		});
+
+
 
 		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
@@ -91,8 +97,8 @@
 
 
 		var altura_ventana = $(window).height(),
-			altura_header = $('.header').height(),
-			altura_main = altura_ventana - ( altura_header + 170 );
+			altura_header  = $('.header').height(),
+			altura_main    = altura_ventana - ( altura_header + 170 );
 
 		$('.main').css( 'min-height', altura_main );
 
@@ -147,7 +153,6 @@
 			$('.colecciones_menu a').removeClass('active');
 			$(this).addClass('active');
 		});
-
 
 
 
@@ -289,35 +294,56 @@
 
 
 
-
- 		/**
- 		 * Agregar un elemento al carrito de compras
- 		 * @param {int} product_id
- 		 */
- 		function add_to_shoping_cart (product_id) {
-
- 			return $.post(ajax_url, {
- 				product_id: product_id,
- 				action: 'add_product_to_shopping_cart'
- 			},'json');
- 		}
+		/**
+		 * Agregar un elemento al carrito de compras
+		 * @param {int} product_id
+		 */
+		function add_to_shoping_cart (product_id) {
+			return $.post(ajax_url, {
+				product_id: product_id,
+				action: 'add_product_to_shopping_cart'
+			},'json');
+		}
 
 
+		function show_cart_tooltip (element) {
+			element.poshytip({
+				content: i18n.cart_updated,
+				className: 'tip-twitter',
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'inner-left',
+				offsetX: -50,
+				offsetY: 12
+			});
+			element.poshytip('showDelayed', 400);
+			setTimeout(function(){
+				element.poshytip('hide');
+			}, 4000);
+		}
 
- 		/**
- 		 * Cambiar el total de elemntos en el carrito de compras
- 		 * @param  {int} value    Valor que se sumara/restara del total
- 		 * @return {int} newTotal Nuevo total
- 		 */
- 		function change_cart_total (value) {
+
+		$('.carrito, .tip-twitter').live('mouseenter', function(){
+			$('.carrito_img').poshytip('hideDelayed', 400);
+		});
+
+
+		/**
+		 * Cambiar el total de elemntos en el carrito de compras
+		 * @param  {int} value    Valor que se sumara/restara del total
+		 * @return {int} newTotal Nuevo total
+		 */
+		function change_cart_total (value) {
 			var totalContainer = $('#carrito-total'),
 				currentTotal   = parseInt(totalContainer.text(), 10),
 				newTotal       = currentTotal + value;
 
 			totalContainer.text( newTotal );
 
+			show_cart_tooltip( $('.carrito_img') );
+
 			return newTotal;
- 		}
+		}
 
 
 
@@ -334,8 +360,16 @@
 
 			addProduct.done(function (object) {
 				if ( isNumber(object.data) ){
-					alert('Agregaste a tu carrito 1 libro');
-					change_cart_total( parseInt(object.data, 10) );
+					//change_cart_total( parseInt(object.data, 10) );
+					//$(document).scrollTop(0);
+				}
+			});
+
+
+			addProduct.always(function (data, textStatus, errorThrown){
+				if ( data.status == 200 ){
+					change_cart_total(1);
+					$(document).scrollTop(0);
 				}
 			});
 
@@ -364,6 +398,7 @@
 				addProduct = add_to_shoping_cart( post_id );
 
 			addProduct.done(function (object) {
+				console.log(object);
 				if ( isNumber(object.data) ){
 					window.location.href = site_url+'/carrito-de-compra/?lang='+language;
 				}
