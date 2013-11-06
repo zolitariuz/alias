@@ -243,12 +243,13 @@
 	}
 
 
+
 	function show_collection_posts($posts){
 		echo "<h3>". __('En la colección', 'alias') ."</h3><hr>";
-		array_walk($posts, function($libro){
-			echo "<p><a href=''>$libro->post_title</a></p>";
-		});
+		foreach($posts as $libro)
+			echo "<p><a href='".site_url("/colecciones/{$libro->post_name}/")."'>" . __($libro->post_title) . "</a></p>";
 	}
+
 
 
 	function collection_posts($post_id){
