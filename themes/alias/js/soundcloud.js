@@ -9,26 +9,35 @@
 		$('iframe').hide();
 
 
-		var iframeElement = document.querySelector('iframe'),
-			soundCloud    = SC.Widget(iframeElement);
+		var iframeElements = document.querySelector('iframe');
+
+		var soundCloudWidgets = [];
+
+
+		$('iframe').each(function (index, element){
+			soundCloudWidgets[index] = SC.Widget(element);
+		});
+
+
 
 
 		$(document).ready(function(){
 
-			pauseButton = $('.pause').hide(),
-			playButton  = $('.play');
+			$('.pause').hide();
 
 
-			playButton.on('click', function() {
-				playButton.hide();
-				pauseButton.show();
-				soundCloud.play();
+			$('.play').on('click', function() {
+				$(this).hide();
+				$(this).next('.pause').show();
+				var index = $(this).data('index');
+				soundCloudWidgets[index].play();
 			});
 
-			pauseButton.on('click', function() {
-				playButton.show();
-				pauseButton.hide();
-				soundCloud.pause();
+			$('.pause').on('click', function() {
+				$(this).hide();
+				$(this).prev('.play').show();
+				var index = $(this).data('index');
+				soundCloudWidgets[index].pause();
 			});
 
 		});

@@ -34,14 +34,14 @@
 
 			<?php $soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true); ?>
 
-			<?php if ( $soundcloud ) : echo $soundcloud; ?>
+			<?php if ( $soundcloud ) : echo $soundcloud; $soundcloudIndex = 0;?>
 
-				<div class="audio play">
+				<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
 					<div class="audio_status"></div>
 					<p>Repdroducir audio</p>
 				</div><!-- audio -->
 
-				<div class="audio pause" style="display: none;">
+				<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
 					<div class="audio_status"></div>
 					<p>Pausar audio</p>
 				</div><!-- audio -->
@@ -145,14 +145,16 @@
 
 				<?php $soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true); ?>
 
-				<?php if ( $soundcloud ) : echo $soundcloud; ?>
+				<?php if ( $soundcloud ) : echo $soundcloud;
 
-					<div class="audio play">
+					$soundcloudIndex = isset($soundcloudIndex) ? ++$soundcloudIndex : 0; ?>
+
+					<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Repdroducir audio</p>
 					</div><!-- audio -->
 
-					<div class="audio pause" style="display: none;">
+					<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Pausar audio</p>
 					</div><!-- audio -->
