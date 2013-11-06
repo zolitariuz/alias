@@ -32,6 +32,22 @@
 		<div class="content">
 			<?php the_content(); ?>
 
+			<?php $soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true); ?>
+
+			<?php if ( $soundcloud ) : echo $soundcloud; ?>
+
+				<div class="audio play">
+					<div class="audio_status"></div>
+					<p>Repdroducir audio</p>
+				</div><!-- audio -->
+
+				<div class="audio pause" style="display: none;">
+					<div class="audio_status"></div>
+					<p>Pausar audio</p>
+				</div><!-- audio -->
+
+			<?php endif; ?>
+
 			<!-- colección -->
 			<div class="coleccion">
 				<?php collection_posts($post->ID); ?>
