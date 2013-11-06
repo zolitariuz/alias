@@ -1,11 +1,15 @@
-<?php get_header(); the_post(); ?>
+<?php
+	get_header();
+	the_post();
+?>
 
 	<div class="single_header">
 
-		<p><?php bloginfo('name') ?></p>
+		<p><?php bloginfo('name'); ?></p>
 
 		<h3 class="subtitulo">
-			<?php bloginfo('description') ?>
+
+			<?php echo ( qtrans_getlanguage() == 'es' ) ? bloginfo('description') : 'Damian Ortega’s publishing project'; ?>
 		</h3>
 
 	</div><!-- single_header -->
