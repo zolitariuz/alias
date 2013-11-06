@@ -2,7 +2,7 @@
 	<ul class="colecciones_menu">
 		<li>·</li>
 		<li>
-			<?php $href = is_singular('libro') ? site_url('/colecciones/#clasica') : '#clasica'; ?>
+			<?php $href = is_singular('libro') ? qtrans_convertURL(site_url('/colecciones/#clasica')) : '#clasica'; ?>
 			<a href="<?php echo $href; ?>" data-filter=".clasica" class="<?php is_colecciones_menu_active('clasica'); ?>">
 				clásica
 				<div class="tooltip">
@@ -14,7 +14,7 @@
 		</li>
 		<li>·</li>
 		<li>
-			<?php $href = is_singular('libro') ? site_url('/colecciones/#antitesis') : '#antitesis'; ?>
+			<?php $href = is_singular('libro') ? qtrans_convertURL(site_url('/colecciones/#antitesis')) : '#antitesis'; ?>
 			<a href="<?php echo $href; ?>" data-filter=".antitesis" class="<?php is_colecciones_menu_active('antitesis'); ?>">
 				antítesis
 				<div class="tooltip">

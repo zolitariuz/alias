@@ -13,7 +13,7 @@
 
 			<div class="home_slide">
 
-				<a href="<?php echo home_url('/colecciones' ) ?>">
+				<a href="<?php echo home_url('/colecciones/' ) ?>">
 					<?php the_post_thumbnail( 'slider' ); ?>
 				</a>
 

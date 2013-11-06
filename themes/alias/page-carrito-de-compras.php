@@ -1,7 +1,7 @@
 <?php get_header(); the_post(); ?>
 
 	<div class="single_header carrito">
-		<h2><?php _e('Carrito de Compras', 'alias'); ?></h2>
+		<h2><?php _e('Carrito de compras', 'alias'); ?></h2>
 		<h3 class="categoria_carrito"><?php _e('productos', 'alias'); ?></h3>
 	</div><!-- single_header -->
 
@@ -26,7 +26,7 @@
 
 			<div class="producto">
 
-				<div class="imagen_producto">
+					<div class="imagen_producto">
 					<a href="<?php the_permalink(); ?>">
 						<?php the_post_thumbnail('rectangulo') ?>
 					</a>
@@ -90,52 +90,44 @@
 
 	<?php endif; wp_reset_query(); ?>
 
+
 	<div class="clear"></div>
 
 
 	<?php if( $productos ) : ?>
 
+
 		<div class="carrito_total">
+
+			<!-- fedex embed code -->
 
 			<div class="detalles_producto">
 
 				<div class="elemento_carrito_total subtotal">
 					<p class="titulo_detalles_producto left"><?php _e('Subtotal', 'alias'); ?></p>
 					<ul class="left">
-						<li class="moneda">mxn $</li> <li class="precio"><?php echo $pesos; ?></li>
-						<li class="moneda">usd $</li> <li class="precio"><?php echo $dolares; ?></li>
-						<li class="moneda">eur €</li> <li class="precio"><?php echo $euros; ?></li>
+						<li class="moneda MXN">mxn $</li> <li class="precio MXN"><?php echo $pesos; ?></li>
+						<li class="moneda USD">usd $</li> <li class="precio USD"><?php echo $dolares; ?></li>
+						<li class="moneda EURO">eur €</li> <li class="precio EURO"><?php echo $euros; ?></li>
 					</ul>
 					<hr>
 				</div><!-- elemento_carrito_total -->
 
+				<!--
 				<div class="elemento_carrito_total subtotal">
-					<p class="titulo_detalles_producto left"><?php _e('Envío', 'alias'); ?></p>
-					<ul class="left">
-						<li class="selects">
-							<select id="pais" class="borde_gris">
-								<option value=""><?php _e('Selecciona tu país', 'alias'); ?></option>
-								<option value="mexico">México</option>
-							</select>
-							<select id="estado" class="borde_gris" >
-								<option value=""><?php _e('Estado', 'alias'); ?></option>
-								<option value="df">D.F.</option>
-							</select>
-							<input id="codigo_postal" class="borde_gris" type="text" value="<?php _e('Código Postal', 'alias'); ?>" onfocus="if(this.value==this.defaultValue)this.value='';" onblur="if(this.value=='')this.value=this.defaultValue;">
-						</li>
-						<li class="moneda">mxn $</li><li class="precio">100.00</li>
-						<li class="moneda">usd $</li><li class="precio">10.00</li>
-						<li class="moneda">eur €</li><li class="precio">9.00</li>
-					</ul>
+					<p class="titulo_detalles_producto left">
+						<?php _e('Envío', 'alias'); ?>
+					</p>
 					<hr>
-				</div><!-- elemento_carrito_total -->
+				</div>
+				-->
 
 				<div class="elemento_carrito_total subtotal">
 					<p class="titulo_detalles_producto left"><?php _e('Total', 'alias'); ?></p>
 					<ul class="left">
-						<li class="moneda">mxn $</li><li class="precio">200.00</li>
-						<li class="moneda">usd $</li><li class="precio">16.00</li>
-						<li class="moneda">eur €</li><li class="precio">12.00</li>
+						<li class="moneda MXN">mxn $</li><li class="precio MXN">200.00</li>
+						<li class="moneda USD">usd $</li><li class="precio USD">16.00</li>
+						<li class="moneda EURO">eur €</li><li class="precio EURO">12.00</li>
 					</ul>
 					<hr>
 				</div><!-- elemento_carrito_total -->
@@ -146,8 +138,8 @@
 
 		</div><!-- carrito_total -->
 
+		<?php get_template_part( 'templates/carrito', 'registro' ); ?>
 
 	<?php endif; ?>
-
 
 <?php get_footer(); ?>

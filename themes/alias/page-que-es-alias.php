@@ -19,11 +19,13 @@
 
 		<div class="portada que-es-alias">
 			<?php the_post_thumbnail( 'full' ); ?>
+			<!--
 			<p>
 				<strong>Sara Schulz y Damián Ortega</strong> <br />
 				Fotografía publicada en Folio núm.8 <br />
 				<a href="#">foliodigital.net</a>
 			</p>
+			-->
 		</div><!-- portada -->
 
 		<div class="content">

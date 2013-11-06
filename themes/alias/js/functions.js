@@ -5,6 +5,7 @@
 	$(function(){
 
 
+
 	// VALIDATE EMAIL ////////////////////////////////////////////////////////////////////
 
 
@@ -29,13 +30,18 @@
 
 		var container = $('.main_isotope');
 
-		container.imagesLoaded( function () {
+
+		var imagesLoaded = new ImagesLoaded(container);
+
+		imagesLoaded.done(function (a) {
 			container.isotope({
 				layoutMode : 'fitRows',
 				animationEngine: 'jquery'
 			});
 			$(document).trigger('isotopeDone');
 		});
+
+
 
 		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
@@ -66,7 +72,7 @@
 			var hash = window.location.hash;
 			if ( hash.charAt(0) == '#' ){
 				var selector = hash.replace('#', '.');
-				$('.main.libros').isotope({ filter: selector });
+				$('.main_isotope').isotope({ filter: selector });
 			}
 		});
 
@@ -91,8 +97,8 @@
 
 
 		var altura_ventana = $(window).height(),
-			altura_header = $('.header').height(),
-			altura_main = altura_ventana - ( altura_header + 170 );
+			altura_header  = $('.header').height(),
+			altura_main    = altura_ventana - ( altura_header + 170 );
 
 		$('.main').css( 'min-height', altura_main );
 
@@ -147,7 +153,6 @@
 			$('.colecciones_menu a').removeClass('active');
 			$(this).addClass('active');
 		});
-
 
 
 
@@ -211,6 +216,24 @@
 		}
 
 
+/*		function alert_email_saved(){
+			if (language === 'es'){
+				alert('Gracias, se guardo correctamente tu direccion de correo');
+			} else if (language === 'en'){
+				alert('Thank you, your email was successfully saved');
+			}
+		}
+
+
+		function alert_email_not_valid(){
+			if (language === 'es'){
+				alert('Porfavor ingresa una direccion de correo valida');
+			} else if (language === 'en'){
+				alert('Please enter valid email address');
+			}
+		}*/
+
+
 		$('form.form_newsletter').on('submit', function (e) {
 			e.preventDefault();
 			var email = $('.form_newsletter_input').val();
@@ -220,14 +243,37 @@
 
 				newMail.done(function (data) {
 					$('.form_newsletter_input').val('');
-					alert('Gracias, se guardo correctamente tu direccion de correo');
+					alert( i18n.email_saved );
 				});
-
 			}else{
-				alert('Porfavor ingresa una direccion de correo valida');
+				alert( i18n.email_invalid );
 			}
 		});
 
+
+
+/*
+	8888888b.                   d8b          888
+	888   Y88b                  Y8P          888
+	888    888                               888
+	888   d88P .d88b.   .d88b.  888 .d8888b  888888 888d888 .d88b.
+	8888888P" d8P  Y8b d88P"88b 888 88K      888    888P"  d88""88b
+	888 T88b  88888888 888  888 888 "Y8888b. 888    888    888  888
+	888  T88b Y8b.     Y88b 888 888      X88 Y88b.  888    Y88..88P
+	888   T88b "Y8888   "Y88888 888  88888P'  "Y888 888     "Y88P"
+	                        888
+	                   Y8b d88P
+	                    "Y88P"
+ */
+
+
+
+ 		var $registerForm = $('#forma_registro').hide();
+
+		$registerForm.on('click', function (e) {
+			e.preventDefault();
+			console.log( $(this).serialize() );
+		});
 
 
 
@@ -248,35 +294,56 @@
 
 
 
-
- 		/**
- 		 * Agregar un elemento al carrito de compras
- 		 * @param {int} product_id
- 		 */
- 		function add_to_shoping_cart (product_id) {
-
- 			return $.post(ajax_url, {
- 				product_id: product_id,
- 				action: 'add_product_to_shopping_cart'
- 			},'json');
- 		}
+		/**
+		 * Agregar un elemento al carrito de compras
+		 * @param {int} product_id
+		 */
+		function add_to_shoping_cart (product_id) {
+			return $.post(ajax_url, {
+				product_id: product_id,
+				action: 'add_product_to_shopping_cart'
+			},'json');
+		}
 
 
+		function show_cart_tooltip (element) {
+			element.poshytip({
+				content: i18n.cart_updated,
+				className: 'tip-twitter',
+				showOn: 'none',
+				alignTo: 'target',
+				alignX: 'inner-left',
+				offsetX: -50,
+				offsetY: 12
+			});
+			element.poshytip('showDelayed', 400);
+			setTimeout(function(){
+				element.poshytip('hide');
+			}, 4000);
+		}
 
- 		/**
- 		 * Cambiar el total de elemntos en el carrito de compras
- 		 * @param  {int} value    Valor que se sumara/restara del total
- 		 * @return {int} newTotal Nuevo total
- 		 */
- 		function change_cart_total (value) {
+
+		$('.carrito, .tip-twitter').live('mouseenter', function(){
+			$('.carrito_img').poshytip('hideDelayed', 400);
+		});
+
+
+		/**
+		 * Cambiar el total de elemntos en el carrito de compras
+		 * @param  {int} value    Valor que se sumara/restara del total
+		 * @return {int} newTotal Nuevo total
+		 */
+		function change_cart_total (value) {
 			var totalContainer = $('#carrito-total'),
 				currentTotal   = parseInt(totalContainer.text(), 10),
 				newTotal       = currentTotal + value;
 
 			totalContainer.text( newTotal );
 
+			show_cart_tooltip( $('.carrito_img') );
+
 			return newTotal;
- 		}
+		}
 
 
 
@@ -293,13 +360,32 @@
 
 			addProduct.done(function (object) {
 				if ( isNumber(object.data) ){
-					alert('Agregaste a tu carrito 1 libro');
 					change_cart_total( parseInt(object.data, 10) );
+					$(document).scrollTop(0);
+				}
+			});
+
+
+			addProduct.always(function (data, textStatus, errorThrown){
+				if ( data.status == 200 ){
+					change_cart_total(1);
+					$(document).scrollTop(0);
 				}
 			});
 
 		});
 
+
+
+
+	// CAMBIAR EL TIPO DE MONEDA EN EL CONTENEDOR SUBTOTAL //////////////////////////////
+
+
+
+		function subtotalContainerCurrency (currency_code) {
+			$('.moneda, .precio').hide();
+			$('.'+currency_code).show();
+		}
 
 
 	// COMPRAR AHORA BUTTON /////////////////////////////////////////////////////////////
@@ -312,6 +398,7 @@
 				addProduct = add_to_shoping_cart( post_id );
 
 			addProduct.done(function (object) {
+				console.log(object);
 				if ( isNumber(object.data) ){
 					window.location.href = site_url+'/carrito-de-compra/?lang='+language;
 				}
@@ -321,9 +408,11 @@
 
 
 
-		$('.select-currency').on('change', function () {
+		$('.select-currency').live('change', function () {
 
 			var currency_code = $(this).val();
+
+			subtotalContainerCurrency(currency_code);
 
 			$('.select-currency').each(function (index, select) {
 
@@ -337,31 +426,33 @@
 		});
 
 
+
 	// COMPRAR BUTTON ///////////////////////////////////////////////////////////////////
 
 
 
 		$('button#comprar').on('click', function () {
 
-			var language_code = $('.select-currency :selected').data('lc'),
-				currency_code = $('.select-currency :selected').val(),
-				pais          = $('#pais').val(),
-				estado        = $('#estado').val(),
-				cp            = $('#codigo_postal').val();
+			$('div.carrito_content').hide();
+			$('div.carrito_total').hide();
+			$('form#forma_registro').show();
+
+
+
+			/*var language_code = $('.select-currency :selected').data('lc'),
+				currency_code = $('.select-currency :selected').val();
 
 			var createPayPalForm = PayPal.init({
 				lc: language_code,
 				currency_code: currency_code,
 				custom: {
-					pais: pais,
-					estado: estado,
-					cp: cp
+					pais: pais
 				}
 			});
 
 			createPayPalForm.done(function () {
 				PayPal.submit();
-			});
+			});*/
 
 		});
 
@@ -370,17 +461,27 @@
 	// CHOSEN ///////////////////////////////////////////////////////////////////////////
 
 
+		/**
+		 * Busca que el selector exista en el DOM y que sea visible
+		 * @param  {string}  selector
+		 * @return {boolean}
+		 */
+		function findElement (selector) {
+			return ( $(selector).length > 0 && $(selector).is(":visible") == true );
+		}
+
+
 		$(document).ready(function(){
 
-			if( $('#pais').length > 0){
+			if ( findElement('#pais') ){
 				$('#pais').chosen();
 			}
 
-			if( $('#estado').length > 0){
+			if ( findElement('#estado') ){
 				$('#estado').chosen();
 			}
 
-			if( $('.select-currency').length > 0 ){
+			if ( findElement('.select-currency') ){
 				$('.select-currency').chosen();
 			}
 

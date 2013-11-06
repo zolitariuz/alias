@@ -7,9 +7,7 @@
 
 	define( 'JSPATH', get_template_directory_uri() . '/js/' );
 
-
 	define( 'CSSPATH', get_template_directory_uri() . '/css/' );
-
 
 	define( 'THEMEPATH', get_template_directory_uri() . '/' );
 
@@ -30,7 +28,7 @@
 
 
 
-	require_once('inc/shoping_cart.php');
+	require_once('inc/class.ShopingCart.php');
 
 
 
@@ -51,15 +49,18 @@
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
 		wp_localize_script( 'functions', 'site_url', site_url() );
 		wp_localize_script( 'functions', 'language', qtrans_getlanguage() );
+		wp_localize_script( 'functions', 'i18n',  get_language_strings() );
 
 		// styles
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
+		wp_enqueue_style( 'poshy-tip-css', CSSPATH.'poshy-tip-theme/tip-twitter.css' );
 
 	});
 
 
 	function enqueue_single_noticia_scripts(){
-		if ( is_single() AND get_query_var('post_type') === 'noticia' ) {
+		$post_type = get_query_var('post_type');
+		if ( is_single() AND ( $post_type === 'noticia' OR  $post_type === 'libro' ) ) {
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
 			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
 		}
@@ -69,6 +70,7 @@
 	function enqueue_shoping_cart_scripts(){
 		if ( is_page('carrito-de-compras') ) {
 			wp_enqueue_script( 'paypal', JSPATH.'paypal.js', array('jquery'), null, false  );
+			wp_enqueue_script( 'fedex', JSPATH.'fedex.js', array('jquery'), null, true  );
 
 			$shoping_cart =  isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
@@ -78,6 +80,15 @@
 			wp_localize_script( 'functions', 'shoping_cart', $shoping_cart );
 
 		}
+	}
+
+
+	function get_language_strings(){
+		return array(
+			'email_saved'   => __('Gracias, se guardo correctamente tu direccion de correo', 'alias'),
+			'email_invalid' => __('Porfavor ingresa una direccion de correo valida', 'alias'),
+			'cart_updated'  => __('Agregaste un libro a tu carrito', 'alias')
+		);
 	}
 
 
@@ -139,6 +150,9 @@
 	require_once('inc/pages.php');
 
 
+	require_once('inc/ajax-functions.php');
+
+
 
 // MODIFICAR EL MAIN QUERY ///////////////////////////////////////////////////////////
 
@@ -149,6 +163,7 @@
 		if ( $query->is_main_query() and ! is_admin() ) {
 			if ( is_post_type_archive('libro') ){
 				$query->set('posts_per_page', -1);
+				$query->set( 'post_parent', 0 );
 			}
 		}
 		return $query;
@@ -202,129 +217,45 @@
 
 
 
-// AJAX UPDATE POST META /////////////////////////////////////////////////////////////
-
-
-
-	/**
-	 * Actualiza un campo en la tabla wp_postmeta
-	 * @param  $_POST['post_id']
-	 * @param  $_POST['meta_key']
-	 * @param  $_POST['meta_value']
-	 * @return (mixed) Returns meta_id if the meta doesn't exist, otherwise returns true on success and false on failure.
-	 */
-	function ajax_update_post_meta(){
-		$post_id    = isset($_POST['post_id'])    ? $_POST['post_id']    : '';
-		$meta_key   = isset($_POST['meta_key'])   ? $_POST['meta_key']   : '';
-		$meta_value = isset($_POST['meta_value']) ? $_POST['meta_value'] : '';
-
-		$result = update_post_meta($post_id, $meta_key, $meta_value);
-		wp_send_json( $result );
-	}
-	add_action('wp_ajax_ajax_update_post_meta', 'ajax_update_post_meta');
-	add_action('wp_ajax_nopriv_ajax_update_post_meta', 'ajax_update_post_meta');
-
-
-
-
-	/**
-	 * Enviar el mail (Formulario de Contacto)
-	 * @return boolean
-	 */
-	function formulario_contacto_enviado(){
-
-		if ( ! isset($_GET) OR ! filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
-			wp_send_json_error();
-		}
-
-		$nombre  = $_GET['nombre'];
-		$email   = $_GET['email'];
-		$mensaje =  "Fecha: " . date('Y-m-d H:i:s') .
-					"\r\nNuevo Mensaje de: $email\r\nAsunto: " .
-					$_GET['asunto'] . "\r\n\r\n" .
-					$_GET['mensaje'];
-
-
-		$headers = "From: $nombre <$email> \r\n";
-		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
-		wp_send_json($mail);
-	}
-	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
-	add_action('wp_ajax_nopriv_formulario_contacto_enviado', 'formulario_contacto_enviado');
-
-
-
 // RELATED POSTS /////////////////////////////////////////////////////////////////////
 
 
 
 	function get_related_post($post_id){
-		$categories = get_the_category( $post_id );
-
-		$categorie_ids = wp_list_pluck( $categories, 'cat_ID' );
-
-		return new WP_Query(array(
-			'post_type'      => 'noticia',
-			'posts_per_page' => 1,
-			'category__in'   => $categorie_ids
-		));
-
+		$ID = get_post_meta( $post_id, '_noticia_relacionada_meta', true );
+		return new WP_Query( array( 'post_type' => 'noticia', 'post__in' => array($ID) ) );
 	}
 
 
-// AJAX SAVE NEWSLETTER EMAIL ////////////////////////////////////////////////////////
+
+// GET COLLECTION POSTS //////////////////////////////////////////////////////////////
 
 
 
-	function save_newsletter_email(){
-
+	function query_posts_children($post_id){
 		global $wpdb;
-
-		if ( ! isset($_POST['email']) OR ! filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
-			wp_send_json_error();
-		}
-
-		$email = esc_sql( $_POST['email'] );
-
-		$result = $wpdb->replace(
-			'wp_newsletter',
-			array('email' => $email),
-			array('%s')
+		return $wpdb->get_results(
+			"SELECT * FROM {$wpdb->prefix}posts
+				WHERE post_parent   = $post_id
+					AND post_type   = 'libro'
+					AND post_status = 'publish'", OBJECT
 		);
-
-		wp_send_json($result);
 	}
-	add_action('wp_ajax_save_newsletter_email', 'save_newsletter_email');
-	add_action('wp_ajax_nopriv_save_newsletter_email', 'save_newsletter_email');
 
 
-
-// AJAX ADD PRODUCT TO SHOPING CART //////////////////////////////////////////////////
-
-
-
-	function add_product_to_shopping_cart(){
-
-		if( ! isset($_POST['product_id'])) wp_send_json_error();
-
-		ShopingCart::add_to_cart($_POST['product_id'], 1);
-		wp_send_json_success(1);
+	function show_collection_posts($posts){
+		echo "<h3>". __('En la colección', 'alias') ."</h3><hr>";
+		array_walk($posts, function($libro){
+			echo "<p><a href=''>$libro->post_title</a></p>";
+		});
 	}
-	add_action('wp_ajax_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
-	add_action('wp_ajax_nopriv_add_product_to_shopping_cart', 'add_product_to_shopping_cart');
 
 
-
-// AJAX GET PAYPAL PRODUCTS //////////////////////////////////////////////////////////
-
-
-	function get_paypal_products(){
-		$currency = isset($_GET['currency']) ? $_GET['currency'] : 'pesos';
-		$result = ShopingCart::get_shoping_cart_products($currency);
-		wp_send_json($result);
+	function collection_posts($post_id){
+		$posts = query_posts_children($post_id);
+		if ( $posts ) show_collection_posts($posts);
 	}
-	add_action('wp_ajax_get_paypal_products', 'get_paypal_products');
-	add_action('wp_ajax_nopriv_get_paypal_products', 'get_paypal_products');
+
 
 
 // HELPER METHODS AND FUNCTIONS //////////////////////////////////////////////////////
@@ -335,9 +266,8 @@
 	 * Regresa true si es el ultimo post del query
 	 * @return boolean
 	 */
-	function is_last_post() {
-		global $wp_query;
-		return $wp_query->current_post + 1 == $wp_query->post_count;
+	function is_last_post($query) {
+		return $query->current_post + 1 == $query->post_count;
 	}
 
 
@@ -469,4 +399,23 @@
 		if( is_page('galeria') AND has_term($term, 'galeria') ){
 			echo 'active';
 		}
+	}
+
+
+
+	function div_main_class(){
+		echo is_home() ? 'home' : '';
+		if ( get_post_type() === 'libro' OR is_page('galeria') ) {
+			echo 'main_isotope';
+		}
+	}
+
+
+
+	function get_published_news(){
+		global $wpdb;
+		return $wpdb->get_results(
+			"SELECT * FROM {$wpdb->prefix}posts
+				WHERE post_type = 'noticia' AND post_status = 'publish'", OBJECT
+		);
 	}

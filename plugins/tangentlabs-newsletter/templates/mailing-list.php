@@ -7,20 +7,23 @@
 
 		<div id="newsletter-list">
 
-
 			<?php
 
 			$contact_msg = new WP_CustomTable();
 
 			$contact_msg->prepare_items(); ?>
 
-			<form id="movies-filter" method="GET">
-
-				<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
-
-				<?php $contact_msg->display() ?>
-
+			<form method="GET">
+				<input type="hidden" name="page" value="mailing-list" />
+				<?php $contact_msg->search_box('search', 'search_id'); ?>
 			</form>
+
+
+			<form id="movies-filter" method="GET">
+				<input type="hidden" name="page" value="<?php echo $_REQUEST['page'] ?>" />
+				<?php $contact_msg->display(); ?>
+			</form>
+
 
 		</div><!-- end #newsletter-content -->
 
@@ -117,12 +120,30 @@
 
 		function process_bulk_action()
 		{
-			  if( 'delete' === $this->current_action() ) {
-				wp_die('Items deleted (or they would be if we had items to delete)!');
+			if( 'delete' === $this->current_action() ) {
+
+				if( isset($_GET['mail']) ){
+					array_walk($_GET['mail'], array('WP_CustomTable', 'delete_mail') );
+				}
 			}
 		}
 
 
+
+		public static function delete_mail($newsletter_id, $index)
+		{
+			global $wpdb;
+			$wpdb->delete(
+				"{$wpdb->prefix}newsletter",
+				array( 'newsletter_id' => $newsletter_id ),
+				array( '%d' )
+			);
+		}
+
+		public static function convert_emails(&$item, $index)
+		{
+			$item['email'] = make_clickable($item['email']);
+		}
 
 		function prepare_items()
 		{
@@ -137,8 +158,12 @@
 			$this->_column_headers = array($columns, $hidden, $sortable);
 			$this->process_bulk_action();
 
-			$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter", ARRAY_A);
 
+			if ( isset($_GET['s']) ){
+				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter WHERE email LIKE '%{$_GET['s']}%'", ARRAY_A);
+			} else {
+				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter", ARRAY_A);
+			}
 			usort($data, 'usort_reorder');
 
 			$current_page = $this->get_pagenum();
@@ -146,6 +171,7 @@
 			$data         = array_slice($data, (($current_page-1)*$per_page), $per_page);
 			$this->items  = $data;
 
+			array_walk($this->items, array('WP_CustomTable', 'convert_emails') );
 
 			$this->set_pagination_args(array(
 				'total_items' => $total_items,                // calculate the total number of items
@@ -154,6 +180,7 @@
 			));
 		}
 	}
+
 
 
 
