@@ -8,9 +8,7 @@
 				<div class="tooltip">
 					<p>Colección constituida por textos, entrevistas, conferencias o proyectos específicos que no han sido traducidos, impresos y difundidos en habla hispana o cuyas ediciones están descontinuadas o nunca se han distribuido en México.</p>
 					<br />
-					<p>Alias · Fusil</p>
-					<br />
-					<p>Como parte de la colección principal de Alias, la línea Fusil incorpora textos de crítica de arte.</p>
+					<p>Alias · Fusil / Como parte de la colección principal de Alias, la línea Fusil incorpora textos de crítica de arte.</p>
 				</div><!-- tooltip -->
 			</a>
 		</li>
