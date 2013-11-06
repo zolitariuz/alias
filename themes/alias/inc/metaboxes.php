@@ -19,6 +19,7 @@
 
 		add_meta_box('precio_metabox', 'Precio', 'precio_metadata_setup', 'libro', 'side', 'default');
 
+		add_meta_box('noticia_relacionada_metabox', 'Noticia relacionada', 'noticia_relacionada_metadata_setup', 'libro', 'side', 'default');
 
 		// DISTRIBUIDOR
 		add_meta_box('distribuidor_metabox', 'Link', 'distribuidor_metadata_setup', 'distribuidor', 'normal', 'default');
@@ -61,6 +62,24 @@ subtitulo_meta;
 		wp_nonce_field(__FILE__, '_soundcloud_meta_nonce');
 		echo "<input type='text' class='widefat' name='_soundcloud_meta' value='$embed'>";
 		echo '<p class="description">Widget Code</p>';
+	}
+
+
+
+
+	function noticia_relacionada_metadata_setup($post){
+		$noticias = get_published_news();
+		$meta     = get_post_meta($post->ID, '_noticia_relacionada_meta', true);
+
+		wp_nonce_field(__FILE__, '_noticia_relacionada_meta_nonce');
+
+		echo "<select name='_noticia_relacionada_meta' class='widefat'>";
+		echo "<option value=''>— Selecciona —</option>";
+		foreach ($noticias as  $noticia) {
+			$selected = ( $meta == $noticia->ID ) ? 'selected' : '';
+			echo "<option value='$noticia->ID' $selected>" . __($noticia->post_title) . "</option>";
+		}
+		echo "</select>";
 	}
 
 
@@ -192,6 +211,15 @@ precio_metabox;
 				return $post_id;
 			}
 			update_post_meta($post_id, '_libro_meta', $_POST['_libro_meta']);
+		}
+
+
+		// NOTICA RELACIONADA
+		if ( isset($_POST['_noticia_relacionada_meta']) ) {
+			if( ! check_admin_referer(__FILE__, '_noticia_relacionada_meta_nonce')){
+				return $post_id;
+			}
+			update_post_meta($post_id, '_noticia_relacionada_meta', $_POST['_noticia_relacionada_meta']);
 		}
 
 

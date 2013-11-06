@@ -360,8 +360,8 @@
 
 			addProduct.done(function (object) {
 				if ( isNumber(object.data) ){
-					//change_cart_total( parseInt(object.data, 10) );
-					//$(document).scrollTop(0);
+					change_cart_total( parseInt(object.data, 10) );
+					$(document).scrollTop(0);
 				}
 			});
 

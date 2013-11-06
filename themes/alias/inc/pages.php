@@ -48,7 +48,7 @@
 			$page = array(
 				'post_author' => 1,
 				'post_status' => 'publish',
-				'post_title'  => 'Aviso de Privacidad',
+				'post_title'  => 'Aviso de privacidad',
 				'post_type'   => 'page'
 			);
 			wp_insert_post( $page, true );

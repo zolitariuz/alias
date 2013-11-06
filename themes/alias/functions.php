@@ -59,7 +59,8 @@
 
 
 	function enqueue_single_noticia_scripts(){
-		if ( is_single() AND get_query_var('post_type') === 'noticia' ) {
+		$post_type = get_query_var('post_type');
+		if ( is_single() AND ( $post_type === 'noticia' OR  $post_type === 'libro' ) ) {
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
 			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
 		}
@@ -162,6 +163,7 @@
 		if ( $query->is_main_query() and ! is_admin() ) {
 			if ( is_post_type_archive('libro') ){
 				$query->set('posts_per_page', -1);
+				$query->set( 'post_parent', 0 );
 			}
 		}
 		return $query;
@@ -220,16 +222,38 @@
 
 
 	function get_related_post($post_id){
-		$categories = get_the_category( $post_id );
+		$ID = get_post_meta( $post_id, '_noticia_relacionada_meta', true );
+		return new WP_Query( array( 'post_type' => 'noticia', 'post__in' => array($ID) ) );
+	}
 
-		$categorie_ids = wp_list_pluck( $categories, 'cat_ID' );
 
-		return new WP_Query(array(
-			'post_type'      => 'noticia',
-			'posts_per_page' => 1,
-			'category__in'   => $categorie_ids
-		));
 
+// GET COLLECTION POSTS //////////////////////////////////////////////////////////////
+
+
+
+	function query_posts_children($post_id){
+		global $wpdb;
+		return $wpdb->get_results(
+			"SELECT * FROM {$wpdb->prefix}posts
+				WHERE post_parent   = $post_id
+					AND post_type   = 'libro'
+					AND post_status = 'publish'", OBJECT
+		);
+	}
+
+
+	function show_collection_posts($posts){
+		echo "<h3>". __('En la colección', 'alias') ."</h3><hr>";
+		array_walk($posts, function($libro){
+			echo "<p><a href=''>$libro->post_title</a></p>";
+		});
+	}
+
+
+	function collection_posts($post_id){
+		$posts = query_posts_children($post_id);
+		if ( $posts ) show_collection_posts($posts);
 	}
 
 
@@ -384,4 +408,14 @@
 		if ( get_post_type() === 'libro' OR is_page('galeria') ) {
 			echo 'main_isotope';
 		}
+	}
+
+
+
+	function get_published_news(){
+		global $wpdb;
+		return $wpdb->get_results(
+			"SELECT * FROM {$wpdb->prefix}posts
+				WHERE post_type = 'noticia' AND post_status = 'publish'", OBJECT
+		);
 	}

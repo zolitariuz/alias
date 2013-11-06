@@ -1,7 +1,7 @@
 <?php get_header(); the_post(); ?>
 
 	<div class="single_header carrito">
-		<h2><?php _e('Carrito de Compras', 'alias'); ?></h2>
+		<h2><?php _e('Carrito de compras', 'alias'); ?></h2>
 		<h3 class="categoria_carrito"><?php _e('productos', 'alias'); ?></h3>
 	</div><!-- single_header -->
 

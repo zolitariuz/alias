@@ -30,7 +30,13 @@
 		</div><!-- portada -->
 
 		<div class="content">
-			<?php the_content() ?>
+			<?php the_content(); ?>
+
+			<!-- colección -->
+			<div class="coleccion">
+				<?php collection_posts($post->ID); ?>
+			</div>
+
 		</div><!-- content -->
 
 		<div class="info_single">
@@ -94,19 +100,21 @@
 
 
 <?php
+/*
+	8888888b.          888          888                 888      8888888b.                   888
+	888   Y88b         888          888                 888      888   Y88b                  888
+	888    888         888          888                 888      888    888                  888
+	888   d88P .d88b.  888  8888b.  888888 .d88b.   .d88888      888   d88P .d88b.  .d8888b  888888
+	8888888P" d8P  Y8b 888     "88b 888   d8P  Y8b d88" 888      8888888P" d88""88b 88K      888
+	888 T88b  88888888 888 .d888888 888   88888888 888  888      888       888  888 "Y8888b. 888
+	888  T88b Y8b.     888 888  888 Y88b. Y8b.     Y88b 888      888       Y88..88P      X88 Y88b.
+	888   T88b "Y8888  888 "Y888888  "Y888 "Y8888   "Y88888      888        "Y88P"   88888P'  "Y888
+*/
 
-/***********************************************************
-	 ____      _       _           _   ____           _
-	|  _ \ ___| | __ _| |_ ___  __| | |  _ \ ___  ___| |_
-	| |_) / _ \ |/ _` | __/ _ \/ _` | | |_) / _ \/ __| __|
-	|  _ |  __/ | (_| | ||  __/ (_| | |  __/ (_) \__ \ |_
-	|_| \_\___|_|\__,_|\__\___|\__,_| |_|   \___/|___/\__|
 
- ************************************************************/
+	$related = get_related_post( $post->ID );
 
-	$related = get_related_post( $post->ID ); ?>
-
-	<?php if ($related and $related->have_posts() ) : while ( $related->have_posts() ) : $related->the_post(); ?>
+	if ( $related and $related->have_posts() ) : while ( $related->have_posts() ) : $related->the_post(); ?>
 
 		<div class="single_header noticia">
 			<h2><?php the_title() ?></h2>
