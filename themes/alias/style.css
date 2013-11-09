@@ -274,6 +274,15 @@ legend {
 .helvetica {
   font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+/* ------ ISOTOPE FILTERING ------ */
+.isotope-item{
+  z-index: 2;
+}
+.isotope-hidden{
+  pointer-events: none;
+  z-index: 1;
+}
+
 /* ------ GENERAL ------ */
 /* line 112, style.less */
 html,
@@ -394,6 +403,7 @@ em {
 /* line 156, style.less */
 .colecciones_menu a:hover .tooltip {
   display: block;
+  z-index: 3;
 }
 /* line 158, style.less */
 .colecciones_menu .tooltip {

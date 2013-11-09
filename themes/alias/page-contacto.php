@@ -19,15 +19,17 @@
 		<input type="submit" value="<?php _e('Enviar', 'alias'); ?>">
 
 		<p>
-			<a href="mailto:informes@aliaseditorial.com" style="color:black; text-decoration:none;">
+			<a href="mailto:informes@aliaseditorial.com" style="color:black; text-decoration:none;" target="_blank" rel="nofollow">
 				<strong>informes@aliaseditorial.com</strong>
 			</a>
 			<br />
-			<a href="tel://5555332849" style="color:black; text-decoration:none;">
+			<a href="tel://5555332849" style="color:black; text-decoration:none;" target="_blank" rel="nofollow">
 				T. (5255) 55332849
 			</a>
 			<br />
-			Av. Oaxaca 46, interior 205, colonia Roma Norte, Cuauhtémoc, 06700, Distrito Federal, México
+			<a href="https://www.google.com/maps/preview#!q=Av.+Oaxaca+46%2C+interior+205%2C+colonia+Roma+Norte%2C+Cuauht%C3%A9moc%2C+06700%2C+Distrito+Federal%2C+M%C3%A9xico&data=!4m15!2m14!1m13!1s0x85d1ff371c039175%3A0xfee2df15e32e3a59!3m8!1m3!1d31549231!2d-95.677068!3d37.0625!3m2!1i1653!2i929!4f13.1!4m2!3d19.422518!4d-99.1641877" style="color:black; text-decoration:none;" target="_blank" rel="nofollow">
+				Av. Oaxaca 46, interior 205, colonia Roma Norte, Cuauhtémoc, 06700, Distrito Federal, México
+			</a>
 		</p>
 
 	</form>

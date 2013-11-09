@@ -28,24 +28,19 @@
 
 
 
-		var container = $('.main_isotope');
+		var $container = $('.main_isotope');
 
-
-		var imagesLoaded = new ImagesLoaded(container);
-
-		imagesLoaded.done(function (a) {
-			container.isotope({
+		$container.imagesLoaded(function(){
+			$container.isotope({
 				layoutMode : 'fitRows',
 				animationEngine: 'jquery'
 			});
-			$(document).trigger('isotopeDone');
 		});
-
 
 
 		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
-			container.isotope({ filter: selector });
+			$container.isotope({ filter: selector });
 			if (selector.charAt(0) === '#'){
 				window.location.hash = $(this).attr('href');
 			}else{

@@ -205,7 +205,7 @@
 
 	add_action( 'init', function () use (&$wpdb){
 		$wpdb->query(
-			"CREATE TABLE IF NOT EXISTS wp_newsletter (
+			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}newsletter (
 				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 				email VARCHAR(255) DEFAULT NULL,
 				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -235,10 +235,10 @@
 	function query_posts_children($post_id){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT * FROM {$wpdb->prefix}posts
-				WHERE post_parent   = $post_id
-					AND post_type   = 'libro'
-					AND post_status = 'publish'", OBJECT
+			"SELECT * FROM {$wpdb->prefix}posts AS posts
+				WHERE posts.post_parent   = $post_id
+					AND posts.post_type   = 'libro'
+					AND posts.post_status = 'publish'", OBJECT
 		);
 	}
 
@@ -416,7 +416,8 @@
 	function get_published_news(){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT * FROM {$wpdb->prefix}posts
-				WHERE post_type = 'noticia' AND post_status = 'publish'", OBJECT
+			"SELECT * FROM {$wpdb->prefix}posts AS posts
+				WHERE posts.post_type     = 'noticia'
+					AND posts.post_status = 'publish'", OBJECT
 		);
 	}
