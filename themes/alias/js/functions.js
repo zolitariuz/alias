@@ -338,18 +338,18 @@
 				showOn: 'none',
 				alignTo: 'target',
 				alignX: 'inner-left',
-				offsetX: -50,
-				offsetY: 12
+				offsetX: -84,
+				offsetY: 8
 			});
 			element.poshytip('showDelayed', 400);
 			setTimeout(function(){
 				element.poshytip('hide');
-			}, 4000);
+			}, 5000);
 		}
 
 
 		$('.carrito, .tip-twitter').live('mouseenter', function(){
-			$('.carrito_img').poshytip('hideDelayed', 400);
+			$('.carrito_img').poshytip('hideDelayed', 3000);
 		});
 
 
@@ -365,7 +365,7 @@
 
 			totalContainer.text( newTotal );
 
-			show_cart_tooltip( $('.carrito_img') );
+			show_cart_tooltip( $('#carrito-total') );
 
 			return newTotal;
 		}
