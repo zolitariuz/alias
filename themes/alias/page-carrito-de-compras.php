@@ -1,4 +1,8 @@
-<?php get_header(); the_post(); ?>
+<?php
+
+	wp_redirect( site_url( '/proximamente/' ), 302 ); exit;
+
+ get_header(); the_post(); ?>
 
 	<div class="single_header carrito">
 		<h2><?php _e('Carrito de compras', 'alias'); ?></h2>

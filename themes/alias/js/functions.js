@@ -117,6 +117,20 @@
 		});
 
 
+		$('form#form_buscador-404').on('click', function(){
+			$(this).css({
+				'background-color': 'black'
+			});
+			$(this).find('input').css({
+				'background-color': 'black',
+				'color': 'white'
+			});
+			$(this).find('#submit').css({
+				'background-position': '0px -13px'
+			});
+		});
+
+
 
 	// FORMULARIO DE CONTACTO ////////////////////////////////////////////////////////////
 
@@ -175,7 +189,7 @@
 
 
 
-		$('body').on('click', function(e){
+		$('body').on('click', function (e){
 			if ( ! $(e.target).hasClass('s') ){
 				var form_buscador = $('#form_buscador');
 				$(form_buscador).css({
@@ -200,6 +214,22 @@
 			}
 		});
 
+
+		$('body').on('click', function (e){
+			if ( ! $(e.target).hasClass('s') ){
+				var form_buscador = $('#form_buscador-404');
+				$(form_buscador).css({
+					'background-color': 'white'
+				});
+				$(form_buscador).find('input').css({
+					'background-color': 'white',
+					'color': 'black'
+				});
+				$(form_buscador).find('#submit').css({
+					'background-position': '0px 0px'
+				});
+			}
+		});
 
 		function saveNewsletterEmail (email) {
 
