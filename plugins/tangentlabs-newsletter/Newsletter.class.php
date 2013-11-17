@@ -126,7 +126,9 @@
 			$recipients  = Newsletter::get_mails();
 			if ( ! $recipients) return false;
 
-			Newsletter::send_multiple_recipients($recipients, $subject, $message);
+			//Newsletter::send_multiple_recipients($recipients, $subject, $message);
+			$message = '<h1>Header</h1><p>Lorem ipsum dolor</p><p><strong>lorem</strong> ipsum sit ammet.</p>';
+			wp_mail('scrub.mx@gmail.com', $subject, $message, 'From: Alias <informes@aliaseditorial.com>');
 		}
 
 
