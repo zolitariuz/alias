@@ -146,9 +146,6 @@
 			//define the body of the message.
 			ob_start(); ?>
 
-			--PHP-alt-<?php echo $random_hash; ?>
-			Content-Type: text/html; charset="iso-8859-1"
-			Content-Transfer-Encoding: 7bit
 
 <table id="bodyTable" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0; background-color: #fff; border-collapse: collapse; height: 100%; width: 100%;" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 <tbody>
@@ -254,11 +251,7 @@ You can also get a little fancy; repeat blocks and remove all text to make image
 <!-- // END TEMPLATE --></td>
 </tr>
 </tbody>
-</table>
-
-
-			--PHP-alt-<?php echo $random_hash; ?>--
-			<?php
+</table> <?php
 			//copy current buffer contents into $message variable and delete current output buffer
 			$message = ob_get_clean();
 			//send the email
