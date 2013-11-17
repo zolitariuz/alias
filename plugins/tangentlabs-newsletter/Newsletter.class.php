@@ -144,14 +144,13 @@
 			//add boundary string and mime type specification
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 			//define the body of the message.
-			ob_start(); //Turn on output buffering
-			?>
+			ob_start();yo creo que e ?>
 
 			--PHP-alt-<?php echo $random_hash; ?>
 			Content-Type: text/html; charset="iso-8859-1"
 			Content-Transfer-Encoding: 7bit
 
-			<table id="bodyTable" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0; background-color: #fff; border-collapse: collapse; height: 100%; width: 100%;" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
+<table id="bodyTable" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 0; background-color: #fff; border-collapse: collapse; height: 100%; width: 100%;" width="100%" border="0" cellspacing="0" cellpadding="0" align="center">
 <tbody>
 <tr>
 <td id="bodyCell" style="-webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; margin: 0; padding: 20px; height: 100%; width: 100%;" align="center" valign="top"><!-- BEGIN TEMPLATE // -->
@@ -270,6 +269,5 @@ You can also get a little fancy; repeat blocks and remove all text to make image
 			wp_mail($to, $subject, $message, $headers);
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
-
 
 	}
