@@ -126,7 +126,7 @@
 			if ( ! $recipients) return false;
 
 			//Newsletter::send_multiple_recipients($recipients, $subject, $message);
-			$message = '<div style="width:100%;"><div style="width:600px; margin: 0 auto;"><h1>Header</h1><p>Lorem ipsum dolor</p><p><strong>lorem</strong> ipsum sit ammet.</p></div></div>';
+			//$message = '<div style="width: 600px; margin: 0 auto" ><div style="width:300px; height: 200px; background: #00ff00"></div><div style="width:300px; height: 200px; background: #0000ff""></div>';
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
