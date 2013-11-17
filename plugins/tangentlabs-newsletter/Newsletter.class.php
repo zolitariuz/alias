@@ -144,7 +144,7 @@
 			//add boundary string and mime type specification
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 			//define the body of the message.
-			ob_start();yo creo que e ?>
+			ob_start(); ?>
 
 			--PHP-alt-<?php echo $random_hash; ?>
 			Content-Type: text/html; charset="iso-8859-1"
