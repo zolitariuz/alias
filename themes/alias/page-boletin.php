@@ -594,14 +594,6 @@
                                         </tr>
                                     </table>
                                     <!-- // END FOOTER -->
-                                    <!-- BEGIN FOOTER // -->
-                                    <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
-                                        <tr>
-                                            <td valign="top" class="footerContent" mc:edit="footer_content01">
-                                                <strong>John</strong> · <strong>Robert</strong>                                            </td>
-                                        </tr>
-                                    </table>
-                                    <!-- // END FOOTER -->
                                 </td>
                             </tr>
                         </table>
