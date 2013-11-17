@@ -132,14 +132,10 @@
 			$random_hash = md5(date('r', time()));
 			$headers = "From: informes@aliaseditorial.com\r\nReply-To: informes@aliaseditorial.com";
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
-			file_put_contents(
-				'/home/scrub/Desktop/php.log',
-				var_export( stripslashes($message), true )
-			);
-/*
+
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 			wp_mail($to, $subject, $message, $headers);
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
-*/		}
+		}
 
 	}
