@@ -14,7 +14,6 @@
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 			add_action( 'admin_enqueue_scripts', array( $this, 'localize_admin_scripts' ) );
 
-
 			register_activation_hook( __FILE__, array( 'Newsletter', 'activation_hook_callback' ) );
 			register_uninstall_hook( __FILE__, array( 'Newsletter', 'uninstall_hook_callback' ) );
 		}
@@ -127,7 +126,7 @@
 			if ( ! $recipients) return false;
 
 			//Newsletter::send_multiple_recipients($recipients, $subject, $message);
-			$message = '<h1>Header</h1><p>Lorem ipsum dolor</p><p><strong>lorem</strong> ipsum sit ammet.</p>';
+			$message = '<div style="width:100%;"><div style="width:600px; margin: 0 auto;"><h1>Header</h1><p>Lorem ipsum dolor</p><p><strong>lorem</strong> ipsum sit ammet.</p></div></div>';
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
