@@ -128,7 +128,13 @@
 
 			//Newsletter::send_multiple_recipients($recipients, $subject, $message);
 			$message = '<h1>Header</h1><p>Lorem ipsum dolor</p><p><strong>lorem</strong> ipsum sit ammet.</p>';
+
+			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+
 			wp_mail('scrub.mx@gmail.com', $subject, $message, 'From: Alias <informes@aliaseditorial.com>');
+
+			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+
 		}
 
 
