@@ -1,1 +1,1 @@
-<?php the_content( ); ?>
+<?php the_post(); the_content( ); ?>
