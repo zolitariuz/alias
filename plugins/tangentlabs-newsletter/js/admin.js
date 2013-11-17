@@ -16,7 +16,7 @@
 
 
 
-		$('#send-newsletter').on('click', function (e) {
+		$('#send-newsletter').live('click', function (e) {
 			e.preventDefault();
 
 			var sendButton = $(this);
