@@ -46,7 +46,7 @@
 
 
 		$headers = "From: $nombre <$email> \r\n";
-		$mail    = wp_mail('scrub.mx@gmail.com', $_GET['asunto'], $mensaje, $headers );
+		$mail    = wp_mail('informes@aliaseditorial.com', $_GET['asunto'], $mensaje, $headers );
 		wp_send_json($mail);
 	}
 	add_action('wp_ajax_formulario_contacto_enviado', 'formulario_contacto_enviado');
