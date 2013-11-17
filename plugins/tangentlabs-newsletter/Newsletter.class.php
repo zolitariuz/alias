@@ -107,13 +107,13 @@
 			return 'text/html; charset=UTF-8';
 		}
 
-		public static function send_multiple_recipients($mails, $subject, $message)
+		public static function send_multiple_recipients($mails, $subject, $message, $headers)
 		{
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			foreach ($mails as $mail) {
-				wp_mail( $mail, $subject, $message, 'From: Alias <informes@aliaseditorial.com>' );
+				wp_mail($recipients, $subject, stripslashes($message), $headers);
 			}
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
@@ -125,17 +125,16 @@
 			$recipients  = Newsletter::get_mails();
 			if ( ! $recipients) return false;
 
-			//Newsletter::send_multiple_recipients($recipients, $subject, $message);
 
 			//define the receiver of the email
-			$to = 'scrub.mx@gmail.com';
 			$random_hash = md5(date('r', time()));
-			$headers = "From: informes@aliaseditorial.com\r\nReply-To: informes@aliaseditorial.com";
+			$headers  = "From: informes@aliaseditorial.com\r\nReply-To: informes@aliaseditorial.com";
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
-			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
-			wp_mail($to, $subject, stripslashes($message), $headers);
-			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+			Newsletter::send_multiple_recipients($recipients, $subject, $message, $headers);
+			//add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+			//wp_mail($recipients, $subject, stripslashes($message), $headers);
+			//remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
 
 	}
