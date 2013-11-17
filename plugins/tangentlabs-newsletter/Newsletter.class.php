@@ -140,7 +140,7 @@
 			//so we use the MD5 algorithm to generate a random hash
 			$random_hash = md5(date('r', time()));
 			//define the headers we want passed. Note that they are separated with \r\n
-			$headers = "From: webmaster@example.com\r\nReply-To: webmaster@example.com";
+			$headers = "From: informes@aliaseditorial.com\r\nReply-To: informes@aliaseditorial.com";
 			//add boundary string and mime type specification
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 			//define the body of the message.
@@ -166,8 +166,7 @@
 			$message = ob_get_clean();
 			//send the email
 			$mail_sent = @mail( $to, $subject, $message, $headers );
-			//if the message is sent successfully print "Mail sent". Otherwise print "Mail failed"
-			echo $mail_sent ? "Mail sent" : "Mail failed";
+
 		}
 
 
