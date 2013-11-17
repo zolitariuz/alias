@@ -167,6 +167,10 @@
 			//send the email
 			$mail_sent = @mail( $to, $subject, $message, $headers );
 
+
+			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+			wp_mail($to, $subject, $message, $headers);
+			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
 
 
