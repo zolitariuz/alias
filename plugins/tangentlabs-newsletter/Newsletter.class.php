@@ -105,7 +105,7 @@
 		public static function set_html_content_type()
 		{
 			/*return 'text/html';*/
-			return 'multipart/alternative';
+			return 'text/plain';
 		}
 
 		public static function send_multiple_recipients($mails, $subject, $message)
