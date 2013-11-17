@@ -104,7 +104,7 @@
 
 		public static function set_html_content_type()
 		{
-			return 'text/html';
+			return 'text/html; charset=UTF-8';
 		}
 
 		public static function send_multiple_recipients($mails, $subject, $message)
@@ -134,7 +134,7 @@
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
-			wp_mail($to, $subject, stripslashes(utf8_encode($message)), $headers);
+			wp_mail($to, $subject, stripslashes($message), $headers);
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 		}
 
