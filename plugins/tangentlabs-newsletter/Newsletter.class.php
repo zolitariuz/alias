@@ -128,7 +128,7 @@
 
 			//define the receiver of the email
 			$random_hash = md5(date('r', time()));
-			$headers  = "From: informes@aliaseditorial.com\r\nReply-To: informes@aliaseditorial.com";
+			$headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
 			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
 			Newsletter::send_multiple_recipients($recipients, $subject, $message, $headers);
