@@ -168,6 +168,35 @@
 		);
 		register_post_type( 'slide', $args );
 
+		// PDF's
+		$labels = array(
+			'name'          => 'PDF',
+			'singular_name' => 'PDF',
+			'add_new'       => 'Nuevo PDF',
+			'add_new_item'  => 'Nuevo PDF',
+			'edit_item'     => 'Editar PDF',
+			'new_item'      => 'Nuevo PDF',
+			'all_items'     => 'Todos',
+			'view_item'     => 'Ver PDF',
+			'search_items'  => 'Buscar Slides',
+			'not_found'     => 'No se encontro',
+			'menu_name'     => 'PDF'
+		);
 
+		$args = array(
+			'labels'             => $labels,
+			'public'             => true,
+			'publicly_queryable' => true,
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'pdf' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 6,
+			'supports'           => array( 'title', 'editor', 'thumbnail' )
+		);
+		register_post_type( 'pdf', $args );
 
 	});
