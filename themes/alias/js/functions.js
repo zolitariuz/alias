@@ -28,24 +28,19 @@
 
 
 
-		var container = $('.main_isotope');
+		var $container = $('.main_isotope');
 
-
-		var imagesLoaded = new ImagesLoaded(container);
-
-		imagesLoaded.done(function (a) {
-			container.isotope({
+		$container.imagesLoaded(function(){
+			$container.isotope({
 				layoutMode : 'fitRows',
 				animationEngine: 'jquery'
 			});
-			$(document).trigger('isotopeDone');
 		});
-
 
 
 		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
-			container.isotope({ filter: selector });
+			$container.isotope({ filter: selector });
 			if (selector.charAt(0) === '#'){
 				window.location.hash = $(this).attr('href');
 			}else{
@@ -122,6 +117,20 @@
 		});
 
 
+		$('form#form_buscador-404').on('click', function(){
+			$(this).css({
+				'background-color': 'black'
+			});
+			$(this).find('input').css({
+				'background-color': 'black',
+				'color': 'white'
+			});
+			$(this).find('#submit').css({
+				'background-position': '0px -13px'
+			});
+		});
+
+
 
 	// FORMULARIO DE CONTACTO ////////////////////////////////////////////////////////////
 
@@ -180,7 +189,7 @@
 
 
 
-		$('body').on('click', function(e){
+		$('body').on('click', function (e){
 			if ( ! $(e.target).hasClass('s') ){
 				var form_buscador = $('#form_buscador');
 				$(form_buscador).css({
@@ -205,6 +214,22 @@
 			}
 		});
 
+
+		$('body').on('click', function (e){
+			if ( ! $(e.target).hasClass('s') ){
+				var form_buscador = $('#form_buscador-404');
+				$(form_buscador).css({
+					'background-color': 'white'
+				});
+				$(form_buscador).find('input').css({
+					'background-color': 'white',
+					'color': 'black'
+				});
+				$(form_buscador).find('#submit').css({
+					'background-position': '0px 0px'
+				});
+			}
+		});
 
 		function saveNewsletterEmail (email) {
 
@@ -313,18 +338,18 @@
 				showOn: 'none',
 				alignTo: 'target',
 				alignX: 'inner-left',
-				offsetX: -50,
-				offsetY: 12
+				offsetX: -84,
+				offsetY: 8
 			});
 			element.poshytip('showDelayed', 400);
 			setTimeout(function(){
 				element.poshytip('hide');
-			}, 4000);
+			}, 5000);
 		}
 
 
 		$('.carrito, .tip-twitter').live('mouseenter', function(){
-			$('.carrito_img').poshytip('hideDelayed', 400);
+			$('.carrito_img').poshytip('hideDelayed', 3000);
 		});
 
 
@@ -340,7 +365,7 @@
 
 			totalContainer.text( newTotal );
 
-			show_cart_tooltip( $('.carrito_img') );
+			show_cart_tooltip( $('#carrito-total') );
 
 			return newTotal;
 		}

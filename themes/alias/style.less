@@ -107,6 +107,11 @@ html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre
   &:after { content: ''; display: table; clear: both; }
 }
 
+/* ------ ISOTOPE FILTERING ------ */
+
+.isotope-item { z-index: 2; }
+.isotope-hidden { pointer-events: none; z-index: 1; }
+
 /* ------ GENERAL ------ */
 
 html, body{ background: @fondo; .helvetica; }
@@ -153,7 +158,7 @@ em{ font-style: italic; }
 }
 
 .colecciones_menu{
-	a:hover .tooltip{ display: block;}
+	a:hover .tooltip{ display: block; z-index: 3; }
 
 	.tooltip{ display: none; width: 100%; padding: 10px; color: @color_claro; background: url('images/bg_blanco_93.png') repeat; position: absolute; left: 0; z-index: 2;
 		p{ margin: 0; text-transform: none; }
@@ -503,6 +508,10 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 		}
 
 	}
+}
+/* ------ AVISO DE PRIVACIDAD ------ */
+.aviso-de-privacidad a{ color: @color_claro; text-decoration: none;
+	&:hover{ color: @color; }
 }
 
 

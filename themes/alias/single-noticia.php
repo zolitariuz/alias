@@ -18,12 +18,12 @@
 
 			<?php if ( $soundcloud ) : echo $soundcloud; ?>
 
-				<div class="audio play">
+				<div class="audio play" data-index="0">
 					<div class="audio_status"></div>
 					<p>Repdroducir audio</p>
 				</div><!-- audio -->
 
-				<div class="audio pause" style="display: none;">
+				<div class="audio pause" style="display: none;" data-index="0">
 					<div class="audio_status"></div>
 					<p>Pausar audio</p>
 				</div><!-- audio -->

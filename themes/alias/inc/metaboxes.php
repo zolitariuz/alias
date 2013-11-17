@@ -21,6 +21,9 @@
 
 		add_meta_box('noticia_relacionada_metabox', 'Noticia relacionada', 'noticia_relacionada_metadata_setup', 'libro', 'side', 'default');
 
+		add_meta_box('soundcloud_metabox', 'SoundCloud', 'soundcloud_metadata_setup', 'libro', 'side', 'default');
+
+
 		// DISTRIBUIDOR
 		add_meta_box('distribuidor_metabox', 'Link', 'distribuidor_metadata_setup', 'distribuidor', 'normal', 'default');
 

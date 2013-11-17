@@ -9,7 +9,7 @@
 
 	<div class="single_content">
 
-		<div class="content">
+		<div class="content aviso-de-privacidad">
 
 			<?php the_content(); ?>
 

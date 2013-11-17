@@ -205,7 +205,7 @@
 
 	add_action( 'init', function () use (&$wpdb){
 		$wpdb->query(
-			"CREATE TABLE IF NOT EXISTS wp_newsletter (
+			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}newsletter (
 				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
 				email VARCHAR(255) DEFAULT NULL,
 				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -235,20 +235,21 @@
 	function query_posts_children($post_id){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT * FROM {$wpdb->prefix}posts
-				WHERE post_parent   = $post_id
-					AND post_type   = 'libro'
-					AND post_status = 'publish'", OBJECT
+			"SELECT * FROM {$wpdb->prefix}posts AS posts
+				WHERE posts.post_parent   = $post_id
+					AND posts.post_type   = 'libro'
+					AND posts.post_status = 'publish'", OBJECT
 		);
 	}
 
 
+
 	function show_collection_posts($posts){
 		echo "<h3>". __('En la colección', 'alias') ."</h3><hr>";
-		array_walk($posts, function($libro){
-			echo "<p><a href=''>$libro->post_title</a></p>";
-		});
+		foreach($posts as $libro)
+			echo "<p><a href='".site_url("/colecciones/{$libro->post_name}/")."'>" . __($libro->post_title) . "</a></p>";
 	}
+
 
 
 	function collection_posts($post_id){
@@ -415,7 +416,8 @@
 	function get_published_news(){
 		global $wpdb;
 		return $wpdb->get_results(
-			"SELECT * FROM {$wpdb->prefix}posts
-				WHERE post_type = 'noticia' AND post_status = 'publish'", OBJECT
+			"SELECT * FROM {$wpdb->prefix}posts AS posts
+				WHERE posts.post_type     = 'noticia'
+					AND posts.post_status = 'publish'", OBJECT
 		);
 	}
