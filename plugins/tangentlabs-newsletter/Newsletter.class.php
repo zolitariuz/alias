@@ -146,12 +146,6 @@
 			//define the body of the message.
 			ob_start(); //Turn on output buffering
 			?>
-			--PHP-alt-<?php echo $random_hash; ?>
-			Content-Type: text/plain; charset="iso-8859-1"
-			Content-Transfer-Encoding: 7bit
-
-			Hello World!!!
-			This is simple text email message.
 
 			--PHP-alt-<?php echo $random_hash; ?>
 			Content-Type: text/html; charset="iso-8859-1"
