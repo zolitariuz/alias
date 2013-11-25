@@ -6,7 +6,7 @@
 
 		var pauseButton, playButton;
 
-		$('iframe').hide();
+		$("iframe[src*='soundcloud']").hide();
 
 
 		var iframeElements = document.querySelector('iframe');
