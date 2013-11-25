@@ -14,21 +14,28 @@
 			<?php the_content() ?>
 
 
-			<?php $soundcloud = get_post_meta($post->ID, '_soundcloud_meta', true); ?>
+			<?php $soundclouds = get_post_meta($post->ID, '_soundcloud_meta', true);
 
-			<?php if ( $soundcloud ) : echo $soundcloud; ?>
+			if ( $soundclouds ) : $soundcloudIndex = 0; foreach ($soundclouds as $soundcloud) :
 
-				<div class="audio play" data-index="0">
-					<div class="audio_status"></div>
-					<p>Repdroducir audio</p>
-				</div><!-- audio -->
+				if ( ! empty($soundcloud)) {
 
-				<div class="audio pause" style="display: none;" data-index="0">
-					<div class="audio_status"></div>
-					<p>Pausar audio</p>
-				</div><!-- audio -->
+					echo $soundcloud; ?>
 
-			<?php endif; ?>
+					<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
+						<div class="audio_status"></div>
+						<p>Repdroducir audio</p>
+					</div><!-- audio -->
+
+					<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
+						<div class="audio_status"></div>
+						<p>Pausar audio</p>
+					</div><!-- audio -->
+
+					<?php $soundcloudIndex++;
+				}
+
+			endforeach; endif; ?>
 
 		</div><!-- content -->
 

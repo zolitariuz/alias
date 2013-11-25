@@ -135,6 +135,11 @@
 	// FORMULARIO DE CONTACTO ////////////////////////////////////////////////////////////
 
 
+
+		function emptyContactform(){
+			$('form#forma_contacto').find(" input[type=text], input[type=email], textarea").val('');
+		}
+
 		$('form#forma_contacto').on('submit', function (e) {
 			e.preventDefault();
 
@@ -148,6 +153,7 @@
 			}, 'json')
 
 			.done(function (data) {
+				emptyContactform();
 				alert('Se envio el formulario de contacto');
 			});
 		});

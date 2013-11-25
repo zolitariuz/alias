@@ -44,6 +44,7 @@
 
 		enqueue_single_noticia_scripts();
 		enqueue_shoping_cart_scripts();
+		enqueue_page_gallery_scripts();
 
 		// localize scripts
 		wp_localize_script( 'functions', 'ajax_url', admin_url('admin-ajax.php') );
@@ -79,6 +80,14 @@
 			wp_localize_script( 'functions', 'site_url', site_url() );
 			wp_localize_script( 'functions', 'shoping_cart', $shoping_cart );
 
+		}
+	}
+
+
+	function enqueue_page_gallery_scripts(){
+		if ( is_page('galeria') ) {
+			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
+			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
 		}
 	}
 
@@ -406,8 +415,12 @@
 
 	function div_main_class(){
 		echo is_home() ? 'home' : '';
-		if ( get_post_type() === 'libro' OR is_page('galeria') ) {
+		if ( is_page('galeria') OR ( get_post_type() === 'libro' AND ! is_singular( 'libro' ) ) ) {
 			echo 'main_isotope';
+		}
+
+		if ( is_page('galeria') ) {
+			echo ' single_content ';
 		}
 	}
 

@@ -62,8 +62,14 @@ subtitulo_meta;
 	// SOUNDCLOUD
 	function soundcloud_metadata_setup($post){
 		$embed = get_post_meta($post->ID, '_soundcloud_meta', true);
+		$embed[0] = isset($embed[0]) ? $embed[0] : '';
+		$embed[1] = isset($embed[1]) ? $embed[1] : '';
+		$embed[2] = isset($embed[2]) ? $embed[2] : '';
+
 		wp_nonce_field(__FILE__, '_soundcloud_meta_nonce');
-		echo "<input type='text' class='widefat' name='_soundcloud_meta' value='$embed'>";
+		echo "<input type='text' class='widefat' name='_soundcloud_meta[0]' value='$embed[0]'><br /><br />";
+		echo "<input type='text' class='widefat' name='_soundcloud_meta[1]' value='$embed[1]'><br /><br />";
+		echo "<input type='text' class='widefat' name='_soundcloud_meta[2]' value='$embed[2]'><br /><br />";
 		echo '<p class="description">Widget Code</p>';
 	}
 
