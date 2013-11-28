@@ -1,4 +1,4 @@
-;(function($){
+(function($){
 
 	"use strict";
 
@@ -25,8 +25,8 @@
 
 
 			var ajax_newsletter = sendNewsletter(
-				$('#title').val(),                                           // subject
-				$("#newsletter_content_ifr").contents().find("table").html() // message
+				$('#title').val(),
+				$("#newsletter_content_ifr").contents().find("html").html()
 			);
 
 			ajax_newsletter.done(function (data){

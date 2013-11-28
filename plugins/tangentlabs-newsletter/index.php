@@ -42,14 +42,7 @@
 		$message = isset($_POST['message']) ? $_POST['message'] : false;
 
 		if ( ! $title OR ! $message) wp_send_json_error();
-
-
-		file_put_contents(
-			'/home/scrub/Desktop/log.php',
-			var_export( $title . PHP_EOL . $message, true )
-		);
-
-		//$result = Newsletter::send($title, $message);
+		$result = Newsletter::send($title, $message);
 		wp_send_json($result);
 	}
 	add_action('wp_ajax_send_newsletter', 'send_newsletter');
