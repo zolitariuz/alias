@@ -43,7 +43,7 @@
 		// VIDEOS ////////////////////////////////////////////
 
 
-			$videoSearchPattern = '/<iframe 	src="\/\/player.vimeo.*?\/iframe>/';
+			$videoSearchPattern = '/<iframe src="\/\/player.vimeo.*?\/iframe>/';
 
 			preg_match_all( $videoSearchPattern, $post->post_content, $videos );
 
