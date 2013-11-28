@@ -99,7 +99,7 @@
 					$soundcloudIndex++; ?>
 
 					<h2><?php the_title(); ?></h2>
-					<div class="audio play audio-galeria" data-index="<?php echo $soundcloudIndex; ?>">
+					<div class="audio play les puse audio-galeria" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Repdroducir audio</p>
 					</div><!-- play -->
