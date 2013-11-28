@@ -94,7 +94,20 @@
 		<nav id="center" class="menu">
 			<ul>
 				<li>
-					<a href="pages/descarga.pdf" class="download" title="Descargar PDF" target="_blank"></a>
+				<?php
+					$attachments = get_posts(
+						array(
+							'post_type' => 'attachment',
+							'posts_per_page' => -1,
+							'post_parent' => $post->ID
+						)
+					);
+					foreach ( $attachments as $attachment ) {
+						$mime = get_post_mime_type( $attachment->ID );
+						$pdf = wp_get_attachment_url( $attachment->ID );
+						if ( $mime === 'application/pdf' ){ ?>
+							<a href="<?php echo $pdf; ?>" class="download" title="Descargar PDF" target="_blank"></a>
+				<?php } } ?>
 				</li>
 				<li>
 					<a class="zoom_in" title="Zoom +"></a>
