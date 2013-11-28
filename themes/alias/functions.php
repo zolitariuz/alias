@@ -90,7 +90,7 @@
 	function enqueue_page_gallery_scripts(){
 		if ( is_page('galeria') ) {
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
-			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
+			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('functions', 'soundcloud-api'), null, true );
 		}
 	}
 
