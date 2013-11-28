@@ -1,12 +1,18 @@
+
+<style> iframe{ width: 181px; height: auto; } </style>
+
 <?php
 
 	get_header();
 
-		$wp_query = new WP_Query(array(
-			'post_type'=> array( 'noticia', 'libro' )
+		$query = new WP_Query(array(
+			'post_type'      => 'libro',
+			'posts_per_page' => -1,
+			'post_parent'    => 0
 		));
 
-		if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+		if ( $query->have_posts() ) : while ( $query->have_posts() ) : $query->the_post();
 
 
 		// IMAGENES ///////////////////////////////////////////
@@ -37,13 +43,16 @@
 		// VIDEOS ////////////////////////////////////////////
 
 
-			$videoSearchPattern = '~<iframe [^\>]*\ />~';
+			$videoSearchPattern = '/<iframe src="\/\/player.vimeo.*?\/iframe>/';
 
 			preg_match_all( $videoSearchPattern, $post->post_content, $videos );
 
-			while( $video = array_pop($videos[0]) ){ ?>
+			while( $video = array_pop($videos[0]) ){
 
-				<div class="libro video">
+				echo $post->ID;?>
+
+
+				<div class="libro videos">
 
 					<a href="<?php the_permalink() ?>"><?php echo $video ?></a>
 
@@ -84,7 +93,7 @@
 
 			endforeach; endif;
 
-		endwhile; endif; wp_reset_query();
+		endwhile; endif; wp_reset_postdata();
 
 
 
