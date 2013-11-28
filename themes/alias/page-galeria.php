@@ -18,13 +18,18 @@
 
 		// IMAGENES ///////////////////////////////////////////
 
-			if ( has_post_thumbnail() ) : ?>
+			if ( has_post_thumbnail() ) :
+
+				$post_thumbnail_id = get_post_thumbnail_id( $post->ID );
+
+				$attachment = get_post($post_thumbnail_id); ?>
 
 				<div class="libro fotografias">
 
 					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
 
 					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+					<h2><?php echo $attachment->post_title; ?></h2>
 
 					<p class="descripcion">
 						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
@@ -66,7 +71,6 @@
 
 			while( $video = array_pop($videos[0]) ){ ?>
 
-
 				<div class="libro videos">
 
 					<a href="<?php the_permalink() ?>"><?php echo $video ?></a>
@@ -94,15 +98,17 @@
 					echo $soundcloud;
 					$soundcloudIndex++; ?>
 
-					<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
+					<h2><?php the_title(); ?></h2>
+					<div class="audio play audio-galeria" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Repdroducir audio</p>
-					</div><!-- audio -->
+					</div><!-- play -->
 
-					<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
+
+					<div class="audio pause audio-galeria" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Pausar audio</p>
-					</div><!-- audio -->
+					</div><!-- pause -->
 
 				<?php }
 
