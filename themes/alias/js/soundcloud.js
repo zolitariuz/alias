@@ -19,9 +19,22 @@
 		});
 
 
+
 		$(document).ready(function(){
 
 			$('.pause').hide();
+
+			setTimeout(function(){
+				$.each(soundCloudWidgets, function (index){
+					this.getCurrentSound(function (sound){
+						var title = $('<span></span>', {
+							text: sound.title
+						});
+						$('.play[data-index="'+index+'"]').find('p').after(title);
+					});
+				});
+			},2000);
+
 
 
 			$('.play').on('click', function() {
@@ -30,6 +43,7 @@
 				var index = $(this).data('index');
 				soundCloudWidgets[index].play();
 			});
+
 
 			$('.pause').on('click', function() {
 				$(this).hide();

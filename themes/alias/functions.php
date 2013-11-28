@@ -52,6 +52,9 @@
 		wp_localize_script( 'functions', 'language', qtrans_getlanguage() );
 		wp_localize_script( 'functions', 'i18n',  get_language_strings() );
 
+		$is_gallery = is_page('galeria') ? 'true' : 'false';
+		wp_localize_script( 'functions', 'is_gallery', $is_gallery );
+
 		// styles
 		wp_enqueue_style( 'styles', get_stylesheet_uri() );
 		wp_enqueue_style( 'poshy-tip-css', CSSPATH.'poshy-tip-theme/tip-twitter.css' );

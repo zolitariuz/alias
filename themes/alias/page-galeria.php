@@ -5,6 +5,7 @@
 
 	get_header();
 
+
 		$query = new WP_Query(array(
 			'post_type'      => 'libro',
 			'posts_per_page' => -1,
@@ -16,6 +17,22 @@
 
 
 		// IMAGENES ///////////////////////////////////////////
+
+			if ( has_post_thumbnail() ) : ?>
+
+				<div class="libro fotografias">
+
+					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
+
+					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
+
+					<p class="descripcion">
+						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
+					</p>
+
+				</div><?php
+
+			endif;
 
 
 			$imageSearchPattern = '~<img [^\>]*\ />~';
@@ -34,7 +51,7 @@
 						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
 					</p>
 
-				</div><!-- libro -->
+				</div>
 
 				<?php
 			}
@@ -92,7 +109,6 @@
 			endforeach; endif;
 
 		endwhile; endif; wp_reset_postdata();
-
 
 
 		// VIDEOS ////////////////////////////////////////////

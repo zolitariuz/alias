@@ -26,15 +26,21 @@
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
 
-
-
+	console.log(is_gallery);
 		var $container = $('.main_isotope');
 
 		$container.imagesLoaded(function(){
-			$container.isotope({
-				layoutMode : 'fitRows',
-				animationEngine: 'jquery'
-			});
+			if ( typeof(is_gallery) !== 'undefined' && is_gallery == 'true'){
+				$container.isotope({
+					animationEngine: 'jquery',
+					masonry: {}
+				});
+			}else {
+				$container.isotope({
+					layoutMode : 'fitRows',
+					animationEngine: 'jquery'
+				});
+			}
 		});
 
 
