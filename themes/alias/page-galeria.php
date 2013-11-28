@@ -98,17 +98,20 @@
 					echo $soundcloud;
 					$soundcloudIndex++; ?>
 
-					<h2><?php the_title(); ?></h2>
-					<div class="audio play audio-galeria" data-index="<?php echo $soundcloudIndex; ?>">
-						<div class="audio_status"></div>
-						<p>Repdroducir audio</p>
-					</div><!-- play -->
+					<div class="audio-galeria">
+
+						<h2><?php the_title(); ?></h2>
+						<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
+							<div class="audio_status"></div>
+							<p>Repdroducir audio</p>
+						</div><!-- play -->
 
 
-					<div class="audio pause audio-galeria" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
-						<div class="audio_status"></div>
-						<p>Pausar audio</p>
-					</div><!-- pause -->
+						<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
+							<div class="audio_status"></div>
+							<p>Pausar audio</p>
+						</div><!-- pause -->
+					</div><!-- audio-galeria -->
 
 				<?php }
 
