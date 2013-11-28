@@ -43,13 +43,11 @@
 		// VIDEOS ////////////////////////////////////////////
 
 
-			$videoSearchPattern = '/<iframe src="\/\/player.vimeo.*?\/iframe>/';
+			$videoSearchPattern = '/<iframe 	src="\/\/player.vimeo.*?\/iframe>/';
 
 			preg_match_all( $videoSearchPattern, $post->post_content, $videos );
 
-			while( $video = array_pop($videos[0]) ){
-
-				echo $post->ID;?>
+			while( $video = array_pop($videos[0]) ){ ?>
 
 
 				<div class="libro videos">
