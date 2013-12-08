@@ -48,6 +48,7 @@
 					)
 				);
 				$ultimo = count($attachments);
+				echo 'ultimo'.$ultimo;
 				array_multisort($attachments, SORT_NUMERIC, $attachments);
 				foreach ( $attachments as $attachment ) {
 
@@ -58,7 +59,7 @@
 
 						if ( $primer_contador == 0 ){ ?>
 							<div style="background-image:url(<?php echo $pagina[0] ?>);"></div>
-						<?php } else if ($primer_contador == $ultimo - 1){ ?>
+						<?php } else if ($primer_contador == $ultimo -2){ ?>
 							<div style="background-image:url(<?php echo $pagina[0] ?>);"></div>
 						<?php } else {?>
 
