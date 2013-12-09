@@ -18,26 +18,6 @@
 
 		// IMAGENES ///////////////////////////////////////////
 
-			if ( has_post_thumbnail() ) :
-
-				$post_thumbnail_id = get_post_thumbnail_id( $post->ID );
-
-				$attachment = get_post($post_thumbnail_id); ?>
-
-				<div class="libro fotografias">
-
-					<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
-
-					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-					<h2><?php echo $attachment->post_title; ?></h2>
-
-					<p class="descripcion">
-						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
-					</p>
-
-				</div><?php
-
-			endif;
 
 
 			$imageSearchPattern = '~<img [^\>]*\ />~';
@@ -119,7 +99,5 @@
 
 		endwhile; endif; wp_reset_postdata();
 
-
-		// VIDEOS ////////////////////////////////////////////
 
 	get_footer();
