@@ -114,9 +114,7 @@
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			foreach ($mails as $mail) {
-				$mail = 'scrub.mx@gmail.com';
 				$message = str_replace('GETUSERMAIL', $mail, $message);
-
 				wp_mail($mail, $subject, stripslashes($message), $headers);
 			}
 
