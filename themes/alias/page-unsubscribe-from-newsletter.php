@@ -5,7 +5,7 @@
 		global $wpdb;
 		$wpdb->query(
 			$wpdb->prepare(
-				"DELETE FROM $wpdb->prefix{newsletter} WHERE email = %s", $email
+				"DELETE FROM {$wpdb->prefix}newsletter WHERE email = %s", $email
 			)
 		);
 	}
