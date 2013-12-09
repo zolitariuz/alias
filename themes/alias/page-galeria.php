@@ -1,10 +1,12 @@
 
-<style> iframe{ width: 181px; height: auto; } </style>
-
+<style>
+iframe{ width: 181px; height: auto; }
+.ver-entrada{ color: #999; text-decoration: none; }
+.ver-entrada:hover{ color: #333; }
+</style>
 <?php
 
 	get_header();
-
 
 		$query = new WP_Query(array(
 			'post_type'      => 'libro',
@@ -19,27 +21,27 @@
 		// IMAGENES ///////////////////////////////////////////
 
 
+			$images = get_post_content_images($post->ID);
 
-			$imageSearchPattern = '~<img [^\>]*\ />~';
-
-			preg_match_all( $imageSearchPattern, $post->post_content, $images );
-
-			while( $image = array_pop($images[0]) ){ ?>
+			foreach ($images as $image) : ?>
 
 				<div class="libro fotografias">
 
-					<a href="<?php the_permalink() ?>"><?php echo $image ?></a>
+					<?php $image_attributes = wp_get_attachment_image_src($image->ID, 'rectangulo'); ?>
 
+					<a href="<?php echo $image->url; ?>" data-lightbox="<?php echo $post->post_name; ?>" title="<?php the_title() ?>">
+						<img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
+					</a>
 					<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
 					<p class="descripcion">
 						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
 					</p>
+					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver entrada completa', 'alias'); ?> »</a>
 
 				</div>
 
-				<?php
-			}
+			<?php endforeach;
 
 
 		// VIDEOS ////////////////////////////////////////////

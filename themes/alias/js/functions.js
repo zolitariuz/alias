@@ -26,7 +26,7 @@
 
 	// ISOTOPE ///////////////////////////////////////////////////////////////////////////
 
-	console.log(is_gallery);
+
 		var $container = $('.main_isotope');
 
 		$container.imagesLoaded(function(){

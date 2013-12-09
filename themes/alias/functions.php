@@ -90,6 +90,9 @@
 		if ( is_page('galeria') ) {
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
 			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
+			wp_enqueue_script( 'lightbox', JSPATH.'lightbox-2.6.min.js', array('jquery'), '2.6', true );
+
+			wp_enqueue_style( 'lightbox-css', CSSPATH. 'lightbox/lightbox.css' );
 		}
 	}
 
@@ -433,4 +436,27 @@
 				WHERE posts.post_type     = 'noticia'
 					AND posts.post_status = 'publish'", OBJECT
 		);
+	}
+
+
+
+	function get_post_content_images($post_id){
+		global $wpdb;
+		$images = array();
+		$results = $wpdb->get_results(
+			"SELECT ID FROM wp_posts AS p
+				WHERE p.post_mime_type LIKE '%image%'
+					AND p.post_parent = $post_id
+					AND p.ID NOT IN (
+						SELECT pm.meta_value AS ID FROM wp_posts AS p
+							INNER JOIN wp_postmeta AS pm ON p.ID = pm.post_id
+								AND pm.meta_key = '_thumbnail_id'
+					);", OBJECT);
+		foreach ($results as $index => $image) {
+			$temp = new stdClass();
+			$temp->ID  = $image->ID;
+			$temp->url = wp_get_attachment_url( $image->ID );
+			$images[]  = $temp;
+		}
+		return $images;
 	}
