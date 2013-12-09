@@ -82,7 +82,6 @@
 			wp_localize_script( 'paypal', 'ajax_url', admin_url('admin-ajax.php') );
 			wp_localize_script( 'functions', 'site_url', site_url() );
 			wp_localize_script( 'functions', 'shoping_cart', $shoping_cart );
-
 		}
 	}
 
@@ -418,13 +417,11 @@
 
 	function div_main_class(){
 		echo is_home() ? 'home' : '';
-		if ( is_page('galeria') OR ( get_post_type() === 'libro' AND ! is_singular( 'libro' ) ) ) {
+		if ( is_page('galeria') OR ( get_post_type() === 'libro' AND ! is_singular( 'libro' ) ) )
 			echo 'main_isotope';
-		}
 
-		if ( is_page('galeria') ) {
+		if ( is_page('galeria') )
 			echo ' single_content ';
-		}
 	}
 
 
