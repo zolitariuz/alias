@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
-"POT-Creation-Date: 2013-11-06 00:52-0600\n"
-"PO-Revision-Date: 2013-11-06 00:52-0600\n"
+"POT-Creation-Date: 2013-12-11 19:24-0600\n"
+"PO-Revision-Date: 2013-12-11 19:24-0600\n"
 "Last-Translator: Raúl De Zamacona <raul@zamacona.me>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
@@ -20,27 +20,27 @@ msgstr ""
 msgid "Aviso de privacidad"
 msgstr "Privacy Policy / Legal Notice"
 
-#: ../functions.php:88
+#: ../functions.php:102
 msgid "Gracias, se guardo correctamente tu direccion de correo"
 msgstr "Thank you, your email was successfully saved"
 
-#: ../functions.php:89
+#: ../functions.php:103
 msgid "Porfavor ingresa una direccion de correo valida"
 msgstr "Please enter valid email address"
 
-#: ../functions.php:90
+#: ../functions.php:104
 msgid "Agregaste un libro a tu carrito"
 msgstr "You've added a book to your cart"
 
-#: ../functions.php:196
+#: ../functions.php:210
 msgid "Posts"
 msgstr "Posts"
 
-#: ../functions.php:247
+#: ../functions.php:262
 msgid "En la colección"
 msgstr "In the collection"
 
-#: ../functions.php:325
+#: ../functions.php:340
 #, php-format
 msgid "Page %s"
 msgstr "Pagina %s"
@@ -65,39 +65,39 @@ msgstr "GALLERY"
 msgid "CONTACTO"
 msgstr "CONTACT"
 
-#: ../page-carrito-de-compras.php:4
+#: ../page-carrito-de-compras.php:8
 msgid "Carrito de compras"
 msgstr "shopping cart"
 
-#: ../page-carrito-de-compras.php:5
+#: ../page-carrito-de-compras.php:9
 msgid "productos"
 msgstr "Products"
 
-#: ../page-carrito-de-compras.php:55
+#: ../page-carrito-de-compras.php:59
 msgid "Precio"
 msgstr "Price"
 
-#: ../page-carrito-de-compras.php:72
+#: ../page-carrito-de-compras.php:76
 msgid "Cantidad"
 msgstr "Quantity"
 
-#: ../page-carrito-de-compras.php:89
+#: ../page-carrito-de-compras.php:93
 msgid "Su carrito esta vacío."
 msgstr "Your cart is empty"
 
-#: ../page-carrito-de-compras.php:107
+#: ../page-carrito-de-compras.php:111
 msgid "Subtotal"
 msgstr "Subtotal"
 
-#: ../page-carrito-de-compras.php:119
+#: ../page-carrito-de-compras.php:123
 msgid "Envío"
 msgstr "Shipping"
 
-#: ../page-carrito-de-compras.php:126
+#: ../page-carrito-de-compras.php:130
 msgid "Total"
 msgstr "Total"
 
-#: ../page-carrito-de-compras.php:135
+#: ../page-carrito-de-compras.php:139
 msgid "Realizar compra"
 msgstr "Confirm checkout"
 
@@ -121,6 +121,10 @@ msgstr "Message"
 msgid "Enviar"
 msgstr "Send"
 
+#: ../page-galeria.php:40
+msgid "Ver libro"
+msgstr "See book"
+
 #: ../search.php:7
 #, php-format
 msgid "%d Resultado para"
@@ -140,35 +144,35 @@ msgstr "type your e-mail"
 msgid "Hojear esta publicación"
 msgstr "Browse this publication"
 
-#: ../single-libro.php:69
+#: ../single-libro.php:89
 msgid "Idioma"
 msgstr "Language"
 
-#: ../single-libro.php:71
+#: ../single-libro.php:91
 msgid "Dimensiones"
 msgstr "Dimensions "
 
-#: ../single-libro.php:73
+#: ../single-libro.php:93
 msgid "Número de páginas"
 msgstr "Number of pages"
 
-#: ../single-libro.php:75
+#: ../single-libro.php:95
 msgid "Encuadernación"
 msgstr "Binding"
 
-#: ../single-libro.php:77
+#: ../single-libro.php:97
 msgid "Impresión"
 msgstr "Print"
 
-#: ../single-libro.php:79
+#: ../single-libro.php:99
 msgid "ISBN"
 msgstr "ISBN"
 
-#: ../single-libro.php:88
+#: ../single-libro.php:108
 msgid "Comprar ahora"
 msgstr "Buy now"
 
-#: ../single-libro.php:93
+#: ../single-libro.php:113
 msgid "Añadir al carrito"
 msgstr "Add to cart"
 

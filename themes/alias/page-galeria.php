@@ -27,7 +27,7 @@ iframe{ width: 181px; height: auto; }
 
 				<div class="libro fotografias">
 
-					<?php $image_attributes = wp_get_attachment_image_src($image->ID, 'rectangulo'); ?>
+					<?php $image_attributes = wp_get_attachment_image_src($image->ID, 'cuadrado'); ?>
 
 					<a href="<?php echo $image->url; ?>" data-lightbox="<?php echo $post->post_name; ?>" title="<?php the_title() ?>">
 						<img src="<?php echo $image_attributes[0]; ?>" width="<?php echo $image_attributes[1]; ?>" height="<?php echo $image_attributes[2]; ?>">
@@ -37,7 +37,7 @@ iframe{ width: 181px; height: auto; }
 					<p class="descripcion">
 						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
 					</p>
-					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver entrada completa', 'alias'); ?> »</a>
+					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
 
 				</div>
 
@@ -63,6 +63,8 @@ iframe{ width: 181px; height: auto; }
 						<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
 					</p>
 
+					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
+
 				</div><!-- libro -->
 
 				<?php
@@ -81,8 +83,8 @@ iframe{ width: 181px; height: auto; }
 					$soundcloudIndex++; ?>
 
 
-					<div class="audio-galeria">
-						<h2><?php the_title(); ?></h2>
+					<div class="audio-galeria libro">
+						<p class="numero"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 						<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
 							<div class="audio_status"></div>
 							<p>Repdroducir audio</p>
@@ -93,6 +95,9 @@ iframe{ width: 181px; height: auto; }
 							<div class="audio_status"></div>
 							<p>Pausar audio</p>
 						</div><!-- pause -->
+
+						<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
+
 					</div><!-- audio-galeria -->
 
 				<?php }
