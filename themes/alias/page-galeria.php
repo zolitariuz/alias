@@ -30,7 +30,6 @@
 
 				<?php $image_attributes = wp_get_attachment_image_src($image->ID, 'cuadrado'); ?>
 
-
 				<a class="fancybox" rel="<?php echo $post->post_name; ?>" href="<?php echo $image->url; ?>">
 					<img src="<?php echo $image_attributes[0]; ?>"/>
 				</a>
@@ -38,7 +37,7 @@
 				<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
 				<p class="descripcion">
-					<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
+					<?php echo $image->caption; ?>
 				</p>
 				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
 

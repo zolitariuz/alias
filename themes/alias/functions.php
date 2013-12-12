@@ -450,7 +450,7 @@
 		global $wpdb;
 		$images  = array();
 		$results = $wpdb->get_results(
-			"SELECT ID FROM wp_posts AS p
+			"SELECT ID, post_excerpt FROM wp_posts AS p
 				WHERE p.post_mime_type LIKE '%image%'
 					AND p.post_parent = $post_id
 					AND p.ID NOT IN (
@@ -460,9 +460,10 @@
 					);", OBJECT);
 		foreach ($results as $index => $image) {
 			$temp = new stdClass();
-			$temp->ID  = $image->ID;
-			$temp->url = wp_get_attachment_url( $image->ID );
-			$images[]  = $temp;
+			$temp->ID       = $image->ID;
+			$temp->caption  = $image->post_excerpt;
+			$temp->url      = wp_get_attachment_url( $image->ID );
+			$images[]       = $temp;
 		}
 		return $images;
 	}
