@@ -598,7 +598,7 @@ em {
 /* line 215, style.less */
 .sidebar_elemento.newsletter p {
   width: 126px;
-  line-height: 20px;
+  line-height: 22px;
   text-align: center;
   float: left;
 }
@@ -871,6 +871,7 @@ iframe[src*='soundcloud'] {
   font-size: 14px;
   line-height: 20px;
   margin-bottom: 30px;
+  text-align: left;
 }
 /* line 317, style.less */
 .single_content .content img {
@@ -1566,4 +1567,11 @@ h3.categoria_carrito {
 /* line 522, style.less */
 .aviso-de-privacidad a:hover {
   color: #000000;
+}
+/* Device ----------- */
+@media only screen and (min-device-width: 0px) {
+  /* line 529, style.less */
+  .colecciones_menu a:hover .tooltip {
+    display: none;
+  }
 }
