@@ -26,7 +26,7 @@
 						var title = $('<p></p>', {
 							text: sound.title
 						});
-						$('.play[data-index="'+index+'"]').after(title);
+						$('.play[data-index="'+index+'"]').siblings('.numero').after(title);
 					});
 				});
 			},200);

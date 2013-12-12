@@ -2021,7 +2021,7 @@
 
 
 (function($){
-	$('iframe-overlay').on('click', function (e){
+	$('.iframe-overlay').on('click', function (e){
 		console.log('clicked');
 		e.preventDefault();
 		$(this).prev('.various').trigger('click');

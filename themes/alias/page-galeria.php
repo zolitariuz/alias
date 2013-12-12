@@ -66,6 +66,8 @@
 					<?php echo $video ?>
 				</a>
 
+				<div class="iframe-overlay"></div>
+
 				<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
 				<p class="descripcion">
@@ -93,17 +95,20 @@
 
 
 				<div class="audio-galeria libro">
-					<p class="numero"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
+
 					<div class="audio play" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Repdroducir audio</p>
 					</div><!-- play -->
 
-
 					<div class="audio pause" style="display: none;" data-index="<?php echo $soundcloudIndex; ?>">
 						<div class="audio_status"></div>
 						<p>Pausar audio</p>
 					</div><!-- pause -->
+
+					<br/>
+
+					<p class="numero"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 
 					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
 
