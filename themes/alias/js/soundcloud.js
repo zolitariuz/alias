@@ -6,9 +6,6 @@
 
 		var pauseButton, playButton;
 
-		$("iframe[src*='soundcloud']").hide();
-
-
 		var iframeElements = document.querySelector('iframe');
 
 		var soundCloudWidgets = [];
@@ -19,7 +16,6 @@
 		});
 
 
-
 		$(document).ready(function(){
 
 			$('.pause').hide();
@@ -27,13 +23,13 @@
 			setTimeout(function(){
 				$.each(soundCloudWidgets, function (index){
 					this.getCurrentSound(function (sound){
-						var title = $('<span></span>', {
+						var title = $('<p></p>', {
 							text: sound.title
 						});
-						$('.play[data-index="'+index+'"]').find('p').after(title);
+						$('.play[data-index="'+index+'"]').after(title);
 					});
 				});
-			},2000);
+			},200);
 
 
 
