@@ -73,16 +73,15 @@
 				<li> <span class="curr">eur €</span> <span class="amount"><?php echo $euros; ?></span> </li>
 			</ul><!-- precios -->
 
-
 			<hr>
 
-
 			<?php
-				$encuadernacion = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
-				$size           = isset($meta['size'])           ? $meta['size']           : '';
-				$paginas        = isset($meta['paginas'])        ? $meta['paginas']        : '';
-				$impresion      = isset($meta['impresion'])      ? $meta['impresion']      : '';
-				$isbn           = isset($meta['isbn'])           ? $meta['isbn']           : ''; ?>
+				$language       = qtrans_getlanguage();
+				$encuadernacion = get_tranlated_meta('encuadernacion', $meta);
+				$impresion      = get_tranlated_meta('impresion', $meta);
+				$size           = isset($meta['size'])    ? $meta['size']    : '';
+				$paginas        = isset($meta['paginas']) ? $meta['paginas'] : '';
+				$isbn           = isset($meta['isbn'])    ? $meta['isbn']    : ''; ?>
 
 			<ul class="caracteristicas">
 

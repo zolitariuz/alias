@@ -14,3 +14,5 @@ Author: @zolitariuz and @scrubmx
 .noticia-meta input{ margin-bottom: 10px; margin-top: 2px; 	}
 
 h3.post-content-title{ padding: 0 !important; margin: 15px 5px 5px !important; }
+
+.meta-container{ display: inline-block; width: 65%; margin-left: 5%; border-spacing: 0; }

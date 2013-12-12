@@ -460,3 +460,12 @@
 		}
 		return $images;
 	}
+
+
+
+	function get_tranlated_meta($meta_key, $meta){
+
+		if( qtrans_getLanguage() == 'en' ) $meta_key .= '_en';
+
+		return isset( $meta[ $meta_key ] ) ? $meta[ $meta_key ] : '';
+	}

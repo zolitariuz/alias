@@ -96,15 +96,17 @@ subtitulo_meta;
 	// LIBRO
 	function libros_metadata_setup($post){
 
-		$meta           = get_post_meta($post->ID, '_libro_meta', true);
-		$identificador  = isset($meta['numero']) ? $meta['numero'] : '';
-		$size           = isset($meta['size']) ? $meta['size'] : '';
-		$paginas        = isset($meta['paginas']) ? $meta['paginas'] : '';
-		$peso           = isset($meta['peso']) ? $meta['peso'] : '';
-		$link           = isset($meta['link']) ? $meta['link'] : '';
-		$encuadernacion = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
-		$impresion      = isset($meta['impresion']) ? $meta['impresion'] : '';
-		$isbn           = isset($meta['isbn']) ? $meta['isbn'] : '';
+		$meta              = get_post_meta($post->ID, '_libro_meta', true);
+		$identificador     = isset($meta['numero']) ? $meta['numero'] : '';
+		$size              = isset($meta['size']) ? $meta['size'] : '';
+		$paginas           = isset($meta['paginas']) ? $meta['paginas'] : '';
+		$peso              = isset($meta['peso']) ? $meta['peso'] : '';
+		$link              = isset($meta['link']) ? $meta['link'] : '';
+		$encuadernacion    = isset($meta['encuadernacion']) ? $meta['encuadernacion'] : '';
+		$encuadernacion_en = isset($meta['encuadernacion_en']) ? $meta['encuadernacion_en'] : '';
+		$impresion         = isset($meta['impresion']) ? $meta['impresion'] : '';
+		$impresion_en      = isset($meta['impresion_en']) ? $meta['impresion_en'] : '';
+		$isbn              = isset($meta['isbn']) ? $meta['isbn'] : '';
 
 		wp_nonce_field(__FILE__, '_libro_meta_nonce');
 
@@ -128,10 +130,20 @@ subtitulo_meta;
 				<input type='url' class='widefat' id='link' name='_libro_meta[link]' value='$link'/>
 
 				<label for="encuadernacion">&nbsp;Encuadernación</label>
-				<input type='text' class='widefat' id='encuadernacion' name='_libro_meta[encuadernacion]' value='$encuadernacion'/>
+				<div class="meta-container">
+					<img src="http://alias.dev/wp-content/plugins/qtranslate/flags/es.png" alt="">
+					<input type='text' class='' id='encuadernacion' name='_libro_meta[encuadernacion]' value='$encuadernacion'/>
+					<img src="http://alias.dev/wp-content/plugins/qtranslate/flags/gb.png" alt="">
+					<input type='text' class='' id='encuadernacion_en' name='_libro_meta[encuadernacion_en]' value='$encuadernacion_en'/><br />
+				</div>
 
 				<label for="impresion">&nbsp;Impresión</label>
-				<input type='text' class='widefat' id='impresion' name='_libro_meta[impresion]' value='$impresion'/>
+				<div class="meta-container">
+					<img src="http://alias.dev/wp-content/plugins/qtranslate/flags/es.png" alt="">
+					<input type='text' class='' id='impresion' name='_libro_meta[impresion]' value='$impresion'/>
+					<img src="http://alias.dev/wp-content/plugins/qtranslate/flags/gb.png" alt="">
+					<input type='text' class='' id='impresion_en' name='_libro_meta[impresion_en]' value='$impresion_en'/><br />
+				</div>
 
 				<label for="isbn">&nbsp;ISBN</label>
 				<input type='text' class='widefat' id='isbn' name='_libro_meta[isbn]' value='$isbn'/>
