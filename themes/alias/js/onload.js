@@ -5,7 +5,7 @@
 factor = .1;
 
 /*
- * 
+ *
 */
 
 function bookHeightCheck() {
@@ -18,25 +18,25 @@ function bookHeightCheck() {
 }
 
 function calculate_zoom_factor(arg) {
-	
+
 	if (arg == true) {	// default
 		zoom_factor = $('#page').height() * factor;
 	} else {
 		zoom_factor = default_book_height * factor;
-	}	
-	
+	}
+
 }
 
 function clear_on_focus() {
 	function getStartInputValues() {
 		$('input[type="text"], input[type="password"], textarea').each( function() {
 			var startValue = $(this).val();
-			$.data(this, "startValue", startValue);	
+			$.data(this, "startValue", startValue);
 		})
 	}
 	getStartInputValues();
 	$('input[type="text"], input[type="password"], textarea').focus(function() {
-		startValue = $.data(this, "startValue");		
+		startValue = $.data(this, "startValue");
 		if ( this.value == startValue ) {
 			this.value = '';
 		}
@@ -106,23 +106,23 @@ function contact_form() {
 			cache: false
 		});
 
-		var dataString = 'name='+ name + '&email=' + email + '&message=' + message;  
-		
+		var dataString = 'name='+ name + '&email=' + email + '&message=' + message;
+
 		$.ajax({
 			type: "POST",
 			url: "php/submit-form-ajax.php",
 			data: dataString,
 			success: function(msg) {
-				
+
 				// Check to see if the mail was successfully sent
 				if (msg == 'Mail sent') {
 					$("#contact fieldset").hide();
 					$("#contact fieldset.thanks").show();
-					
+
 					setTimeout(function() {
 						close_overlay();
 					}, 5000);
-					
+
 				} else {
 					$('#contact button').fadeIn('fast');
 					alert('The problem with sending it, please try again!');
@@ -158,30 +158,30 @@ var Book = {
 
 		var summary = 0;
 		var self = this;
-		
+
 		$('#slider').append('<li></li>');
-		
+
 		$('#slider li').each(function() {
 			li_width = $(this).outerWidth();
 			summary += li_width;
 		})
-	
+
 		$('#slider').css('width', summary);
-	
+
 		$("#menu_holder").mousemove(function(e) {
-	
+
 			if ( $(this).width() < $("#slider").width() ) {
-	
+
 				var distance = e.pageX - $(this).offset().left;
 				var percentage = distance / $(this).width();
 				var targetX = -Math.round(($("#slider").width() - $(this).width()) * percentage);
-				
+
 				$('#slider').animate({left: [targetX+"px", "easeOutCirc"]}, { queue:false, duration: 200 });
 			}
 		});
 
 		$('#slider li').click(function() {
-		
+
 			page_index = $(this).attr('class').substring(4);
 			tmp = parseInt(page_index);
 
@@ -195,12 +195,12 @@ var Book = {
 			var target = $(e.target);
 			if ( target.hasClass('overlay') ) close_overlay();
 		});
-	
+
 	},
 
 	book_grab: function() {
 		if ($.browser.webkit) {
-			$('#page').css('cursor', '-webkit-grab'); 
+			$('#page').css('cursor', '-webkit-grab');
 		}
 		if ($.browser.mozilla) {
 			$('#page').css('cursor', '-moz-grab');
@@ -225,14 +225,14 @@ var Book = {
 	book_position: function() {
 		book_height	= $('#page').height();
 		book_width	= $('#page').width();
-		
+
 		half_height	= (book_height/2)+30;
 		half_width	= book_width/2;
 		$('#page').css({ left: '50%', top: '50%', margin: '-'+half_height+'px auto 0 -'+half_width+'px' });
 	},
 
 	drag: function(e) {
-		
+
 		$el = $(this);
 		$dragged = $el.addClass('draggable');
 
@@ -243,7 +243,7 @@ var Book = {
         d_w = $dragged.outerWidth(),
         pos_y = $dragged.offset().top + d_h - e.pageY,
         pos_x = $dragged.offset().left + d_w - e.pageX;
-        
+
         $dragged.parents().on("mousemove", function(e) {
             $('.draggable').offset({
                 top:e.pageY + pos_y - d_h,
@@ -252,7 +252,7 @@ var Book = {
         });
         e.preventDefault();
 	},
-	
+
 	drop: function() {
 		Book.book_grab();
 		$('#page').bind('mousemove', Book.book_grab);
@@ -288,7 +288,7 @@ var Book = {
 		dbl_clicked = false;
 		on_start = true;
 		self = this;
-		
+
 		$('#book').turn({
 			display: 'double',
 			acceleration: true,
@@ -299,7 +299,7 @@ var Book = {
 				first: function(e, page) {
 					$('.nav_arrow.prev').hide();
 				},
-				
+
 				turned: function(e, page) {
 					if (page > 1) {
 						$('.nav_arrow.prev').fadeIn();
@@ -309,23 +309,23 @@ var Book = {
 						$('.nav_arrow.next').fadeIn();
 					}
 				},
-				
+
 				turning: function(e, page) {
 					if (page < 2) {
 						$('#about').show();
 					}
 				},
-				
+
 				last: function(e, page) {
 					$('.nav_arrow.next').hide();
-				}	
+				}
 			}
 		});
 		Book.arrows();
 	},
 
 	scaleHorizontal: function() {
-		new_width	= $(window).width()-100;
+		new_width	= $(window).width()-500;
 		ratio		= new_width / $('#page').width();
 		new_height	= $('#page').height() * ratio;
 		$('#page').css({ width: new_width, height: new_height });
@@ -334,7 +334,7 @@ var Book = {
 
 	scaleStart: function() {
 		if ( on_start == true ) {
-			bookHeightCheck();			
+			bookHeightCheck();
 			if ( higherThanWindow == true ) {
 				Book.scaleVertical();
 				if ( $('#page').width() > $(window).width() ) {
@@ -349,7 +349,7 @@ var Book = {
 
 	scaleVertical: function() {
 		new_height		= $(window).height() - 116;
-		ratio			= new_height / $('#page').height();			
+		ratio			= new_height / $('#page').height();
 		new_width		= $('#page').width() * ratio;
 		$('#page').css({ width: new_width, height: new_height });
 		$('#book').turn('size', new_width, new_height);
@@ -360,26 +360,26 @@ var Book = {
 		dbl_clicked = false;
 		current_zoom_step = 0;
 		calculate_zoom_factor(true);
-		
+
 		screen_height	= $(window).height();
 		book_width		= $('#book').width();
-		
+
 		screen_width	= $(window).width()-100;
 		book_height		= $('#book').height();
 
 		if (isiPhone()) {
-		
+
 			var new_height		= screen_height - 100;
-			var ratio			= new_height / book_height;			
+			var ratio			= new_height / book_height;
 			var new_width		= book_width * ratio;
-			
+
 			$('#page').css({ width: new_width, height: new_height });
 			$('#book').turn('size', new_width, new_height);
 
 		} else {
-		
+
 			Book.scaleStart();
-		
+
 			current_window_width = $(window).width();
 			current_window_height = $(window).height();
 
@@ -389,14 +389,14 @@ var Book = {
 				}
 				if( $('#page').width() > ($(window).width() - 100) ) {
 					Book.scaleHorizontal();
-				} 
+				}
 			}
-			
+
 			if (current_window_height != window_height) {
 				if( $('#page').width() < ($(window).width() - 100) ) {
 					Book.scaleVertical();
 				}
-				
+
 				if( $('#page').height() > ($(window).height() - 96) ) {
 					Book.scaleVertical();
 				}
@@ -412,7 +412,7 @@ var Book = {
 
 	zoom_in: function(dbl) {
 		if ( dbl_clicked == false ) {
-			
+
 			if (dbl == true) {
 				zoom_factor = $('#book').height() * (factor*3);
 			}
@@ -421,31 +421,31 @@ var Book = {
 			book_height		= $('#book').height();
 			book_width		= $('#book').width();
 			new_height		= book_height + zoom_factor;
-			ratio			= new_height / book_height;			
+			ratio			= new_height / book_height;
 			new_width		= book_width * ratio;
-	
+
 			$('#page').css({ width: new_width, height: new_height });
 			$('#book').turn('size', new_width, new_height);
 
 			Book.dragdrop_init();
-			
+
 		}
 	},
-	
+
 	zoom_out: function() {
 		if ( dbl_clicked == false ) {
-				
-			
+
+
 			current_zoom_step --;
 			book_height		= $('#book').height();
 			book_width		= $('#book').width();
 			new_height		= book_height - zoom_factor;
-			ratio			= new_height / book_height;			
+			ratio			= new_height / book_height;
 			new_width		= book_width * ratio;
-	
+
 			$('#page').css({ width: new_width, height: new_height });
 			$('#book').turn('size', new_width, new_height);
-		
+
 			Book.dragdrop_init();
 
 		} else {
@@ -458,7 +458,7 @@ var Book = {
 
 
 var Navigation = {
-	
+
 	tooltip: function() {
 
 		$('.menu li').filter(':not(.goto)').each(function() {
@@ -467,15 +467,15 @@ var Navigation = {
 			$('a', this).removeAttr("title");
 			$(this).append(tooltip);
 		});
-		
+
 		$('.menu li').mousemove(function(e) {
-			var offset = $(this).offset(); 
+			var offset = $(this).offset();
 			var relX = e.pageX - offset.left;
 			var relY = e.pageY - offset.top;
 			$('.tooltip', this).css({ left: relX, top: relY-45 });
 		})
-		
-		$('.menu li').hover(function() { 
+
+		$('.menu li').hover(function() {
 			$('.tooltip').stop();
 			$('.tooltip', this).fadeIn();
 		}, function() {
@@ -486,8 +486,8 @@ var Navigation = {
 
 
 	init: function() {
-	
-		self = this;		
+
+		self = this;
 
 		// Double Click
 		$('#page').dblclick(function() {
@@ -508,11 +508,11 @@ var Navigation = {
 			Book.book_position();
 		});
 
-		// Home 
+		// Home
 		$('nav .home').click(function() {
 			$('#book').turn('page', 1);
 		});
-	
+
 		// Zoom Original
 		$('nav .zoom_original').click(function() {
 			current_zoom_step = 0;
@@ -522,7 +522,7 @@ var Navigation = {
 			Book.book_position();
 			Book.dragdrop_init();
 		});
-	
+
 		// Zoom Auto
 		$('nav .zoom_auto').click(function() {
 			Book.zoom_auto();
@@ -535,9 +535,9 @@ var Navigation = {
 			if ( current_zoom_step < zoom_steps ) {
 				Book.zoom_in();
 				Book.book_position();
-			}				
+			}
 		});
-	
+
 		// Zoom Out
 		$('nav .zoom_out').click(function() {
 			if ( current_zoom_step > -zoom_steps ) {
@@ -555,12 +555,12 @@ var Navigation = {
 			Book.all_pages();
 			return false;
 		})
-		
+
 		// Goto Page
 		$('#page-number').keydown(function(e) {
 			if (e.keyCode == 13) $('#book').turn('page', $('#page-number').val());
 		});
-		
+
 		$('.goto button').click(function(e) {
 			$('#book').turn('page', $('#page-number').val());
 		});
@@ -573,9 +573,9 @@ var Navigation = {
 			clear_on_focus();
 			return false;
 		})
-		
+
 		self.tooltip();
-		
+
 	}
 }
 
@@ -591,7 +591,7 @@ $(window).bind('keydown', function(e){
 	else if (e.keyCode==39)
 		$('#book').turn('next');
 
-});	
+});
 
 $(window).load(function(){
 	Book.init();
@@ -601,7 +601,7 @@ if (!isiPhone()) {
 	Book.dragdrop_init();
 }
 	Navigation.init();
-	
+
 	calculate_zoom_factor();
 
 });
@@ -622,7 +622,7 @@ function resizeDetect() {
 	var rtime = new Date(1, 1, 1, 1,00,00);
 	var timeout = false;
 	var delta = 200;
-	
+
 	$(window).resize(function() {
 	    rtime = new Date();
 	    if (timeout === false) {
@@ -630,7 +630,7 @@ function resizeDetect() {
 	        setTimeout(resizeend, delta);
 	    }
 	});
-	
+
 	function resizeend() {
 		if (new Date() - rtime < delta) {
 			setTimeout(resizeend, delta);
@@ -638,16 +638,16 @@ function resizeDetect() {
 			timeout = false;
 			window_width = $(window).width();
 			window_height = $(window).height();
-			
+
 			if ( $(window).width() > $(window).height() ) {
 				//Book.scaleVertical();
 			} else {
-				
-				
+
+
 			}
-			
-			
-		}               
+
+
+		}
 	}
 }
 
