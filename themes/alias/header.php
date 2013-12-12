@@ -6,7 +6,7 @@
 		<meta name="description" content="<?php bloginfo('description') ?>">
 		 <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
-		<meta name="viewport" content="width=device-width, initial-scale=0.5" />
+		<meta name="viewport" content="width=device-width, initial-scale=0.2" />
 		<title><?php print_title(); ?></title>
 		<?php wp_head() ?>
 	</head>
