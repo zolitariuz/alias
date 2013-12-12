@@ -212,7 +212,7 @@ em{ font-style: italic; }
 	}
 	&.newsletter{ width: 100%; background: @fondo; @color_claro; cursor: pointer;
 		.newsletter_img{ width: 13px; height: 15px; display: block; .sprite; background-position: -14px 2px; float: left; }
-		p{ width: 126px; line-height: 20px; text-align: center; float: left; }
+		p{ width: 126px; line-height: 22px; text-align: center; float: left; }
 		.form_newsletter{
 			input{
 				&[type='text']{ border: none; padding: 0; background: #000; color: #fff;
@@ -313,7 +313,7 @@ iframe[src*='soundcloud']{ width: 0; height: 0; display: none; }
 
 	}
 	.content{ width: 55%; float: left; .helvetica;
-		p{ font-size: 14px; line-height: 20px; margin-bottom: 30px; }
+		p{ font-size: 14px; line-height: 20px; margin-bottom: 30px; text-align: left; }
 		img{ width: 100%; height: auto; }
 		div{ width: 100% !important; }
 	}
@@ -521,6 +521,15 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 .aviso-de-privacidad a{ color: @color_claro; text-decoration: none;
 	&:hover{ color: @color; }
 }
+
+/* Device ----------- */
+@media only screen
+and (min-device-width : 0px) {
+	.colecciones_menu{
+		a:hover .tooltip{ display: none; }
+	}
+}
+
 
 
 
