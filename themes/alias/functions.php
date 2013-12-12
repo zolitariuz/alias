@@ -87,12 +87,18 @@
 
 
 	function enqueue_page_gallery_scripts(){
+
 		if ( is_page('galeria') ) {
+
 			wp_enqueue_script( 'soundcloud-api', 'http://w.soundcloud.com/player/api.js', null, null, true );
 			wp_enqueue_script( 'soundcloud', JSPATH.'soundcloud.js', array('jquery', 'soundcloud-api'), null, true );
-			wp_enqueue_script( 'lightbox', JSPATH.'lightbox-2.6.min.js', array('jquery'), '2.6', true );
 
-			wp_enqueue_style( 'lightbox-css', CSSPATH. 'lightbox/lightbox.css' );
+			//wp_enqueue_script( 'lightbox', JSPATH.'lightbox-2.6.min.js', array('jquery'), '2.6', true );
+			//wp_enqueue_style( 'lightbox-css', CSSPATH. 'lightbox/lightbox.css' );
+
+			wp_enqueue_script( 'fancybox-media', THEMEPATH.'fancybox/helpers/jquery.fancybox-media.js', array('jquery'), '2.6', true );
+			wp_enqueue_script( 'fancybox', THEMEPATH.'fancybox/jquery.fancybox.js', array('fancybox-media'), '2.6', true );
+			wp_enqueue_style( 'fancybox-css', THEMEPATH. 'fancybox/jquery.fancybox.css' );
 		}
 	}
 
@@ -442,7 +448,7 @@
 
 	function get_post_content_images($post_id){
 		global $wpdb;
-		$images = array();
+		$images  = array();
 		$results = $wpdb->get_results(
 			"SELECT ID FROM wp_posts AS p
 				WHERE p.post_mime_type LIKE '%image%'
@@ -459,4 +465,13 @@
 			$images[]  = $temp;
 		}
 		return $images;
+	}
+
+
+
+	function get_tranlated_meta($meta_key, $meta){
+
+		if( qtrans_getLanguage() == 'en' ) $meta_key .= '_en';
+
+		return isset( $meta[ $meta_key ] ) ? $meta[ $meta_key ] : '';
 	}
