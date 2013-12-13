@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: alias\n"
 "POT-Creation-Date: 2013-12-12 18:15-0600\n"
-"PO-Revision-Date: 2013-12-12 18:15-0600\n"
+"PO-Revision-Date: 2013-12-12 19:06-0600\n"
 "Last-Translator: Raúl De Zamacona <raul@zamacona.me>\n"
 "Language-Team: tangentlabs <scrub.mx@gmail.com>\n"
 "Language: es_US\n"
@@ -18,7 +18,7 @@ msgstr ""
 
 #: ../footer.php:11
 msgid "Aviso de privacidad"
-msgstr "Privacy Policy / Legal Notice"
+msgstr "Privacy Policy"
 
 #: ../functions.php:108
 msgid "Gracias, se guardo correctamente tu direccion de correo"
