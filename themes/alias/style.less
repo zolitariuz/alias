@@ -158,7 +158,6 @@ em{ font-style: italic; }
 }
 
 .colecciones_menu{
-	a:hover .tooltip{ display: block !important; z-index: 3; }
 
 	.tooltip{ display: none; width: 100%; padding: 10px; color: @color_claro; background: url('images/bg_blanco_93.png') repeat; position: absolute; left: 0; z-index: 2;
 		p{ margin: 0; text-transform: none; font-size: 14px; }
@@ -526,18 +525,6 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 .aviso-de-privacidad a{ color: @color_claro; text-decoration: none;
 	&:hover{ color: @color; }
 }
-
-/* Device ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5){
-	.colecciones_menu{
-		a:hover .tooltip{ display: none; }
-	}
-}
-
-
-
 
 
 
