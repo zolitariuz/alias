@@ -110,7 +110,7 @@
 
 					<p class="numero"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 
-					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
+					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver sobre este libro', 'alias'); ?> »</a>
 
 				</div><!-- audio-galeria -->
 
