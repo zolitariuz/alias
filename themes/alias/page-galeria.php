@@ -37,7 +37,7 @@
 				<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
 				<p><?php echo $image->caption; ?></p>
-				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
+				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Sobre este libro', 'alias'); ?> »</a>
 
 			</div>
 
@@ -69,7 +69,7 @@
 
 				<p><?php echo $video_title; ?></p>
 
-				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
+				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Sobre este libro', 'alias'); ?> »</a>
 
 			</div><!-- libro -->
 
@@ -105,7 +105,7 @@
 
 					<p class="numero"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
 
-					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver sobre este libro', 'alias'); ?> »</a>
+					<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Sobre este libro', 'alias'); ?> »</a>
 
 				</div><!-- audio-galeria -->
 
