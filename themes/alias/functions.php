@@ -40,6 +40,9 @@
 
 		// scripts
 		wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), null, false );
+		wp_enqueue_script( 'fancybox-media', THEMEPATH.'fancybox/helpers/jquery.fancybox-media.js', array('jquery'), '2.6', true );
+		wp_enqueue_script( 'fancybox', THEMEPATH.'fancybox/jquery.fancybox.js', array('fancybox-media'), '2.6', true );
+		wp_enqueue_style(  'fancybox-css', THEMEPATH. 'fancybox/jquery.fancybox.css' );
 		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
 
 		enqueue_single_noticia_scripts();
@@ -96,9 +99,6 @@
 			//wp_enqueue_script( 'lightbox', JSPATH.'lightbox-2.6.min.js', array('jquery'), '2.6', true );
 			//wp_enqueue_style( 'lightbox-css', CSSPATH. 'lightbox/lightbox.css' );
 
-			wp_enqueue_script( 'fancybox-media', THEMEPATH.'fancybox/helpers/jquery.fancybox-media.js', array('jquery'), '2.6', true );
-			wp_enqueue_script( 'fancybox', THEMEPATH.'fancybox/jquery.fancybox.js', array('fancybox-media'), '2.6', true );
-			wp_enqueue_style( 'fancybox-css', THEMEPATH. 'fancybox/jquery.fancybox.css' );
 		}
 	}
 
