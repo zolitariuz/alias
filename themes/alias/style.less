@@ -528,8 +528,9 @@ h3.categoria_carrito{ margin: 16px 0; .trade_18; font-size: 16px; }
 }
 
 /* Device ----------- */
-@media only screen
-and (min-device-width : 0px) {
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5){
 	.colecciones_menu{
 		a:hover .tooltip{ display: none; }
 	}
