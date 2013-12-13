@@ -403,7 +403,7 @@ em {
 }
 /* line 161, style.less */
 .colecciones_menu a:hover .tooltip {
-  display: block;
+  display: block !important;
   z-index: 3;
 }
 /* line 163, style.less */
