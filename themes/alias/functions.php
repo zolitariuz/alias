@@ -407,6 +407,7 @@
 	}
 
 
+
 	/**
 	 * Imprime la clase active cuando el single pertenece a la cla
 	 * @param  [type]  $term [description]
@@ -424,6 +425,10 @@
 
 
 
+	/**
+	 * [div_main_class description]
+	 * @return [type] [description]
+	 */
 	function div_main_class(){
 		echo is_home() ? 'home' : '';
 		if ( is_page('galeria') OR ( get_post_type() === 'libro' AND ! is_singular( 'libro' ) ) )
@@ -435,6 +440,10 @@
 
 
 
+	/**
+	 * [get_published_news description]
+	 * @return [type] [description]
+	 */
 	function get_published_news(){
 		global $wpdb;
 		return $wpdb->get_results(
@@ -446,11 +455,16 @@
 
 
 
+	/**
+	 * [get_post_content_images description]
+	 * @param  [type] $post_id [description]
+	 * @return [type]          [description]
+	 */
 	function get_post_content_images($post_id){
 		global $wpdb;
 		$images  = array();
 		$results = $wpdb->get_results(
-			"SELECT ID FROM wp_posts AS p
+			"SELECT ID, post_excerpt FROM wp_posts AS p
 				WHERE p.post_mime_type LIKE '%image%'
 					AND p.post_parent = $post_id
 					AND p.ID NOT IN (
@@ -460,18 +474,61 @@
 					);", OBJECT);
 		foreach ($results as $index => $image) {
 			$temp = new stdClass();
-			$temp->ID  = $image->ID;
-			$temp->url = wp_get_attachment_url( $image->ID );
-			$images[]  = $temp;
+			$temp->ID       = $image->ID;
+			$temp->caption  = $image->post_excerpt;
+			$temp->url      = wp_get_attachment_url( $image->ID );
+			$images[]       = $temp;
 		}
 		return $images;
 	}
 
 
 
+	/**
+	 * [get_tranlated_meta description]
+	 * @param  [type] $meta_key [description]
+	 * @param  [type] $meta     [description]
+	 * @return [type]           [description]
+	 */
 	function get_tranlated_meta($meta_key, $meta){
-
 		if( qtrans_getLanguage() == 'en' ) $meta_key .= '_en';
-
 		return isset( $meta[ $meta_key ] ) ? $meta[ $meta_key ] : '';
+	}
+
+
+
+	/**
+	 * [get_vimeo_url description]
+	 * @param  [type] $video [description]
+	 * @return [type]        [description]
+	 */
+	function get_vimeo_url($video){
+		preg_match('/src="([^"]+)"/', $video, $match);
+		return isset($match[1]) ? $match[1] : '';
+	}
+
+
+
+	/**
+	 * Toma el id del video de la url
+	 * @param  [type] $url
+	 * @return [string]
+	 */
+	function get_vimeo_id($url){
+		preg_match('/player\.vimeo\.com\/video\/([0-9]*)/', $url, $video_id);
+		return isset($video_id[1]) ? $video_id[1] : false;
+	}
+
+
+
+	/**
+	 * Regresa el titulo del video
+	 * @param  [int] $video_id
+	 * @return [type]
+	 */
+	function get_vimeo_title($video_id){
+		$response = file_get_contents("http://vimeo.com/api/v2/video/{$video_id}.json");
+		$metadata = json_decode($response);
+		$metadata = end($metadata);
+		return $metadata->title;
 	}

@@ -30,16 +30,13 @@
 
 				<?php $image_attributes = wp_get_attachment_image_src($image->ID, 'cuadrado'); ?>
 
-
 				<a class="fancybox" rel="<?php echo $post->post_name; ?>" href="<?php echo $image->url; ?>">
 					<img src="<?php echo $image_attributes[0]; ?>"/>
 				</a>
 
 				<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
-				<p class="descripcion">
-					<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
-				</p>
+				<p><?php echo $image->caption; ?></p>
 				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
 
 			</div>
@@ -56,9 +53,9 @@
 
 		while( $video = array_pop($videos[0]) ){
 
-
-			preg_match('/src="([^"]+)"/', $video, $match);
-			$url = $match[1]; ?>
+			$url         = get_vimeo_url($video);
+			$video_id    = get_vimeo_id($url);
+			$video_title = get_vimeo_title($video_id); ?>
 
 			<div class="libro videos">
 
@@ -70,9 +67,7 @@
 
 				<p class="numero"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
 
-				<p class="descripcion">
-					<a href="<?php the_permalink() ?>"><?php subtitulo_noticia($post->ID) ?></a>
-				</p>
+				<p><?php echo $video_title; ?></p>
 
 				<a class="ver-entrada" href="<?php the_permalink(); ?>"><?php _e('Ver libro', 'alias'); ?> »</a>
 
