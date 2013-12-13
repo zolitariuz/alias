@@ -4,10 +4,7 @@
 
 	$(function(){
 
-
-
 		$('.fancybox').fancybox();
-
 
 		$('.various').fancybox({
 			maxWidth	: 800,
@@ -106,6 +103,12 @@
 				$('.sidebar').height(altura_main);
 			}
 		},100);
+
+		$('.main').on('resize', function(){
+			console.log('cambio');
+			altura_main = $('.main').height();
+			$('.sidebar').height(altura_main);
+		});
 
 
 
