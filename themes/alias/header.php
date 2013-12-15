@@ -23,7 +23,11 @@
 				<div class="header_index">
 
 					<div class="logo">
-						<a href="<?php echo qtrans_convertURL(site_url()); ?>"><h1>Alias</h1></a>
+						<h1>
+							<a href="<?php echo qtrans_convertURL(site_url()); ?>">
+								<img src="<?php echo THEMEPATH; ?>images/alias-logo.png" alt="Alias"/>
+							</a>
+						</h1>
 					</div><!-- logo -->
 
 					<div class="entrar">

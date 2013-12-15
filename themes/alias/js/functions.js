@@ -44,10 +44,10 @@
 
 		$container.imagesLoaded(function(){
 			if ( typeof(is_gallery) !== 'undefined' && is_gallery == 'true'){
-				$container.isotope({
-					animationEngine: 'jquery',
-					masonry: {}
-				});
+				// $container.isotope({
+				// 	animationEngine: 'jquery',
+				// 	masonry: {}
+				// });
 			}else {
 				$container.isotope({
 					layoutMode : 'fitRows',
@@ -59,7 +59,12 @@
 
 		$('.colecciones_menu a').on('click', function(){
 			var selector = $(this).attr('data-filter');
-			$container.isotope({ filter: selector });
+			$container.isotope({ filter: selector }, function(){
+
+				altura_main = $('.main').height();
+				$('.sidebar').height(altura_main);
+
+			});
 			if (selector.charAt(0) === '#'){
 				window.location.hash = $(this).attr('href');
 			}else{
@@ -103,13 +108,6 @@
 				$('.sidebar').height(altura_main);
 			}
 		},100);
-
-		$('.main').on('resize', function(){
-			console.log('cambio');
-			altura_main = $('.main').height();
-			$('.sidebar').height(altura_main);
-		});
-
 
 
 	// FOOTER Y SIDEBAR //////////////////////////////////////////////////////////////////

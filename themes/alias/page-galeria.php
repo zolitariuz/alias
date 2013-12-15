@@ -7,7 +7,6 @@
 <?php
 
 	get_header();
-
 	$query = new WP_Query(array(
 		'post_status'    => 'publish',
 		'post_type'      => 'libro',
@@ -112,7 +111,6 @@
 			<?php }
 
 		endforeach; endif;
-
 	endwhile; endif; wp_reset_postdata();
 
 
