@@ -164,7 +164,7 @@
 			} else {
 				$data = $wpdb->get_results("SELECT * FROM {$wpdb->prefix}newsletter", ARRAY_A);
 			}
-			usort($data, 'usort_reorder');
+			//usort($data, 'usort_reorder');
 
 			$current_page = $this->get_pagenum();
 			$total_items  = count($data);
