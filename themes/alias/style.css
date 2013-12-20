@@ -943,6 +943,7 @@ iframe[src*='soundcloud'] {
 /* line 345, style.less */
 .single_content .info_single .caracteristicas li p {
   margin-bottom: 20px;
+  text-align: left;
 }
 /* line 351, style.less */
 .single_content .info_single hr {
