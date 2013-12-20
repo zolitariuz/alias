@@ -24,7 +24,7 @@
 
 					<div class="logo">
 						<h1>
-							<a href="<?php echo qtrans_convertURL(site_url()); ?>">
+							<a href="<?php echo qtrans_convertURL(site_url('/colecciones/')); ?>">
 								<img src="<?php echo THEMEPATH; ?>images/alias-logo.png" alt="Alias"/>
 							</a>
 						</h1>
