@@ -1,6 +1,17 @@
 <?php
 
 
+// DESHABILITAR WORDPRESS CORE UPDATES ////////////////////////////////////////////////
+
+
+
+	add_filter( 'pre_site_transient_update_core', function(){
+		return null;
+	});
+
+
+
+
 // DEFINIR LOS PATHS A LOS DIRECTORIOS DE JAVASCRIPT Y CSS ///////////////////////////
 
 
