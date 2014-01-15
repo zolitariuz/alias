@@ -102,7 +102,7 @@
 		}
 
 
-		public static function set_html_content_type()
+		public static function º()
 		{
 			return 'text/html; charset=UTF-8';
 		}
@@ -131,9 +131,11 @@
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-			wp_mail('scrub.mx@gmail.com', $subject, stripslashes($message), $headers);
+			$message = stripslashes($message);
 
-			wp_mail('raul.zdesign@gmail.com', $subject, stripslashes($message), $headers);
+			wp_mail('scrub.mx@gmail.com', $subject, $message, $headers);
+
+			wp_mail('raul.zdesign@gmail.com', $subject, $message, $headers);
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
