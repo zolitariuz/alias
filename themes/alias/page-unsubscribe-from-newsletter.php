@@ -5,7 +5,10 @@
 		$email = $_GET['ema'];
 		$wpdb->query( "DELETE FROM {$wpdb->prefix}newsletter WHERE email = '$email'" );
 	} else {
-		wp_redirect( site_url() );
+		echo '<pre>';
+		print_r($_GET['ema']);
+		echo '</pre>';
+		//wp_redirect( site_url() );
 	}
 
 	get_header(); ?>
