@@ -132,7 +132,7 @@
 
 			//$message = stripslashes($message);
 
-			$message = preg_replace('\"', '"', $message);
+			$message = preg_replace('\\"', '"', $message);
 
 
 			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes 4 CUARTO', "{$message}");
