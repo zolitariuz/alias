@@ -11,7 +11,18 @@
 				title: title,
 				message: message,
 				action: 'send_newsletter'
-			}, 'json');
+			}, 'json')
+
+			.done(function (a, b, c){
+				console.log('done');
+				console.log(b);
+
+			})
+
+			.fail(function (a, b, c){
+				console.log('fail');
+				console.log(b);
+			});
 		}
 
 
