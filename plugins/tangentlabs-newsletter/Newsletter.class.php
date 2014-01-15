@@ -131,7 +131,7 @@
 
 
 
-			$seMando = wp_mail('scrub.mx@gmail.com', 'prueba', 'contenido');
+			$seMando = mail('scrub.mx@gmail.com', 'prueba', 'contenido');
 
 			file_put_contents(
 				'/var/www/subdomains/alias/wp-content/themes/alias/php.txt',
