@@ -125,13 +125,17 @@
 		public static function send($subject, $message)
 		{
 
-			// $headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
-			// $headers .= "\r\nContent-Type: multipart/alternative;";
+			$headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
+			$headers .= "\r\nContent-Type: multipart/alternative;";
+
+			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			$message = stripslashes($message);
 
 			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes 2 DUO', $message);
 			wp_mail('raul.zdesign@gmail.com', 'prueba stripslashes 2 DUO', $message);
+
+			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;
