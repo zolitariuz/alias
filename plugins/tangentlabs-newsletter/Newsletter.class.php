@@ -130,7 +130,10 @@
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-			$message = stripslashes($message);
+			//$message = stripslashes($message);
+
+			$message = preg_replace('\"', '"', $message);
+
 
 			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes 4 CUARTO', "{$message}");
 			wp_mail('raul.zdesign@gmail.com', 'prueba stripslashes 4 CUARTO', "{$message}");
