@@ -45,7 +45,7 @@
 
 		file_put_contents(
 			'/var/www/subdomains/alias/wp-content/themes/alias/php.txt',
-			var_export( $foo, true )
+			var_export( $message, true )
 		);
 
 		//$result = Newsletter::send($title, $message);
