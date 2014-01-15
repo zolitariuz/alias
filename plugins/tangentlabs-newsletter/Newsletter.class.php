@@ -132,8 +132,8 @@
 
 			//$message = stripslashes($message);
 
-			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes 2 DUO', '<h1>hola raul!</h1>');
-			wp_mail('raul.zdesign@gmail.com', 'prueba stripslashes 2 DUO', '<h1>hola raul!</h1>');
+			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes 2 DUO', "{$message}");
+			wp_mail('raul.zdesign@gmail.com', 'prueba stripslashes 2 DUO', "{$message}");
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
