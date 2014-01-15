@@ -125,18 +125,11 @@
 		public static function send($subject, $message)
 		{
 
-			$headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
-			$headers .= "\r\nContent-Type: multipart/alternative;";
+			// $headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
+			// $headers .= "\r\nContent-Type: multipart/alternative;";
 
 
-
-
-			$seMando = mail('scrub.mx@gmail.com', 'prueba', 'contenido');
-
-			file_put_contents(
-				'/var/www/subdomains/alias/wp-content/themes/alias/php.txt',
-				var_export( $seMando, true )
-			);
+			wp_mail('scrub.mx@gmail.com', 'prueba', 'contenido');
 
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;
