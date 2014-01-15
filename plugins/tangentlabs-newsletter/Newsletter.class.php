@@ -135,7 +135,8 @@
 
 			foreach ($recipients as $mail) {
 				$messageConMail = str_replace('GETUSERMAIL', $mail, $message);
-				$messageConMail = str_replace('?emai l=', '?email=', $message);
+				$messageConMail = str_replace('?emai%20l=', '?email=', $messageConMail);
+				$messageConMail = str_replace('?emai l=', '?email=', $messageConMail);
 
 				wp_mail($mail, $subject, stripslashes($messageConMail), $headers);
 			}
