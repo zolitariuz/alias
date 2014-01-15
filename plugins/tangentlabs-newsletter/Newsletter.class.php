@@ -128,7 +128,15 @@
 			$headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
 			$headers .= "\r\nContent-Type: multipart/alternative;";
 
-			wp_mail('scrub.mx@gmail.com', 'prueba un mail', 'contenido', $headers);
+
+
+
+			$seMando = wp_mail('scrub.mx@gmail.com', 'prueba', 'contenido');
+
+			file_put_contents(
+				'/var/www/subdomains/alias/wp-content/themes/alias/php.txt',
+				var_export( $seMando, true )
+			);
 
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;
