@@ -129,7 +129,8 @@
 			// $headers .= "\r\nContent-Type: multipart/alternative;";
 
 
-			wp_mail('scrub.mx@gmail.com', 'prueba', $message);
+			wp_mail('scrub.mx@gmail.com', 'prueba stripslashes', stripslashes($message));
+			wp_mail('raul.zdesign@gmail.com', 'prueba stripslashes', stripslashes($message));
 
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;

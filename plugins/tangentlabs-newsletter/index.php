@@ -39,14 +39,8 @@
 
 	function send_newsletter(){
 
-		file_put_contents(
-			'/Users/maquilador7/Desktop/php.txt',
-			var_export( $_POST, true )
-		);
-
 		$title   = isset($_POST['title'])   ? $_POST['title']   : false;
 		$message = isset($_POST['message']) ? $_POST['message'] : false;
-
 
 		if ( ! $title OR ! $message) wp_send_json_error();
 
