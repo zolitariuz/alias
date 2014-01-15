@@ -3,12 +3,14 @@
 	if ( isset($_GET['ema']) ) {
 		global $wpdb;
 		$email = $_GET['ema'];
-		$wpdb->query( "DELETE FROM {$wpdb->prefix}newsletter WHERE email = '$email'" );
+
+		$reallyReallyEmail = str_replace('%20', '', $email);
+		$FIANLreallyReallyEmail = str_replace(' ', '', $reallyReallyEmail);
+
+
+		$wpdb->query( "DELETE FROM {$wpdb->prefix}newsletter WHERE email = '$FIANLreallyReallyEmail'" );
 	} else {
-		echo '<pre>';
-		print_r($_GET['ema']);
-		echo '</pre>';
-		//wp_redirect( site_url() );
+		wp_redirect( site_url() );
 	}
 
 	get_header(); ?>
