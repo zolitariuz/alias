@@ -46,11 +46,6 @@
 
 		$result = Newsletter::send($title, $message);
 
-
-		remove_filter( 'wp_mail_content_type', function(){
-			return 'text/html; charset=UTF-8';
-		});
-
 		wp_send_json($result);
 
 	}

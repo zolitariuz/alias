@@ -138,9 +138,7 @@
 				wp_mail($mail, $subject, stripslashes($messageConMail), $headers);
 			}
 
-			//$done = wp_mail($recipients, $subject, stripslashes($message), $headers);
-
-			//remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+			// remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;
