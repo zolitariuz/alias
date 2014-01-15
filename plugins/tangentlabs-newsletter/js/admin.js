@@ -37,7 +37,7 @@
 
 			var ajax_newsletter = sendNewsletter(
 				$('#title').val(),
-				$("#newsletter_content_ifr").contents().find("html").text()
+				$("#newsletter_content_ifr").contents().find("html").html()
 			);
 
 			ajax_newsletter.done(function (data){
