@@ -1,8 +1,8 @@
 <?php
 
-	if ( isset($_GET['email']) ) {
+	if ( isset($_GET['ema']) ) {
 		global $wpdb;
-		$email = $_GET['email'];
+		$email = $_GET['ema'];
 		$wpdb->query( "DELETE FROM {$wpdb->prefix}newsletter WHERE email = '$email'" );
 	} else {
 		wp_redirect( site_url() );
