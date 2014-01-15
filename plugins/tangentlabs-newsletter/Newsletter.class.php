@@ -124,20 +124,24 @@
 
 		public static function send($subject, $message)
 		{
-			$random_hash = md5(date('r', time()));
 
-			$headers  = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
-			$headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
+			$recipients = Newsletter::get_mails();
+			if ( ! $recipients) return false;
+
+
+			$random_hash = md5(date('r', time()));
+			$headers     = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
+			$headers    .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
+
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			$message = stripslashes($message);
 
-			wp_mail('scrub.mx@gmail.com', $subject, $message, $headers);
+			$done = wp_mail($recipients, $subject, $message, $headers);
 
-			wp_mail('raul.zdesign@gmail.com', $subject, $message, $headers);
-
-			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
+			if ( $done )
+				remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 
 			// $recipients  = Newsletter::get_mails();
