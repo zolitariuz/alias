@@ -136,9 +136,7 @@
 
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-			$message = stripslashes($message);
-
-			$done = wp_mail($recipients, $subject, $message, $headers);
+			$done = wp_mail($recipients, $subject, stripslashes($message), $headers);
 
 			if ( $done )
 				remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
