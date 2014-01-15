@@ -102,7 +102,7 @@
 		}
 
 
-		public static function º()
+		public static function set_html_content_type()
 		{
 			return 'text/html; charset=UTF-8';
 		}
@@ -142,7 +142,6 @@
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-
 			// $recipients  = Newsletter::get_mails();
 			// if ( ! $recipients) return false;
 
@@ -152,6 +151,7 @@
 			// $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
 			// Newsletter::send_multiple_recipients($recipients, $subject, $message, $headers);
+
 
 
 			//add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
