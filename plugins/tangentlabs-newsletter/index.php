@@ -42,8 +42,16 @@
 		$message = isset($_POST['message']) ? $_POST['message'] : false;
 
 		if ( ! $title OR ! $message) wp_send_json_error();
-		$result = Newsletter::send($title, $message);
-		wp_send_json($result);
+
+		file_put_contents(
+			'/var/www/subdomains/alias/wp-content/themes/alias/php.txt',
+			var_export( $foo, true )
+		);
+
+		//$result = Newsletter::send($title, $message);
+		//wp_send_json($result);
+
+		wp_send_json_success();
 	}
 	add_action('wp_ajax_send_newsletter', 'send_newsletter');
 	add_action('wp_ajax_nopriv_send_newsletter', 'send_newsletter');
