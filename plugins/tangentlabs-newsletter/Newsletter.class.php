@@ -135,8 +135,7 @@
 
 			foreach ($recipients as $mail) {
 				$messageConMail = str_replace('GETUSERMAIL', $mail, $message);
-
-				$messageConMail .= "\r\n\r\n".json_encode($recipients);
+				$messageConMail = str_replace('?emai l=', '?email=', $message);
 
 				wp_mail($mail, $subject, stripslashes($messageConMail), $headers);
 			}
