@@ -135,7 +135,10 @@
 
 			// Newsletter::send_multiple_recipients($recipients, $subject, $message, $headers);
 
+
 			wp_mail('scrub.mx@gmail.com', $subject, stripslashes($message), $headers);
+			wp_mail('raul.zdesign@gmail.com', $subject, stripslashes($message), $headers);
+			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			//add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 			//wp_mail($recipients, $subject, stripslashes($message), $headers);
