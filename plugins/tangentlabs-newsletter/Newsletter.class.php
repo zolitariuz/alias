@@ -124,26 +124,21 @@
 
 		public static function send($subject, $message)
 		{
-
 			$recipients = Newsletter::get_mails();
 			if ( ! $recipients) return false;
-
 
 			$random_hash = md5(date('r', time()));
 			$headers     = "From: Alias <informes@aliaseditorial.com>\r\nReply-To: informes@aliaseditorial.com";
 			$headers    .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
-
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
-
 			foreach ($recipients as $mail) {
-				$message = str_replace('GETUSERMAIL', $mail, $message);
-				wp_mail($mail, $subject, stripslashes($message), $headers);
+				$messageConMail = str_replace('GETUSERMAIL', $mail, $message);
+				wp_mail($mail, $subject, stripslashes($messageConMail), $headers);
 			}
 
 			//$done = wp_mail($recipients, $subject, stripslashes($message), $headers);
-
 
 			remove_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
@@ -157,7 +152,6 @@
 			// $headers .= "\r\nContent-Type: multipart/alternative; boundary=\"PHP-alt-".$random_hash."\"";
 
 			// Newsletter::send_multiple_recipients($recipients, $subject, $message, $headers);
-
 
 
 			//add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
