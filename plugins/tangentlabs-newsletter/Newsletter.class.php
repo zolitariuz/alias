@@ -134,7 +134,7 @@
 			add_filter( 'wp_mail_content_type', array('Newsletter', 'set_html_content_type') );
 
 			foreach ($recipients as $mail) {
-				$messageConMail = str_replace('GETUSERMAIL', "?email=$mail", $message);
+				$messageConMail = str_replace('GETUSERMAIL', "?email\=$mail", $message);
 
 				wp_mail($mail, $subject, stripslashes($messageConMail), $headers);
 			}
