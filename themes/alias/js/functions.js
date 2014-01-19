@@ -288,21 +288,21 @@
 		}*/
 
 
-		$('form.form_newsletter').on('submit', function (e) {
-			e.preventDefault();
-			var email = $('.form_newsletter_input').val();
+		// $('form.form_newsletter').on('submit', function (e) {
+		// 	e.preventDefault();
+		// 	var email = $('.form_newsletter_input').val();
 
-			if ( validateEmail(email) ){
-				var newMail = saveNewsletterEmail(email);
+		// 	if ( validateEmail(email) ){
+		// 		var newMail = saveNewsletterEmail(email);
 
-				newMail.done(function (data) {
-					$('.form_newsletter_input').val('');
-					alert( i18n.email_saved );
-				});
-			}else{
-				alert( i18n.email_invalid );
-			}
-		});
+		// 		newMail.done(function (data) {
+		// 			$('.form_newsletter_input').val('');
+		// 			alert( i18n.email_saved );
+		// 		});
+		// 	}else{
+		// 		alert( i18n.email_invalid );
+		// 	}
+		// });
 
 
 
