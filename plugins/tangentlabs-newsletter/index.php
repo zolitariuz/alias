@@ -38,12 +38,16 @@
 
 
 	function send_newsletter(){
+
 		$title   = isset($_POST['title'])   ? $_POST['title']   : false;
 		$message = isset($_POST['message']) ? $_POST['message'] : false;
 
 		if ( ! $title OR ! $message) wp_send_json_error();
+
 		$result = Newsletter::send($title, $message);
+
 		wp_send_json($result);
+
 	}
 	add_action('wp_ajax_send_newsletter', 'send_newsletter');
 	add_action('wp_ajax_nopriv_send_newsletter', 'send_newsletter');
