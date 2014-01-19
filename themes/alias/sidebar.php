@@ -30,7 +30,7 @@
 
 			<span class="newsletter_img"></span>
 			<p class="newsletter"><?php _e('Suscríbete al boletín', 'alias'); ?></p>
-			<form class="form_newsletter" action="">
+			<form class="form_newsletter" action="http://aliaseditorial.us3.list-manage1.com/subscribe/post">
 				<input
 					class="form_newsletter_input"
 					type="text"
