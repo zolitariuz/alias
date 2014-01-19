@@ -260,14 +260,14 @@
 			}
 		});
 
-		function saveNewsletterEmail (email) {
+		// function saveNewsletterEmail (email) {
 
-			return $.post(ajax_url, {
-				email: email,
-				action: 'save_newsletter_email'
-			}, 'json');
+		// 	return $.post(ajax_url, {
+		// 		email: email,
+		// 		action: 'save_newsletter_email'
+		// 	}, 'json');
 
-		}
+		// }
 
 
 /*		function alert_email_saved(){

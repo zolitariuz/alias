@@ -234,17 +234,17 @@
 
 
 
-	add_action( 'init', function () use (&$wpdb){
-		$wpdb->query(
-			"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}newsletter (
-				newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				email VARCHAR(255) DEFAULT NULL,
-				fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-				PRIMARY KEY (newsletter_id),
-				UNIQUE (email)
-			) DEFAULT CHARSET = utf8;"
-		);
-	});
+	// add_action( 'init', function () use (&$wpdb){
+	// 	$wpdb->query(
+	// 		"CREATE TABLE IF NOT EXISTS {$wpdb->prefix}newsletter (
+	// 			newsletter_id BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+	// 			email VARCHAR(255) DEFAULT NULL,
+	// 			fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	// 			PRIMARY KEY (newsletter_id),
+	// 			UNIQUE (email)
+	// 		) DEFAULT CHARSET = utf8;"
+	// 	);
+	// });
 
 
 
