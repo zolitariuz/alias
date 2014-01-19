@@ -31,7 +31,10 @@
 			<span class="newsletter_img"></span>
 			<p class="newsletter"><?php _e('Suscríbete al boletín', 'alias'); ?></p>
 			<form class="form_newsletter" action="http://aliaseditorial.us3.list-manage1.com/subscribe/post">
+				<input type="hidden" name="u" value="093a7c1103ca6f15ca0b0a20c">
+				<input type="hidden" name="id" value="3e2cd937af">
 				<input
+					name="MERGE0" id="MERGE0"
 					class="form_newsletter_input"
 					type="text"
 					value=""
