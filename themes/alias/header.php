@@ -7,7 +7,7 @@
 		 <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
 		<meta name="viewport" content="width=device-width, initial-scale=0.3" />
-		<title><?php print_title(); ?></title>
+		<title><?php print_title(); ?>LOL</title>
 		<?php wp_head() ?>
 	</head>
 

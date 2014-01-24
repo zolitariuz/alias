@@ -51,10 +51,10 @@
 
 		// scripts
 		wp_enqueue_script( 'plugins', JSPATH.'plugins.js', array('jquery'), null, false );
-		wp_enqueue_script( 'fancybox-media', THEMEPATH.'fancybox/helpers/jquery.fancybox-media.js', array('jquery'), '2.6', true );
-		wp_enqueue_script( 'fancybox', THEMEPATH.'fancybox/jquery.fancybox.js', array('fancybox-media'), '2.6', true );
+		wp_enqueue_script( 'fancybox', THEMEPATH.'fancybox/jquery.fancybox.js', array('jquery'), '2.6', false );
+		wp_enqueue_script( 'fancybox-media', THEMEPATH.'fancybox/helpers/jquery.fancybox-media.js', array('fancybox'), '2.6', false );
 		wp_enqueue_style(  'fancybox-css', THEMEPATH. 'fancybox/jquery.fancybox.css' );
-		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', true );
+		wp_enqueue_script( 'functions', JSPATH.'functions.js', array('plugins'), '1.0', false );
 
 		enqueue_single_noticia_scripts();
 		enqueue_shoping_cart_scripts();
